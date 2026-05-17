@@ -9,20 +9,46 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <style>
+        .logo-img-container {
+            height: 50px;
+            margin-right: 15px;
+        }
+        .logo-img-container img {
+            height: 100%;
+            object-fit: contain;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+        }
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
 </head>
 <body>
 
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="logo-container">
-            <h1 class="logo">AFRINOVE</h1>
-            <p class="logo-sub">DEVELOPMENT LTD</p>
+            <div class="logo-img-container">
+                <img src="assets/images/afrinove_logo_page_1.png" alt="Afrinove Logo">
+            </div>
+            <div class="logo-text">
+                <h1 class="logo">AFRINOVE</h1>
+                <p class="logo-sub">DEVELOPMENT LTD</p>
+            </div>
         </div>
         <ul class="nav-links">
             <li><button class="tab-btn active" data-target="home">HOME</button></li>
             <li><button class="tab-btn" data-target="about">ABOUT US</button></li>
             <li><button class="tab-btn" data-target="services">SERVICES SNAPSHOTS</button></li>
             <li><button class="tab-btn" data-target="sustainability">SUSTAINABILITY</button></li>
+            <li><button class="tab-btn" data-target="dashboard">PROJECT DASHBOARD</button></li>
+            <li><button class="tab-btn" data-target="legal">LEGAL</button></li>
         </ul>
     </nav>
 
@@ -41,14 +67,14 @@
                     </div>
                 </div>
                 <div class="hero-visual animate-fade-in delay-2">
-                    <div class="glass-card">
-                        <div class="stat">
-                            <h3>10+</h3>
-                            <p>Years of Excellence</p>
-                        </div>
-                        <div class="stat">
-                            <h3>Impact</h3>
-                            <p>Driven Strategies</p>
+                    <!-- Interactive Hero Image -->
+                    <div class="interactive-image-container hero-img">
+                        <img src="assets/images/In today’s fast-changing African business….jfif" alt="African Business" class="interactive-img">
+                        <div class="glass-card overlay-stat">
+                            <div class="stat">
+                                <h3>Uganda</h3>
+                                <p>Headquarters</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -67,8 +93,17 @@
                     <p>Afrinove Development Ltd is a forward-thinking business consultancy firm. We bridge the gap between ambitious goals and sustainable reality by providing bespoke, innovative solutions tailored to the unique dynamics of the African market.</p>
                     <p>Our multidisciplinary team brings deep local insights combined with global standards, ensuring that every strategy we develop is both visionary and actionable.</p>
                 </div>
-                <div class="about-image-placeholder">
-                    <span>[ Upload Your Team/Office Image Here ]</span>
+                <!-- Interactive Masonry Gallery -->
+                <div class="gallery-grid">
+                    <div class="interactive-image-container tall">
+                        <img src="assets/images/Join Passenger's Roamer's Collective, a likeminded….jfif" alt="Community" class="interactive-img hover-zoom">
+                    </div>
+                    <div class="interactive-image-container">
+                        <img src="assets/images/13229392653925033.jfif" alt="Team 1" class="interactive-img hover-zoom">
+                    </div>
+                    <div class="interactive-image-container">
+                        <img src="assets/images/422281205639700.jfif" alt="Team 2" class="interactive-img hover-zoom">
+                    </div>
                 </div>
             </div>
         </section>
@@ -77,29 +112,72 @@
         <section id="services" class="tab-content">
             <div class="page-header">
                 <h2>Services <span class="highlight">Snapshots</span></h2>
-                <p>Comprehensive consulting to scale your operations.</p>
+                <p>Comprehensive consulting to scale your operations via sliding panels.</p>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="icon">📈</div>
-                    <h3>Strategic Planning</h3>
-                    <p>Develop robust business models and long-term strategies designed for resilience and exponential growth in emerging markets.</p>
+            
+            <!-- Sliding Panels Accordion -->
+            <div class="services-accordion">
+                
+                <!-- Service 1 -->
+                <div class="accordion-panel">
+                    <img src="assets/images/A high-angle, top-down shot captures a….jfif" class="accordion-bg" alt="Strategy">
+                    <div class="accordion-content">
+                        <div class="icon">📈</div>
+                        <h3>Strategic Planning</h3>
+                        <p class="panel-desc">Develop robust business models and long-term strategies designed for resilience and exponential growth in emerging markets.</p>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="icon">💡</div>
-                    <h3>Innovation & Tech</h3>
-                    <p>Integrate cutting-edge technological solutions to streamline operations and create new value propositions.</p>
+                
+                <!-- Service 2 -->
+                <div class="accordion-panel">
+                    <img src="assets/images/A raft foundation is a reinforced concrete slab….jfif" class="accordion-bg" alt="Tech">
+                    <div class="accordion-content">
+                        <div class="icon">💡</div>
+                        <h3>Innovation & Tech</h3>
+                        <p class="panel-desc">Integrate cutting-edge technological solutions to streamline operations and create new value propositions.</p>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="icon">🌍</div>
-                    <h3>Market Entry</h3>
-                    <p>Navigate regulatory landscapes and market nuances with our expert guidance for seamless expansion into Uganda and beyond.</p>
+                
+                <!-- Service 3 -->
+                <div class="accordion-panel">
+                    <img src="assets/images/African youth are pivotal in transforming our food….jfif" class="accordion-bg" alt="Market Entry">
+                    <div class="accordion-content">
+                        <div class="icon">🌍</div>
+                        <h3>Market Entry</h3>
+                        <p class="panel-desc">Navigate regulatory landscapes and market nuances with our expert guidance for seamless expansion into Uganda and beyond.</p>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="icon">🤝</div>
-                    <h3>Capacity Building</h3>
-                    <p>Empower your workforce through targeted training programs that foster leadership and operational excellence.</p>
+                
+                <!-- Service 4 -->
+                <div class="accordion-panel">
+                    <img src="assets/images/African youth are pivotal in transforming our food… (1).jfif" class="accordion-bg" alt="Capacity Building">
+                    <div class="accordion-content">
+                        <div class="icon">🤝</div>
+                        <h3>Capacity Building</h3>
+                        <p class="panel-desc">Empower your workforce through targeted training programs that foster leadership and operational excellence.</p>
+                    </div>
                 </div>
+                
+                <!-- Service 5 (NEW) -->
+                <div class="accordion-panel">
+                    <img src="assets/images/1138707087051779185.jfif" class="accordion-bg" alt="Financial Advisory">
+                    <div class="accordion-content">
+                        <div class="icon">💰</div>
+                        <h3>Financial Advisory</h3>
+                        <p class="panel-desc">Expert financial modeling, investment structuring, and risk management to secure sustainable capital.</p>
+                    </div>
+                </div>
+                
+                <!-- Service 6 (NEW) -->
+                <div class="accordion-panel">
+                    <img src="assets/images/151644712447426862.jfif" class="accordion-bg" alt="Digital Transformation">
+                    <div class="accordion-content">
+                        <div class="icon">🚀</div>
+                        <h3>Digital Transformation</h3>
+                        <p class="panel-desc">Migrate legacy systems and embrace cloud computing and AI automation to future-proof your business.</p>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -110,18 +188,91 @@
                 <p>Building a future where business and society thrive together.</p>
             </div>
             <div class="sustainability-content">
-                <div class="sustainability-image-placeholder">
-                    <span>[ Upload Sustainability/Community Image Here ]</span>
+                <div class="interactive-image-container split-img">
+                    <img src="assets/images/Be part of the global movement to restore….jfif" alt="Community Sustainability" class="interactive-img hover-pan">
                 </div>
                 <div class="sustainability-text glass-panel">
                     <h3>Sustainable Growth</h3>
                     <p>At Afrinove, we believe that true business success cannot be decoupled from environmental stewardship and social responsibility. Our consulting frameworks inherently integrate sustainable practices.</p>
                     <ul>
-                        <li>Empowering local communities</li>
+                        <li>Empowering local communities in Uganda</li>
                         <li>Fostering eco-friendly operational models</li>
                         <li>Ensuring long-term economic viability</li>
                     </ul>
                     <button class="btn primary mt-4">Read Our Sustainability Report</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECT DASHBOARD TAB (NEW) -->
+        <section id="dashboard" class="tab-content">
+            <div class="page-header">
+                <h2>Project <span class="highlight">Dashboard</span></h2>
+                <p>Visualizing our impact and operations across the continent.</p>
+            </div>
+
+            <!-- Video Section -->
+            <div class="video-container glass-panel">
+                <h3>Featured Showcase</h3>
+                <div class="video-wrapper">
+                    <!-- Placeholder video tag: It will load your video if you name it 'video.mp4' and put it in 'assets' -->
+                    <video controls width="100%" height="auto" poster="assets/images/Most-liked video _ 2_4M views · 50K reactions….jfif">
+                        <source src="assets/video.mp4" type="video/mp4">
+                        <source src="assets/video.webm" type="video/webm">
+                        Your browser does not support the video tag. Please rename your video to "video.mp4" and place it in the assets folder!
+                    </video>
+                </div>
+            </div>
+
+            <div class="spacer" style="height: 4rem;"></div>
+
+            <!-- Dynamic Photo Dashboard -->
+            <div class="dashboard-masonry">
+                <div class="dash-item"><img src="assets/images/216876538302902672.jfif" alt="Dashboard Image"></div>
+                <div class="dash-item tall"><img src="assets/images/42432421483490782.jfif" alt="Dashboard Image"></div>
+                <div class="dash-item"><img src="assets/images/790311434633651891.jfif" alt="Dashboard Image"></div>
+                <div class="dash-item wide"><img src="assets/images/African Great Lakes.jfif" alt="African Lakes"></div>
+                <div class="dash-item"><img src="assets/images/Catching and identifying crayfish #nature….jfif" alt="Nature"></div>
+                <div class="dash-item tall"><img src="assets/images/Miners work the ore crushing machine and pan and….jfif" alt="Miners"></div>
+                <div class="dash-item"><img src="assets/images/Lake Bangweulu, a hidden gem in Zambia, offers a….jfif" alt="Lake"></div>
+                <div class="dash-item"><img src="assets/images/Kids fetching a tank of water from a well….jfif" alt="Community"></div>
+            </div>
+
+        </section>
+
+        <!-- LEGAL DOCUMENTS TAB -->
+        <section id="legal" class="tab-content">
+            <div class="page-header">
+                <h2>Legal & <span class="highlight">Compliance</span></h2>
+                <p>Transparency and legal integrity at the core of our operations.</p>
+            </div>
+            
+            <div class="legal-container glass-panel">
+                <div class="legal-header">
+                    <h3>Corporate Documentation</h3>
+                    <p>Afrinove Development Ltd is fully registered and incorporated in Uganda. Access our official company documents below.</p>
+                </div>
+                
+                <div class="documents-grid">
+                    <!-- Document Item -->
+                    <a href="assets/documents/AFRINOVE DEVELOPMENT LTD COMPANY DOCUMENTS PDF.pdf" target="_blank" class="document-card">
+                        <div class="doc-icon">📄</div>
+                        <div class="doc-info">
+                            <h4>Full Company Documents</h4>
+                            <p>Official registration in Uganda (PDF)</p>
+                        </div>
+                        <div class="doc-action">⬇ Download</div>
+                    </a>
+                    
+                    <!-- Document Item -->
+                    <a href="assets/documents/Afrinove company profile update.docx" target="_blank" class="document-card">
+                        <div class="doc-icon">📘</div>
+                        <div class="doc-info">
+                            <h4>Company Profile</h4>
+                            <p>Detailed overview of our firm (Docx)</p>
+                        </div>
+                        <div class="doc-action">⬇ Download</div>
+                    </a>
                 </div>
             </div>
         </section>
