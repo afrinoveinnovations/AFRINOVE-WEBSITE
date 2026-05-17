@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afrinove Development Ltd | Innovating Solutions for Africa's Growth</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo-container">
+            <h1 class="logo">AFRINOVE</h1>
+            <p class="logo-sub">DEVELOPMENT LTD</p>
+        </div>
+        <ul class="nav-links">
+            <li><button class="tab-btn active" data-target="home">HOME</button></li>
+            <li><button class="tab-btn" data-target="about">ABOUT US</button></li>
+            <li><button class="tab-btn" data-target="services">SERVICES SNAPSHOTS</button></li>
+            <li><button class="tab-btn" data-target="sustainability">SUSTAINABILITY</button></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Area (Tabs) -->
+    <main class="content-container">
+
+        <!-- HOME TAB -->
+        <section id="home" class="tab-content active">
+            <div class="hero">
+                <div class="hero-text">
+                    <h2 class="animate-up">Innovating Solutions for <span class="highlight">Africa's Growth</span></h2>
+                    <p class="animate-up delay-1">We are a premier business consultancy firm registered and incorporated in Uganda, dedicated to elevating enterprises across the continent.</p>
+                    <div class="hero-actions animate-up delay-2">
+                        <button class="btn primary" onclick="document.querySelector('[data-target=\'about\']').click()">Discover Our Vision</button>
+                        <button class="btn secondary" onclick="document.querySelector('[data-target=\'services\']').click()">Our Services</button>
+                    </div>
+                </div>
+                <div class="hero-visual animate-fade-in delay-2">
+                    <div class="glass-card">
+                        <div class="stat">
+                            <h3>10+</h3>
+                            <p>Years of Excellence</p>
+                        </div>
+                        <div class="stat">
+                            <h3>Impact</h3>
+                            <p>Driven Strategies</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT US TAB -->
+        <section id="about" class="tab-content">
+            <div class="page-header">
+                <h2>About <span class="highlight">Us</span></h2>
+                <p>Rooted in Uganda, Reaching Across Africa.</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-text glass-panel">
+                    <h3>Who We Are</h3>
+                    <p>Afrinove Development Ltd is a forward-thinking business consultancy firm. We bridge the gap between ambitious goals and sustainable reality by providing bespoke, innovative solutions tailored to the unique dynamics of the African market.</p>
+                    <p>Our multidisciplinary team brings deep local insights combined with global standards, ensuring that every strategy we develop is both visionary and actionable.</p>
+                </div>
+                <div class="about-image-placeholder">
+                    <span>[ Upload Your Team/Office Image Here ]</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES SNAPSHOTS TAB -->
+        <section id="services" class="tab-content">
+            <div class="page-header">
+                <h2>Services <span class="highlight">Snapshots</span></h2>
+                <p>Comprehensive consulting to scale your operations.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="icon">📈</div>
+                    <h3>Strategic Planning</h3>
+                    <p>Develop robust business models and long-term strategies designed for resilience and exponential growth in emerging markets.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon">💡</div>
+                    <h3>Innovation & Tech</h3>
+                    <p>Integrate cutting-edge technological solutions to streamline operations and create new value propositions.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon">🌍</div>
+                    <h3>Market Entry</h3>
+                    <p>Navigate regulatory landscapes and market nuances with our expert guidance for seamless expansion into Uganda and beyond.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon">🤝</div>
+                    <h3>Capacity Building</h3>
+                    <p>Empower your workforce through targeted training programs that foster leadership and operational excellence.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SUSTAINABILITY TAB -->
+        <section id="sustainability" class="tab-content">
+            <div class="page-header">
+                <h2>Our Commitment to <span class="highlight">Sustainability</span></h2>
+                <p>Building a future where business and society thrive together.</p>
+            </div>
+            <div class="sustainability-content">
+                <div class="sustainability-image-placeholder">
+                    <span>[ Upload Sustainability/Community Image Here ]</span>
+                </div>
+                <div class="sustainability-text glass-panel">
+                    <h3>Sustainable Growth</h3>
+                    <p>At Afrinove, we believe that true business success cannot be decoupled from environmental stewardship and social responsibility. Our consulting frameworks inherently integrate sustainable practices.</p>
+                    <ul>
+                        <li>Empowering local communities</li>
+                        <li>Fostering eco-friendly operational models</li>
+                        <li>Ensuring long-term economic viability</li>
+                    </ul>
+                    <button class="btn primary mt-4">Read Our Sustainability Report</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
