@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Services | Afrinove Development Ltd</title>
+  <meta name="description" content="Afrinove Development Ltd offers a full spectrum of enterprise services across Africa — minerals & mining, import/export, business consultancy, project management, escrow, distributorship and more."/>
+  <meta property="og:title" content="Services | Afrinove Development Ltd"/>
+  <meta property="og:description" content="Bespoke solutions for Africa's most ambitious enterprises."/>
+  <meta property="og:url" content="https://afrinove.com/services"/>
+  <meta name="theme-color" content="#0a0a0a"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:    #C9A84C;
+      --gold-lt: #E8C97A;
+      --gold-dk: #8B6B28;
+      --ink:     #0D0D0D;
+      --ink-2:   #1A1A1A;
+      --ink-3:   #2A2A2A;
+      --fog:     #F5F2EC;
+      --fog-2:   #EDE9E0;
+      --mist:    #A89F8C;
+      --white:   #FDFCF9;
+      --ff-head: 'Cormorant Garamond', Georgia, serif;
+      --ff-body: 'DM Sans', sans-serif;
+      --ease:    cubic-bezier(.16,1,.3,1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--ff-body);
+      background: var(--ink);
+      color: var(--white);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 48px;
+      background: linear-gradient(to bottom, rgba(13,13,13,.95) 0%, transparent 100%);
+      backdrop-filter: blur(2px);
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 12px;
+      text-decoration: none;
+    }
+    .nav-logo img { height: 36px; filter: brightness(0) invert(1); }
+    .nav-logo span {
+      font-family: var(--ff-head);
+      font-size: 1.25rem; font-weight: 600;
+      color: var(--white); letter-spacing: .08em;
+    }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--mist);
+      font-size: .8125rem; font-weight: 400; letter-spacing: .06em;
+      text-transform: uppercase; transition: color .2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .nav-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 9px 22px; border: 1px solid var(--gold);
+      color: var(--gold); font-family: var(--ff-body);
+      font-size: .8rem; font-weight: 500; letter-spacing: .06em;
+      text-transform: uppercase; text-decoration: none;
+      transition: background .25s, color .25s;
+    }
+    .nav-cta:hover { background: var(--gold); color: var(--ink); }
+    .nav-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-hamburger span { display: block; width: 22px; height: 1.5px; background: var(--white); margin: 5px 0; transition: .3s; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 80vh;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 0 48px 80px;
+      position: relative; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 80% 40%, rgba(201,168,76,.08) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 10% 80%, rgba(201,168,76,.04) 0%, transparent 60%),
+        var(--ink);
+    }
+    .hero-grain {
+      position: absolute; inset: 0; opacity: .35;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+      background-size: 128px 128px;
+    }
+    .hero-line {
+      position: absolute; left: 48px; top: 0; bottom: 0;
+      width: 1px; background: linear-gradient(to bottom, transparent 0%, var(--gold-dk) 30%, var(--gold) 60%, transparent 100%);
+      opacity: .4;
+    }
+    .hero-content { position: relative; max-width: 800px; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-size: .75rem; font-weight: 500; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 28px;
+    }
+    .hero-eyebrow::before {
+      content: ''; display: block;
+      width: 32px; height: 1px; background: var(--gold);
+    }
+    .hero h1 {
+      font-family: var(--ff-head);
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      font-weight: 400; line-height: .95;
+      letter-spacing: -.01em; margin-bottom: 32px;
+    }
+    .hero h1 em { font-style: italic; color: var(--gold); }
+    .hero-sub {
+      font-size: 1.0625rem; font-weight: 300;
+      color: var(--mist); line-height: 1.7;
+      max-width: 520px; margin-bottom: 48px;
+    }
+    .hero-scroll {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: .75rem; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--mist); text-decoration: none;
+      transition: color .2s;
+    }
+    .hero-scroll:hover { color: var(--gold); }
+    .hero-scroll svg { animation: bounce 2s ease-in-out infinite; }
+    @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(5px)} }
+
+    /* ── SECTION WRAPPER ── */
+    .section { padding: 120px 48px; }
+    .section-label {
+      font-size: .7rem; font-weight: 500; letter-spacing: .16em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-family: var(--ff-head);
+      font-size: clamp(2.25rem, 4vw, 3.5rem);
+      font-weight: 400; line-height: 1.1; margin-bottom: 20px;
+    }
+    .section-body {
+      font-size: 1rem; font-weight: 300; color: var(--mist);
+      line-height: 1.75; max-width: 540px;
+    }
+
+    /* ── SERVICES GRID ── */
+    #services { background: var(--ink); }
+    .services-intro {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: end; margin-bottom: 80px;
+    }
+    .services-stats {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 24px; align-self: end;
+    }
+    .stat-card {
+      padding: 24px; border: 1px solid rgba(201,168,76,.15);
+      background: rgba(201,168,76,.03);
+    }
+    .stat-num {
+      font-family: var(--ff-head);
+      font-size: 2.75rem; font-weight: 600; color: var(--gold);
+      line-height: 1; margin-bottom: 6px;
+    }
+    .stat-label {
+      font-size: .75rem; font-weight: 400; letter-spacing: .08em;
+      color: var(--mist); text-transform: uppercase;
+    }
+
+    /* Service cards */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: rgba(255,255,255,.06);
+    }
+    .service-card {
+      position: relative; padding: 48px 40px;
+      background: var(--ink); overflow: hidden;
+      cursor: pointer; transition: background .35s var(--ease);
+      display: flex; flex-direction: column;
+    }
+    .service-card::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform .5s var(--ease);
+    }
+    .service-card:hover { background: var(--ink-2); }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-card:hover .service-icon { color: var(--gold); }
+    .service-card:hover .service-arrow { transform: translate(4px, -4px); opacity: 1; }
+
+    .service-num {
+      font-size: .6875rem; font-weight: 500; letter-spacing: .14em;
+      color: rgba(201,168,76,.4); margin-bottom: 32px;
+      text-transform: uppercase;
+    }
+    .service-icon {
+      font-size: 1.75rem; margin-bottom: 24px;
+      color: rgba(255,255,255,.3); transition: color .3s;
+      line-height: 1;
+    }
+    .service-name {
+      font-family: var(--ff-head);
+      font-size: 1.625rem; font-weight: 600;
+      line-height: 1.15; margin-bottom: 16px;
+    }
+    .service-desc {
+      font-size: .875rem; font-weight: 300;
+      color: var(--mist); line-height: 1.75;
+      flex: 1;
+    }
+    .service-tags {
+      display: flex; flex-wrap: wrap; gap: 6px;
+      margin-top: 28px;
+    }
+    .tag {
+      font-size: .6875rem; letter-spacing: .08em; text-transform: uppercase;
+      padding: 4px 10px; border: 1px solid rgba(201,168,76,.2);
+      color: rgba(201,168,76,.6); font-weight: 400;
+    }
+    .service-arrow {
+      position: absolute; top: 40px; right: 40px;
+      color: var(--gold); opacity: 0;
+      transition: transform .3s var(--ease), opacity .3s;
+      font-size: 1.2rem;
+    }
+
+    /* ── FEATURED SERVICE (Minerals Mining) ── */
+    .featured-service {
+      margin-top: 1px; background: var(--ink);
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+    .featured-left {
+      padding: 72px 48px; background: rgba(201,168,76,.04);
+      border-top: 1px solid rgba(255,255,255,.06);
+      border-right: 1px solid rgba(255,255,255,.06);
+    }
+    .featured-badge {
+      display: inline-block; padding: 5px 14px;
+      background: rgba(201,168,76,.12); border: 1px solid var(--gold-dk);
+      font-size: .6875rem; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 32px;
+    }
+    .featured-title {
+      font-family: var(--ff-head);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 400; line-height: 1.1; margin-bottom: 24px;
+    }
+    .featured-title em { font-style: italic; color: var(--gold); }
+    .featured-body {
+      font-size: .9375rem; font-weight: 300;
+      color: var(--mist); line-height: 1.8; margin-bottom: 40px;
+    }
+    .commodity-list {
+      list-style: none; display: flex; flex-direction: column; gap: 12px;
+    }
+    .commodity-list li {
+      display: flex; align-items: center; gap: 14px;
+      font-size: .875rem; font-weight: 300; color: var(--fog-2);
+    }
+    .commodity-list li::before {
+      content: ''; flex-shrink: 0;
+      width: 20px; height: 1px; background: var(--gold); opacity: .6;
+    }
+    .featured-right {
+      padding: 72px 48px;
+      border-top: 1px solid rgba(255,255,255,.06);
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .process-steps { display: flex; flex-direction: column; gap: 0; }
+    .process-step {
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      display: flex; gap: 20px; align-items: flex-start;
+    }
+    .process-step:first-child { padding-top: 0; }
+    .step-num {
+      font-family: var(--ff-head);
+      font-size: 2rem; font-weight: 600;
+      color: rgba(201,168,76,.25); line-height: 1;
+      flex-shrink: 0; width: 36px;
+    }
+    .step-content {}
+    .step-title {
+      font-size: .9375rem; font-weight: 500;
+      margin-bottom: 4px;
+    }
+    .step-desc {
+      font-size: .8125rem; font-weight: 300;
+      color: var(--mist); line-height: 1.6;
+    }
+
+    /* ── APPROACH SECTION ── */
+    #approach { background: var(--fog); color: var(--ink); }
+    #approach .section-label { color: var(--gold-dk); }
+    #approach .section-title { color: var(--ink); }
+    #approach .section-body { color: #5a5142; }
+    .approach-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 2px; margin-top: 72px; background: rgba(0,0,0,.08);
+    }
+    .approach-card {
+      padding: 40px 32px; background: var(--fog);
+      transition: background .3s;
+    }
+    .approach-card:hover { background: var(--fog-2); }
+    .approach-step-num {
+      font-family: var(--ff-head);
+      font-size: 3.5rem; font-weight: 600;
+      color: rgba(201,168,76,.3); line-height: 1;
+      margin-bottom: 20px;
+    }
+    .approach-step-title {
+      font-size: 1.0625rem; font-weight: 500;
+      color: var(--ink); margin-bottom: 10px;
+    }
+    .approach-step-desc {
+      font-size: .8375rem; font-weight: 300;
+      color: #6b6052; line-height: 1.7;
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      padding: 120px 48px;
+      background: var(--ink);
+      display: grid; grid-template-columns: 1fr auto;
+      gap: 48px; align-items: center;
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+    .cta-title {
+      font-family: var(--ff-head);
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 400; line-height: 1.05;
+    }
+    .cta-title em { font-style: italic; color: var(--gold); }
+    .cta-actions { display: flex; flex-direction: column; gap: 16px; align-items: flex-end; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 16px 36px; background: var(--gold); color: var(--ink);
+      font-family: var(--ff-body); font-size: .8125rem;
+      font-weight: 500; letter-spacing: .08em; text-transform: uppercase;
+      text-decoration: none; white-space: nowrap;
+      transition: background .25s, transform .25s;
+    }
+    .btn-primary:hover { background: var(--gold-lt); transform: translateY(-2px); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 16px 36px; border: 1px solid rgba(255,255,255,.2);
+      color: var(--mist); font-family: var(--ff-body); font-size: .8125rem;
+      font-weight: 400; letter-spacing: .08em; text-transform: uppercase;
+      text-decoration: none; white-space: nowrap;
+      transition: border-color .25s, color .25s;
+    }
+    .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink-3); padding: 60px 48px 32px;
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px; margin-bottom: 48px;
+    }
+    .footer-brand-name {
+      font-family: var(--ff-head); font-size: 1.375rem;
+      font-weight: 600; letter-spacing: .06em; margin-bottom: 16px;
+    }
+    .footer-brand-desc {
+      font-size: .8125rem; font-weight: 300;
+      color: var(--mist); line-height: 1.7; max-width: 260px;
+    }
+    .footer-col-title {
+      font-size: .7rem; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--gold); font-weight: 500; margin-bottom: 20px;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a {
+      font-size: .8125rem; font-weight: 300; color: var(--mist);
+      text-decoration: none; transition: color .2s;
+    }
+    .footer-links a:hover { color: var(--white); }
+    .footer-bottom {
+      padding-top: 28px; border-top: 1px solid rgba(255,255,255,.06);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-copy { font-size: .75rem; color: rgba(168,159,140,.5); }
+    .footer-reg { font-size: .7rem; color: rgba(168,159,140,.35); letter-spacing: .04em; }
+
+    /* ── ANIMATIONS ── */
+    .reveal {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity .8s var(--ease), transform .8s var(--ease);
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 960px) {
+      nav { padding: 16px 24px; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger { display: block; }
+      .hero { padding: 0 24px 64px; min-height: 70vh; }
+      .section { padding: 80px 24px; }
+      .services-intro { grid-template-columns: 1fr; gap: 40px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .featured-service { grid-template-columns: 1fr; }
+      .approach-grid { grid-template-columns: 1fr 1fr; }
+      .cta-section { grid-template-columns: 1fr; gap: 32px; }
+      .cta-actions { align-items: flex-start; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+    }
+
+    @media (max-width: 600px) {
+      .approach-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .services-stats { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="/" class="nav-logo">
+    <img src="./images/afrinove_logo_page_1.png" alt="Afrinove Logo"/>
+    <span>AFRINOVE</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/services" class="active">Services</a></li>
+    <li><a href="/impact">Impact</a></li>
+    <li><a href="/blog">Insights</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+  <a href="/contact" class="nav-cta">Start a Project</a>
+  <button class="nav-hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-line"></div>
+  <div class="hero-content reveal">
+    <div class="hero-eyebrow">Our Services</div>
+    <h1>Built for Africa's<br/><em>Boldest</em> Ambitions</h1>
+    <p class="hero-sub">
+      From minerals trading and international logistics to strategic advisory and digital transformation — we architect bespoke solutions that convert Africa's complexity into competitive advantage.
+    </p>
+    <a href="#services" class="hero-scroll">
+      Explore Services
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <path d="M7 2v10M2 7l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="services-intro reveal">
+    <div>
+      <div class="section-label">What We Do</div>
+      <h2 class="section-title">A Full Spectrum<br/>of Enterprise Capability</h2>
+      <p class="section-body">Every service we offer is calibrated to the unique rhythms of African markets — grounded in local intelligence, executed to global standards.</p>
+    </div>
+    <div class="services-stats">
+      <div class="stat-card">
+        <div class="stat-num" data-target="8">0</div>
+        <div class="stat-label">Service verticals</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" data-target="12">0</div>
+        <div class="stat-label">Countries reached</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" data-target="300" data-suffix="%">0</div>
+        <div class="stat-label">Avg. client growth</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" data-target="100" data-suffix="k+">0</div>
+        <div class="stat-label">Lives impacted</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN SERVICE GRID -->
+  <div class="services-grid">
+
+    <!-- 01 Business Consultancy -->
+    <div class="service-card reveal">
+      <span class="service-arrow">↗</span>
+      <div class="service-num">01</div>
+      <div class="service-icon">⬡</div>
+      <h3 class="service-name">Business<br/>Consultancy</h3>
+      <p class="service-desc">
+        Strategy, operations, and growth advisory for enterprises navigating African markets. We embed with leadership teams to architect solutions that convert complexity into sustained competitive advantage.
+      </p>
+      <div class="service-tags">
+        <span class="tag">Strategy</span>
+        <span class="tag">Growth</span>
+        <span class="tag">Operations</span>
+        <span class="tag">Turnaround</span>
+      </div>
+    </div>
+
+    <!-- 02 Digital Transformation -->
+    <div class="service-card reveal">
+      <span class="service-arrow">↗</span>
+      <div class="service-num">02</div>
+      <div class="service-icon">◈</div>
+      <h3 class="service-name">Digital<br/>Transformation</h3>
+      <p class="service-desc">
+        End-to-end digitisation of legacy operations. From API-driven banking infrastructure to cloud-native supply chains — we modernise enterprises without disrupting business continuity.
+      </p>
+      <div class="service-tags">
+        <span class="tag">Fintech</span>
+        <span class="tag">Cloud</span>
+        <span class="tag">ERP</span>
+        <span class="tag">Automation</span>
+      </div>
+    </div>
+
+    <!-- 03 Project Management -->
+    <div class="service-card reveal">
+      <span class="service-arrow">↗</span>
+      <div class="service-num">03</div>
+      <div class="service-icon">◧</div>
+      <h3 class="service-name">Project<br/>Management</h3>
+      <p class="service-desc">
+        Full-cycle project governance from inception to delivery. We deploy certified project managers to lead complex, multi-stakeholder initiatives — on time, on scope, on budget.
+      </p>
+      <div class="service-tags">
+        <span class="tag">PMO</span>
+        <span class="tag">Agile</span>
+        <span class="tag">Infrastructure</span>
+        <span class="tag">Reporting</span>
+      </div>
+    </div>
+
+    <!-- 04 Import & Export -->
+    <div class="service-card reveal">
+      <span class="service-arrow">↗</span>
+      <div class="service-num">04</div>
+      <div class="service-icon">⟁</div>
+      <h3 class="service-name">Import &amp;<br/>Export</h3>
+      <p class="service-desc">
+        Strategic trade facilitation across East Africa and global corridors. We manage documentation, customs compliance, freight logistics, and last-mile delivery for goods entering or leaving the continent.
+      </p>
+      <div class="service-tags">
+        <span class="tag">Trade</span>
+        <span class="tag">Logistics</span>
+        <span class="tag">Customs</span>
+        <span class="tag">Compliance</span>
+      </div>
+    </div>
+
+    <!-- 05 Distributorship -->
+    <div class="service-card reveal">
+      <span class="service-arrow">↗</span>
+      <div class="service-num">05</div>
+      <div class="service-icon">◎</div>
+      <h3 class="service-name">Distributorship<br/>&amp; Supply Chain</h3>
+      <p class="service-desc">
+        We act as authorised distributor and supply chain integrator for international brands entering African markets. Deep retail networks, cold chain logistics, and regional warehousing capabilities.
+      </p>
+      <div class="service-tags">
+        <span class="tag">Distribution</span>
+        <span class="tag">Retail</span>
+        <span class="tag">Warehousing</span>
+        <span class="tag">FMCG</span>
+      </div>
+    </div>
+
+    <!-- 06 Escrow & Financial -->
+    <div class="service-card reveal">
+      <span class="service-arrow">↗</span>
+      <div class="service-num">06</div>
+      <div class="service-icon">⊛</div>
+      <h3 class="service-name">Escrow &amp;<br/>Financial Advisory</h3>
+      <p class="service-desc">
+        Secure, structured escrow facilitation for cross-border transactions, M&amp;A deals, and high-value contracts. Financial modelling, capital structuring, and investor readiness advisory.
+      </p>
+      <div class="service-tags">
+        <span class="tag">Escrow</span>
+        <span class="tag">M&amp;A</span>
+        <span class="tag">Capital</span>
+        <span class="tag">Risk</span>
+      </div>
+    </div>
+
+    <!-- 07 Agricultural Development -->
+    <div class="service-card reveal">
+      <span class="service-arrow">↗</span>
+      <div class="service-num">07</div>
+      <div class="service-icon">◬</div>
+      <h3 class="service-name">Agricultural<br/>Development</h3>
+      <p class="service-desc">
+        From smallholder capacity building to premium export value chains — we design agribusiness models that connect African farmers to global markets. Coffee, cocoa, cereals and beyond.
+      </p>
+      <div class="service-tags">
+        <span class="tag">Agribusiness</span>
+        <span class="tag">Export</span>
+        <span class="tag">Cooperatives</span>
+        <span class="tag">Finance</span>
+      </div>
+    </div>
+
+    <!-- 08 Strategic Planning -->
+    <div class="service-card reveal">
+      <span class="service-arrow">↗</span>
+      <div class="service-num">08</div>
+      <div class="service-icon">◆</div>
+      <h3 class="service-name">Strategic<br/>Planning</h3>
+      <p class="service-desc">
+        Market entry strategies, feasibility studies, and long-range growth blueprints designed for African complexity. We translate ambition into actionable, data-backed roadmaps.
+      </p>
+      <div class="service-tags">
+        <span class="tag">Market Entry</span>
+        <span class="tag">Feasibility</span>
+        <span class="tag">Growth</span>
+        <span class="tag">Research</span>
+      </div>
+    </div>
+
+    <!-- 09 Innovation & Emerging Tech -->
+    <div class="service-card reveal">
+      <span class="service-arrow">↗</span>
+      <div class="service-num">09</div>
+      <div class="service-icon">◉</div>
+      <h3 class="service-name">Innovation &amp;<br/>Emerging Tech</h3>
+      <p class="service-desc">
+        AI integration, blockchain for supply chain transparency, and technology scouting for enterprises ready to leapfrog convention. We identify and deploy transformative technologies built for African context.
+      </p>
+      <div class="service-tags">
+        <span class="tag">AI/ML</span>
+        <span class="tag">Blockchain</span>
+        <span class="tag">IoT</span>
+        <span class="tag">R&amp;D</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FEATURED: MINERALS MINING -->
+  <div class="featured-service reveal">
+    <div class="featured-left">
+      <div class="featured-badge">Flagship Vertical</div>
+      <h3 class="featured-title">Minerals &amp; Mining<br/><em>Trading</em></h3>
+      <p class="featured-body">
+        Afrinove operates as a principal trader and advisory intermediary in Africa's critical minerals sector. We facilitate the procurement, quality assurance, documentation, and international sale of mineral concentrates — connecting African producers directly to verified global buyers at premium valuations.
+      </p>
+      <ul class="commodity-list">
+        <li>Copper Concentrate (25%–45% Cu)</li>
+        <li>Cobalt Hydroxide &amp; Sulphate</li>
+        <li>Gold Doré &amp; Refined Gold</li>
+        <li>Tantalum (Coltan) Ore</li>
+        <li>Lithium Spodumene Concentrate</li>
+        <li>Iron Ore &amp; Manganese</li>
+        <li>Rare Earth Elements (REE)</li>
+      </ul>
+    </div>
+    <div class="featured-right">
+      <div>
+        <div class="section-label" style="margin-bottom:28px;">Our Process</div>
+        <div class="process-steps">
+          <div class="process-step">
+            <div class="step-num">01</div>
+            <div class="step-content">
+              <div class="step-title">Source Verification</div>
+              <div class="step-desc">Due diligence on mining operations, legal title, and ESG compliance prior to engagement.</div>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="step-num">02</div>
+            <div class="step-content">
+              <div class="step-title">Assay &amp; Quality Certification</div>
+              <div class="step-desc">Independent laboratory assay and third-party certification of mineral grade and volume.</div>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="step-num">03</div>
+            <div class="step-content">
+              <div class="step-title">Documentation &amp; Compliance</div>
+              <div class="step-desc">Export permits, certificates of origin, OECD due diligence frameworks, and trade finance structuring.</div>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="step-num">04</div>
+            <div class="step-content">
+              <div class="step-title">Buyer Matching &amp; Escrow</div>
+              <div class="step-desc">Direct connection to verified international smelters and refineries with escrow-secured settlement.</div>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="step-num">05</div>
+            <div class="step-content">
+              <div class="step-title">Logistics &amp; Delivery</div>
+              <div class="step-desc">End-to-end freight management from mine gate to destination port, with full insurance coverage.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:40px;">
+        <a href="/contact" class="btn-primary">
+          Enquire About Minerals Trading
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="section" id="approach">
+  <div class="reveal">
+    <div class="section-label">How We Work</div>
+    <h2 class="section-title">Precision at Every Stage</h2>
+    <p class="section-body">Our methodology is consistent across every service vertical — rigorous, transparent, and designed for measurable outcomes.</p>
+  </div>
+  <div class="approach-grid">
+    <div class="approach-card reveal">
+      <div class="approach-step-num">01</div>
+      <div class="approach-step-title">Discovery & Diagnosis</div>
+      <div class="approach-step-desc">We begin with a deep diagnostic — understanding your market position, constraints, and the full opportunity landscape before prescribing any solution.</div>
+    </div>
+    <div class="approach-card reveal">
+      <div class="approach-step-num">02</div>
+      <div class="approach-step-title">Strategy Architecture</div>
+      <div class="approach-step-desc">A bespoke engagement plan, complete with KPIs, milestones, risk frameworks, and resource allocation — built to be executed, not shelved.</div>
+    </div>
+    <div class="approach-card reveal">
+      <div class="approach-step-title">03</div>
+      <div class="approach-step-title">Execution & Embedding</div>
+      <div class="approach-step-desc">We work in the trenches alongside your team. Not advisory at arm's length — active partnership until the result is delivered and the capability is yours.</div>
+    </div>
+    <div class="approach-card reveal">
+      <div class="approach-step-num">04</div>
+      <div class="approach-step-title">Measure & Scale</div>
+      <div class="approach-step-desc">Rigorous post-delivery measurement and continuous optimisation. Every engagement ends with a roadmap for what comes next.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section reveal">
+  <div>
+    <h2 class="cta-title">Ready to Build<br/>Something <em>Significant?</em></h2>
+  </div>
+  <div class="cta-actions">
+    <a href="/contact" class="btn-primary">
+      Start a Conversation
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <a href="/impact" class="btn-secondary">View Our Impact</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-name">AFRINOVE</div>
+      <p class="footer-brand-desc">Innovating solutions for Africa's growth. Deep local insights combined with global standards.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="/services#consultancy">Business Consultancy</a></li>
+        <li><a href="/services#digital">Digital Transformation</a></li>
+        <li><a href="/services#mining">Minerals &amp; Mining</a></li>
+        <li><a href="/services#trade">Import &amp; Export</a></li>
+        <li><a href="/services#escrow">Escrow &amp; Finance</a></li>
+        <li><a href="/services#pm">Project Management</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/impact">Impact</a></li>
+        <li><a href="/blog">Insights</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links">
+        <li><a href="mailto:info@afrinove.com">info@afrinove.com</a></li>
+        <li><a href="tel:+256759738401">+256 759 738 401</a></li>
+        <li><a href="tel:+256703096911">+256 703 096 911</a></li>
+        <li><a href="#">Kikoni Makerere, Kampala</a></li>
+        <li><a href="#">P.O. Box 187837</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 Afrinove Development Ltd. All rights reserved.</div>
+    <div class="footer-reg">Reg No: 80034766722937</div>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Animated counters
+  function animateCounter(el) {
+    const target = +el.dataset.target;
+    const suffix = el.dataset.suffix || '+';
+    const dur = 1800;
+    const start = performance.now();
+    const easeOut = t => 1 - Math.pow(1 - t, 3);
+    const tick = (now) => {
+      const progress = Math.min((now - start) / dur, 1);
+      el.textContent = Math.floor(easeOut(progress) * target) + (progress === 1 ? suffix : '');
+      if (progress < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+  const counterObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        animateCounter(e.target);
+        counterObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('[data-target]').forEach(el => counterObs.observe(el));
+
+  // Smooth nav background
+  window.addEventListener('scroll', () => {
+    document.querySelector('nav').style.background =
+      window.scrollY > 60
+        ? 'rgba(13,13,13,.97)'
+        : 'linear-gradient(to bottom, rgba(13,13,13,.95) 0%, transparent 100%)';
+  });
+</script>
+</body>
+</html>

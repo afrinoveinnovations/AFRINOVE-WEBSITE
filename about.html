@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Afrinove | Who We Are</title>
+    <meta name="description" content="Afrinove Development Ltd bridges the gap between ambitious goals and sustainable reality in Africa. We provide bespoke, innovative solutions tailored to the dynamics of the African market.">
+    <meta property="og:title" content="About Afrinove | Who We Are">
+    <meta property="og:description" content="Afrinove Development Ltd provides bespoke, innovative solutions tailored to the dynamics of the African market.">
+    <meta property="og:image" content="https://www.afrinove.com/images/afrinove_logo_page_1.png">
+    <meta property="og:url" content="https://www.afrinove.com/">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/png" href="./images/afrinove_logo_page_1.png">
+
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        .about-header {
+            padding: 150px 5% 5rem;
+            background: var(--color-bg);
+            text-align: center;
+        }
+        .about-header h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            margin-bottom: 1rem;
+        }
+        .about-header p {
+            font-size: 1.25rem;
+            color: var(--color-text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Horizontal Scrolling Tab Bar */
+        .tab-nav-wrapper {
+            position: sticky;
+            top: 75px; /* Just below navbar */
+            background: rgba(250, 250, 248, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid var(--color-border);
+            padding: 0 5%;
+        }
+        .tab-nav {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        .tab-nav::-webkit-scrollbar {
+            display: none;
+        }
+        .tab-btn {
+            background: transparent;
+            border: none;
+            padding: 1.5rem 1.5rem;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--color-text-muted);
+            cursor: pointer;
+            white-space: nowrap;
+            position: relative;
+            transition: color var(--transition-smooth);
+        }
+        .tab-btn:hover {
+            color: var(--color-text-primary);
+        }
+        .tab-btn.active {
+            color: var(--color-accent);
+        }
+        .tab-btn::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--color-accent);
+            transform: scaleX(0);
+            transition: transform var(--transition-smooth);
+            transform-origin: bottom center;
+        }
+        .tab-btn.active::after {
+            transform: scaleX(1);
+        }
+
+        /* Tab Content Areas */
+        .tab-content {
+            display: none;
+            padding: 5rem 5%;
+            min-height: 60vh;
+            animation: fadeIn 0.4s ease forwards;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        @media (min-width: 900px) {
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: var(--color-text-muted);
+        }
+        .about-media img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Team Grid */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        @media (min-width: 600px) {
+            .team-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (min-width: 900px) {
+            .team-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        .team-member {
+            background: var(--color-surface);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform var(--transition-smooth);
+        }
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+        .team-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1.5rem;
+            border: 4px solid var(--color-bg);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background-color: #e0e0e0; /* Placeholder background */
+        }
+        .team-name {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--color-text-primary);
+        }
+        .team-role {
+            font-size: 0.95rem;
+            color: var(--color-accent);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .team-social {
+            display: inline-block;
+            margin-top: 0.5rem;
+            color: #0077b5; /* LinkedIn Blue */
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .team-social:hover {
+            text-decoration: underline;
+        }
+
+        /* Photo Collage for Story */
+        .photo-collage {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .photo-collage img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+            aspect-ratio: 1 / 1;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            background-color: #e0e0e0;
+        }
+        .photo-collage img:first-child {
+            grid-column: 1 / -1;
+            aspect-ratio: 2 / 1;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav-overlay" id="mobileNav">
+        <a href="./index.html">Home</a>
+        <a href="./about.html">About</a>
+        <a href="./services.html">Services</a>
+        <a href="./impact.html">Impact</a>
+        <a href="./dashboard.html">Dashboard</a>
+        <a href="./contact.html">Contact Us</a>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <nav class="navbar">
+        <a href="./index.html" class="logo">
+            <img src="./images/afrinove_logo_page_1.png" alt="Logo" class="nav-logo-icon">
+            AFRINOVE
+        </a>
+        <ul class="nav-links">
+            <li><a href="./index.html" class="nav-item">Home</a></li>
+            <li><a href="./about.html" class="nav-item active">About</a></li>
+            <li><a href="./services.html" class="nav-item">Services</a></li>
+            <li><a href="./impact.html" class="nav-item">Impact</a></li>
+            <li><a href="./dashboard.html" class="nav-item">Dashboard</a></li>
+            <li><a href="./contact.html" class="nav-item">Contact Us</a></li>
+        </ul>
+        <a href="./contact.html" class="btn nav-cta">Start a Project</a>
+        <div class="hamburger" id="hamburgerBtn">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <main class="page-transition">
+        
+        <header class="about-header">
+            <h1>We Are Afrinove</h1>
+            <p>Innovating solutions for Africa's growth. We combine deep local insights with global standards to build the future.</p>
+        </header>
+
+        <!-- Horizontal Tab Navigation -->
+        <div class="tab-nav-wrapper">
+            <div class="tab-nav" id="aboutTabs">
+                <button class="tab-btn active" data-target="story">Our Story</button>
+                <button class="tab-btn" data-target="vision">Vision & Mission</button>
+                <button class="tab-btn" data-target="values">Values</button>
+                <button class="tab-btn" data-target="team">Team</button>
+                <button class="tab-btn" data-target="culture">Culture</button>
+                <button class="tab-btn" data-target="presence">Africa Presence</button>
+                <button class="tab-btn" data-target="newsroom">Newsroom</button>
+            </div>
+        </div>
+
+        <!-- 1. Our Story -->
+        <section class="tab-content active" id="story">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2>Forged in Resilience</h2>
+                    <p>Afrinove Development Ltd was born from a singular conviction: that Africa's challenges are not roadblocks, but the very foundation for exponential growth.</p>
+                    <p>What started as a small advisory collective in Kampala has rapidly evolved into a leading consultancy, empowering ambitious leaders to solve complex problems and capture massive opportunities across the continent. We don't just advise; we partner in the trenches to architect sustainable reality.</p>
+                </div>
+                <div class="photo-collage">
+                    <!-- You can add your new story photos here -->
+                    <img src="./images/42432421483490782.jpg" alt="Afrinove Founding Story">
+                    <img src="" alt="Early Days Placeholder">
+                    <img src="" alt="Growth Placeholder">
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Vision & Mission -->
+        <section class="tab-content" id="vision">
+            <div class="about-grid" style="direction: rtl;">
+                <div class="about-text" style="direction: ltr;">
+                    <h2>Catalyzing the Future</h2>
+                    <p><strong>Our Vision:</strong> To be the premier catalyst for transformative enterprise growth across Africa, redefining what is possible through innovation and strategic excellence.</p>
+                    <p><strong>Our Mission:</strong> We bridge the gap between ambitious goals and sustainable reality. We provide bespoke, data-driven solutions tailored to the unique dynamics of the African market, ensuring our partners not only succeed, but lead.</p>
+                </div>
+                <div class="about-media" style="direction: ltr;">
+                    <img src="./images/african-youth-are-pivotal-in-transforming-our-food.jpg" alt="Vision and Mission">
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Values -->
+        <section class="tab-content" id="values">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2>What Drives Us</h2>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 1.5rem;">
+                            <h3 style="color: var(--color-accent); font-size: 1.5rem; margin-bottom: 0.5rem;">Uncompromising Quality</h3>
+                            <p style="color: var(--color-text-muted);">We hold ourselves to the highest global standards, delivering premium execution on every project.</p>
+                        </li>
+                        <li style="margin-bottom: 1.5rem;">
+                            <h3 style="color: var(--color-accent); font-size: 1.5rem; margin-bottom: 0.5rem;">Local Nuance</h3>
+                            <p style="color: var(--color-text-muted);">Africa is not a monolith. Our strategies are deeply rooted in granular, local insights.</p>
+                        </li>
+                        <li>
+                            <h3 style="color: var(--color-accent); font-size: 1.5rem; margin-bottom: 0.5rem;">Bold Innovation</h3>
+                            <p style="color: var(--color-text-muted);">We challenge the status quo, leveraging modern technology and creative thinking to leapfrog traditional barriers.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="about-media">
+                    <img src="./images/259168153554340415.jpg" alt="Values">
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Team -->
+        <section class="tab-content" id="team">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto 2rem;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Our People</h2>
+                <p style="font-size: 1.1rem; color: var(--color-text-muted);">Afrinove is powered by a diverse coalition of strategists, technologists, and industry veterans. We are united by a shared passion for driving Africa's economic transformation.</p>
+            </div>
+            
+            <div class="team-grid">
+                <!-- Team Member 1 -->
+                <div class="team-member">
+                    <!-- REPLACE src WITH ACTUAL PHOTO -->
+                    <img src="" alt="Ssenyonga Ali Musanje" class="team-photo">
+                    <h3 class="team-name">Ssenyonga Ali Musanje</h3>
+                    <div class="team-role">Founder / Company Secretary</div>
+                    <!-- ADD LINKEDIN PROFILE HERE -->
+                    <a href="https://linkedin.com/" target="_blank" class="team-social">LinkedIn Profile</a>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="team-member">
+                    <!-- REPLACE src WITH ACTUAL PHOTO -->
+                    <img src="" alt="Maning Faizal" class="team-photo">
+                    <h3 class="team-name">Maning Faizal</h3>
+                    <div class="team-role">Co-Founder / Executive Director</div>
+                    <!-- ADD LINKEDIN PROFILE HERE -->
+                    <a href="https://linkedin.com/" target="_blank" class="team-social">LinkedIn Profile</a>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="team-member">
+                    <!-- REPLACE src WITH ACTUAL PHOTO -->
+                    <img src="" alt="Kirya Laban Webbo" class="team-photo">
+                    <h3 class="team-name">Kirya Laban Webbo</h3>
+                    <div class="team-role">Managing Director</div>
+                    <!-- ADD LINKEDIN PROFILE HERE -->
+                    <a href="https://linkedin.com/" target="_blank" class="team-social">LinkedIn Profile</a>
+                </div>
+
+                <!-- Team Member 4 -->
+                <div class="team-member">
+                    <!-- REPLACE src WITH ACTUAL PHOTO -->
+                    <img src="" alt="Fernando Mitchell" class="team-photo">
+                    <h3 class="team-name">Fernando Mitchell</h3>
+                    <div class="team-role">Executive Director</div>
+                    <!-- ADD LINKEDIN PROFILE HERE -->
+                    <a href="https://linkedin.com/" target="_blank" class="team-social">LinkedIn Profile</a>
+                </div>
+
+                <!-- Team Member 5 -->
+                <div class="team-member">
+                    <!-- REPLACE src WITH ACTUAL PHOTO -->
+                    <img src="" alt="Elieza Damascus Eddie" class="team-photo">
+                    <h3 class="team-name">Elieza Damascus Eddie</h3>
+                    <div class="team-role">Director Operations</div>
+                    <!-- ADD LINKEDIN PROFILE HERE -->
+                    <a href="https://linkedin.com/" target="_blank" class="team-social">LinkedIn Profile</a>
+                </div>
+
+                <!-- Team Member 6 -->
+                <div class="team-member">
+                    <!-- REPLACE src WITH ACTUAL PHOTO -->
+                    <img src="" alt="Namukose Marion" class="team-photo">
+                    <h3 class="team-name">Namukose Marion</h3>
+                    <div class="team-role">Legal Advisor</div>
+                    <!-- ADD LINKEDIN PROFILE HERE -->
+                    <a href="https://linkedin.com/" target="_blank" class="team-social">LinkedIn Profile</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Culture -->
+        <section class="tab-content" id="culture">
+            <div class="about-grid" style="direction: rtl;">
+                <div class="about-text" style="direction: ltr;">
+                    <h2>Dynamic & Collaborative</h2>
+                    <p>Our culture is built on continuous learning, fierce collaboration, and an unwavering commitment to impact. We foster an environment where bold ideas are championed and every voice contributes to our collective brilliance.</p>
+                    <p>We work hard, but we also celebrate our wins and the vibrant communities we serve.</p>
+                </div>
+                <div class="about-media" style="direction: ltr;">
+                    <img src="./images/216876538302902672.jpg" alt="Culture">
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Africa Presence -->
+        <section class="tab-content" id="presence">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2>Rooted in Kampala, Reaching the Continent</h2>
+                    <p>Headquartered in the heart of Uganda, our reach extends across East Africa and beyond. We have successfully executed strategic initiatives in regional hubs, adapting our methodologies to diverse regulatory and cultural landscapes.</p>
+                    <p>Our growing network of partners and consultants ensures we have boots on the ground where it matters most.</p>
+                </div>
+                <div class="about-media">
+                    <img src="./images/african-great-lakes.jpg" alt="Africa Presence">
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Newsroom -->
+        <section class="tab-content" id="newsroom">
+            <div class="about-grid" style="direction: rtl;">
+                <div class="about-text" style="direction: ltr;">
+                    <h2>The Latest from Afrinove</h2>
+                    <p>Stay updated with our latest insights, project announcements, and industry commentary.</p>
+                    <div style="margin-top: 2rem; border-left: 3px solid var(--color-accent); padding-left: 1rem;">
+                        <span style="font-size: 0.9rem; color: var(--color-accent); font-weight: 700;">PRESS RELEASE</span>
+                        <h4 style="font-size: 1.2rem; margin: 0.5rem 0;">Afrinove Launches Premium Coffee Export Initiative in Zombo</h4>
+                        <p style="font-size: 0.9rem; color: var(--color-text-muted);">Driving agricultural sustainability and market access for local farmers.</p>
+                    </div>
+                    <div style="margin-top: 1.5rem; border-left: 3px solid var(--color-border); padding-left: 1rem;">
+                        <span style="font-size: 0.9rem; color: var(--color-text-muted); font-weight: 700;">INSIGHTS</span>
+                        <h4 style="font-size: 1.2rem; margin: 0.5rem 0;">Navigating Digital Transformation in East Africa</h4>
+                        <p style="font-size: 0.9rem; color: var(--color-text-muted);">A framework for legacy businesses to integrate modern tech stacks.</p>
+                    </div>
+                </div>
+                <div class="about-media" style="direction: ltr;">
+                    <img src="./images/what-is-ai-and-how-is-it-transforming-our-world_.jpg" alt="Newsroom">
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h4 class="logo"><img src="./images/afrinove_logo_page_1.png" alt="Afrinove Logo"></h4>
+                <p style="color: #A09E9A;">Innovating solutions for Africa's growth. Deep local insights combined with global standards.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Pages</h4>
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./about.html">About</a></li>
+                    <li><a href="./services.html">Services</a>
+        <a href="./impact.html">Impact</a></li>
+                    <li><a href="./dashboard.html">Dashboard</a></li>
+                    <li><a href="./contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li>Strategic Planning</li>
+                    <li>Digital Transformation</li>
+                    <li>Financial Advisory</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li>P.O BOX 187837 KAMPALA GPO</li>
+                    <li>KIKONI MAKERERE, SIR APOLLO KAGWA RD</li>
+                    <li>COMPANY REG NO: 80034766722937</li>
+                    <li>afrinoves@gmail.com</li>
+                    <li>+256759738401 / +256703096911</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; <span id="year"></span> Afrinove Development Ltd. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="./js/main.js"></script>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Tab Navigation Logic
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active classes
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+
+                // Add active to clicked
+                btn.classList.add('active');
+                const target = document.getElementById(btn.getAttribute('data-target'));
+                if(target) target.classList.add('active');
+
+                // Smooth scroll tab bar to center the active tab if on mobile
+                btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            });
+        });
+    </script>
+</body>
+</html>

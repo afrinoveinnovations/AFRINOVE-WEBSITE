@@ -1,284 +1,1491 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Afrinove Development Ltd | Innovating Solutions for Africa's Growth</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
-    <style>
-        .logo-img-container {
-            height: 50px;
-            margin-right: 15px;
-        }
-        .logo-img-container img {
-            height: 100%;
-            object-fit: contain;
-        }
-        .logo-container {
-            display: flex;
-            align-items: center;
-            flex-direction: row;
-        }
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Afrinove Development Ltd | Innovating Solutions For Africa's growth</title>
+  <meta name="description"
+    content="Afrinove Development Ltd — Africa's premier consultancy for strategic growth, minerals trading, digital transformation, and enterprise advisory. Kampala, Uganda." />
+  <meta property="og:title" content="Afrinove Development Ltd " />
+  <meta property="og:description"
+    content="We bridge the gap between ambitious goals and sustainable reality across Africa." />
+  <meta property="og:url" content="https://afrinove.com" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap"
+    rel="stylesheet" />
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --gold: #C9A84C;
+      --gold-lt: #E8C97A;
+      --gold-dk: #8B6B28;
+      --ink: #0D0D0D;
+      --ink-2: #1A1A1A;
+      --ink-3: #2A2A2A;
+      --fog: #F5F2EC;
+      --fog-2: #EDE9E0;
+      --mist: #A89F8C;
+      --white: #FDFCF9;
+      --ff-head: 'Cormorant Garamond', Georgia, serif;
+      --ff-body: 'DM Sans', sans-serif;
+      --ease: cubic-bezier(.16, 1, .3, 1);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--ff-body);
+      background: var(--ink);
+      color: var(--white);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 48px;
+      transition: background .3s;
+    }
+
+    nav.scrolled {
+      background: rgba(13, 13, 13, .97);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      height: 36px;
+      filter: brightness(0) invert(1);
+    }
+
+    .nav-logo span {
+      font-family: var(--ff-head);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: .08em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--mist);
+      font-size: .8125rem;
+      font-weight: 400;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      transition: color .2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--gold);
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 22px;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-family: var(--ff-body);
+      font-size: .8rem;
+      font-weight: 500;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background .25s, color .25s;
+    }
+
+    .nav-cta:hover {
+      background: var(--gold);
+      color: var(--ink);
+    }
+
+    .nav-hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--white);
+      margin: 5px 0;
+      transition: .3s;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 120px 48px 80px;
+      position: relative;
+      overflow: hidden;
+      gap: 48px;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 70% 40%, rgba(201, 168, 76, .07) 0%, transparent 65%), radial-gradient(ellipse 40% 50% at 5% 90%, rgba(201, 168, 76, .04) 0%, transparent 55%), var(--ink);
+    }
+
+    .hero-grain {
+      position: absolute;
+      inset: 0;
+      opacity: .3;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 128px 128px;
+    }
+
+    .hero-line {
+      position: absolute;
+      left: 48px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent 0%, var(--gold-dk) 30%, var(--gold) 60%, transparent 100%);
+      opacity: .35;
+    }
+
+    .hero-left {
+      position: relative;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: .75rem;
+      font-weight: 500;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .hero h1 {
+      font-family: var(--ff-head);
+      font-size: clamp(3.5rem, 6vw, 6.5rem);
+      font-weight: 400;
+      line-height: .95;
+      letter-spacing: -.01em;
+      margin-bottom: 32px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-sub {
+      font-size: 1.0625rem;
+      font-weight: 300;
+      color: var(--mist);
+      line-height: 1.75;
+      max-width: 480px;
+      margin-bottom: 48px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 36px;
+      background: var(--gold);
+      color: var(--ink);
+      font-family: var(--ff-body);
+      font-size: .8125rem;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background .25s, transform .2s;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-lt);
+      transform: translateY(-2px);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--mist);
+      font-size: .8125rem;
+      font-weight: 400;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    .btn-ghost:hover {
+      color: var(--white);
+    }
+
+    .btn-ghost svg {
+      transition: transform .2s;
+    }
+
+    .btn-ghost:hover svg {
+      transform: translateX(4px);
+    }
+
+    .hero-right {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .hero-stat-card {
+      padding: 28px 32px;
+      border: 1px solid rgba(201, 168, 76, .12);
+      background: rgba(201, 168, 76, .03);
+      position: relative;
+      overflow: hidden;
+      transition: border-color .3s;
+    }
+
+    .hero-stat-card:hover {
+      border-color: rgba(201, 168, 76, .3);
+    }
+
+    .hero-stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0;
+      transition: opacity .3s;
+    }
+
+    .hero-stat-card:hover::before {
+      opacity: 1;
+    }
+
+    .stat-num {
+      font-family: var(--ff-head);
+      font-size: 3rem;
+      font-weight: 600;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: .8rem;
+      font-weight: 300;
+      color: var(--mist);
+      letter-spacing: .04em;
+    }
+
+    .hero-stat-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    /* TICKER */
+    .ticker-wrap {
+      overflow: hidden;
+      border-top: 1px solid rgba(255, 255, 255, .06);
+      border-bottom: 1px solid rgba(255, 255, 255, .06);
+      padding: 14px 0;
+      background: var(--ink-2);
+    }
+
+    .ticker-track {
+      display: flex;
+      gap: 0;
+      width: max-content;
+      animation: ticker 30s linear infinite;
+    }
+
+    .ticker-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 24px;
+      padding: 0 40px;
+      white-space: nowrap;
+      font-size: .75rem;
+      font-weight: 400;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--mist);
+    }
+
+    .ticker-dot {
+      width: 4px;
+      height: 4px;
+      background: var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    @keyframes ticker {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* SECTION COMMON */
+    .section {
+      padding: 120px 48px;
+    }
+
+    .section-label {
+      font-size: .7rem;
+      font-weight: 500;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: var(--ff-head);
+      font-size: clamp(2.25rem, 4vw, 3.5rem);
+      font-weight: 400;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .section-body {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--mist);
+      line-height: 1.75;
+    }
+
+    /* ABOUT STRIP */
+    #about-strip {
+      background: var(--fog);
+      color: var(--ink);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    #about-strip .section-label {
+      color: var(--gold-dk);
+    }
+
+    #about-strip .section-title {
+      color: var(--ink);
+    }
+
+    #about-strip .section-body {
+      color: #5a5142;
+    }
+
+    .about-left {
+      padding: 120px 64px 120px 48px;
+      border-right: 1px solid rgba(0, 0, 0, .08);
+    }
+
+    .about-right {
+      padding: 120px 48px 120px 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 32px;
+    }
+
+    .value-item {
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(0, 0, 0, .08);
+    }
+
+    .value-item:first-child {
+      padding-top: 0;
+    }
+
+    .value-title {
+      font-size: 1.0625rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .value-title::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 1px;
+      background: var(--gold-dk);
+    }
+
+    .value-desc {
+      font-size: .875rem;
+      font-weight: 300;
+      color: #6b6052;
+      line-height: 1.7;
+    }
+
+    /* SERVICES TEASER */
+    #services-teaser {
+      background: var(--ink);
+    }
+
+    .services-teaser-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 32px;
+      align-items: end;
+      margin-bottom: 64px;
+    }
+
+    .services-mini-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255, 255, 255, .06);
+    }
+
+    .service-mini-card {
+      padding: 40px 36px;
+      background: var(--ink);
+      transition: background .3s var(--ease);
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-mini-card::after {
+      content: '↗';
+      position: absolute;
+      top: 32px;
+      right: 32px;
+      color: var(--gold);
+      opacity: 0;
+      font-size: 1.1rem;
+      transition: opacity .3s, transform .3s var(--ease);
+      transform: translate(-4px, 4px);
+    }
+
+    .service-mini-card:hover {
+      background: var(--ink-2);
+    }
+
+    .service-mini-card:hover::after {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+
+    .service-mini-num {
+      font-size: .65rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(201, 168, 76, .4);
+      margin-bottom: 24px;
+    }
+
+    .service-mini-name {
+      font-family: var(--ff-head);
+      font-size: 1.5rem;
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .service-mini-desc {
+      font-size: .8375rem;
+      font-weight: 300;
+      color: var(--mist);
+      line-height: 1.7;
+    }
+
+    .services-teaser-more {
+      display: flex;
+      justify-content: center;
+      margin-top: 1px;
+    }
+
+    .services-view-all {
+      display: block;
+      width: 100%;
+      padding: 28px;
+      text-align: center;
+      background: var(--ink-2);
+      border-top: 1px solid rgba(255, 255, 255, .06);
+      text-decoration: none;
+      color: var(--gold);
+      font-size: .8rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      transition: background .25s;
+    }
+
+    .services-view-all:hover {
+      background: rgba(201, 168, 76, .08);
+    }
+
+    /* IMPACT */
+    #impact-strip {
+      background: var(--ink-3);
+      border-top: 1px solid rgba(255, 255, 255, .06);
+      border-bottom: 1px solid rgba(255, 255, 255, .06);
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(255, 255, 255, .06);
+      margin-top: 64px;
+    }
+
+    .impact-card {
+      padding: 40px 32px;
+      background: var(--ink-3);
+    }
+
+    .impact-num {
+      font-family: var(--ff-head);
+      font-size: 3.5rem;
+      font-weight: 600;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .impact-label {
+      font-size: .8rem;
+      font-weight: 300;
+      color: var(--mist);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    /* CASE STUDIES */
+    #cases {
+      background: var(--ink);
+    }
+
+    .cases-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 32px;
+      align-items: end;
+      margin-bottom: 64px;
+    }
+
+    .cases-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(255, 255, 255, .06);
+    }
+
+    .case-card {
+      padding: 52px 48px;
+      background: var(--ink);
+      transition: background .3s;
+      cursor: pointer;
+    }
+
+    .case-card:hover {
+      background: var(--ink-2);
+    }
+
+    .case-tag {
+      display: inline-block;
+      padding: 4px 12px;
+      border: 1px solid rgba(201, 168, 76, .25);
+      color: rgba(201, 168, 76, .7);
+      font-size: .65rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    .case-name {
+      font-family: var(--ff-head);
+      font-size: 1.75rem;
+      font-weight: 600;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .case-desc {
+      font-size: .875rem;
+      font-weight: 300;
+      color: var(--mist);
+      line-height: 1.75;
+      margin-bottom: 28px;
+    }
+
+    .case-result {
+      font-size: .8125rem;
+      font-weight: 400;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .case-result::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    /* MINERALS STRIP */
+    #minerals-strip {
+      background: linear-gradient(135deg, var(--ink-2) 0%, #141208 100%);
+      border-top: 1px solid rgba(201, 168, 76, .1);
+      border-bottom: 1px solid rgba(201, 168, 76, .1);
+    }
+
+    .minerals-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .minerals-commodities {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 40px;
+    }
+
+    .commodity-pill {
+      padding: 12px 16px;
+      border: 1px solid rgba(201, 168, 76, .15);
+      background: rgba(201, 168, 76, .04);
+      font-size: .8rem;
+      font-weight: 300;
+      color: var(--fog-2);
+      letter-spacing: .04em;
+      transition: border-color .2s, background .2s;
+    }
+
+    .commodity-pill:hover {
+      border-color: rgba(201, 168, 76, .4);
+      background: rgba(201, 168, 76, .08);
+    }
+
+    .minerals-cta-side {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .minerals-quote {
+      font-family: var(--ff-head);
+      font-size: clamp(1.75rem, 3vw, 2.75rem);
+      font-weight: 400;
+      line-height: 1.2;
+    }
+
+    .minerals-quote em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    /* PARTNERS */
+    #partners {
+      background: var(--fog);
+      padding: 80px 48px;
+    }
+
+    #partners .section-label {
+      color: var(--gold-dk);
+    }
+
+    .partners-label {
+      font-size: .7rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--gold-dk);
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .partners-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .partner-item {
+      font-family: var(--ff-head);
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: rgba(100, 85, 60, .45);
+      letter-spacing: .06em;
+      transition: color .2s;
+    }
+
+    .partner-item:hover {
+      color: rgba(100, 85, 60, .8);
+    }
+
+    /* CTA STRIP */
+    .cta-strip {
+      background: var(--gold);
+      padding: 80px 48px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .cta-strip-title {
+      font-family: var(--ff-head);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.1;
+    }
+
+    .cta-strip-title em {
+      font-style: italic;
+    }
+
+    .btn-dark {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 36px;
+      background: var(--ink);
+      color: var(--gold);
+      font-family: var(--ff-body);
+      font-size: .8125rem;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background .25s;
+      white-space: nowrap;
+    }
+
+    .btn-dark:hover {
+      background: var(--ink-2);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--ink-3);
+      padding: 60px 48px 32px;
+      border-top: 1px solid rgba(255, 255, 255, .06);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand-name {
+      font-family: var(--ff-head);
+      font-size: 1.375rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      margin-bottom: 16px;
+    }
+
+    .footer-brand-desc {
+      font-size: .8125rem;
+      font-weight: 300;
+      color: var(--mist);
+      line-height: 1.7;
+      max-width: 260px;
+      margin-bottom: 24px;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 12px;
+    }
+
+    .footer-social a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(255, 255, 255, .1);
+      color: var(--mist);
+      font-size: .75rem;
+      text-decoration: none;
+      transition: border-color .2s, color .2s;
+    }
+
+    .footer-social a:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .footer-col-title {
+      font-size: .7rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      font-size: .8125rem;
+      font-weight: 300;
+      color: var(--mist);
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--white);
+    }
+
+    .footer-bottom {
+      padding-top: 28px;
+      border-top: 1px solid rgba(255, 255, 255, .06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-copy {
+      font-size: .75rem;
+      color: rgba(168, 159, 140, .5);
+    }
+
+    .footer-reg {
+      font-size: .7rem;
+      color: rgba(168, 159, 140, .35);
+    }
+
+    /* ANIMATIONS */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .8s var(--ease), transform .8s var(--ease);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* MOBILE */
+    @media (max-width: 960px) {
+      nav {
+        padding: 16px 24px;
+      }
+
+      .nav-links,
+      .nav-cta {
+        display: none;
+      }
+
+      .nav-hamburger {
+        display: block;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 120px 24px 64px;
+        min-height: auto;
+        gap: 48px;
+      }
+
+      .hero-right {
+        display: none;
+      }
+
+      .section {
+        padding: 80px 24px;
+      }
+
+      #about-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .about-left {
+        padding: 80px 24px;
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 0, 0, .08);
+      }
+
+      .about-right {
+        padding: 64px 24px;
+      }
+
+      .services-mini-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .services-teaser-header {
+        grid-template-columns: 1fr;
+      }
+
+      .impact-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .cases-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cases-header {
+        grid-template-columns: 1fr;
+      }
+
+      .minerals-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .minerals-commodities {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .cta-strip {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 64px 24px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      #partners {
+        padding: 64px 24px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .impact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-stat-row {
+        grid-template-columns: 1fr;
+      }
+
+      .minerals-commodities {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="logo-container">
-            <div class="logo-img-container">
-                <img src="assets/images/afrinove_logo_page_1.png" alt="Afrinove Logo">
-            </div>
-            <div class="logo-text">
-                <h1 class="logo">AFRINOVE</h1>
-                <p class="logo-sub">DEVELOPMENT LTD</p>
-            </div>
+  <!-- NAV -->
+  <nav id="main-nav">
+    <a href="/" class="nav-logo">
+      <img src="/images/afrinove_logo_page_1.png" alt="Afrinove Logo" />
+      <span>AFRINOVE</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/" class="active">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/services">Services</a></li>
+      <li><a href="/impact">Impact</a></li>
+      <li><a href="/blog">Insights</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+    <a href="/contact" class="nav-cta">Start a Project</a>
+    <button class="nav-hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grain"></div>
+    <div class="hero-line"></div>
+    <div class="hero-left reveal">
+      <div class="hero-eyebrow">Afrinove Development Ltd</div>
+      <h1>Elevating<br /><em>Enterprise</em><br />Across Africa</h1>
+      <p class="hero-sub">We bridge the gap between ambitious goals and sustainable reality — providing bespoke,
+        data-driven solutions calibrated to the unique dynamics of the African market.</p>
+      <div class="hero-actions">
+        <a href="/services" class="btn-primary">
+          Explore Services
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M2 12L12 2M12 2H5M12 2v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
+        <a href="/about" class="btn-ghost">
+          Our Story
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="hero-right reveal">
+      <div class="hero-stat-card">
+        <div class="stat-num" data-target="5000" data-suffix="+">0</div>
+        <div class="stat-label">Farmers directly impacted through Zombo Coffee Initiative</div>
+      </div>
+      <div class="hero-stat-row">
+        <div class="hero-stat-card">
+          <div class="stat-num" data-target="300" data-suffix="%">0</div>
+          <div class="stat-label">Export growth in 18 months</div>
         </div>
-        <ul class="nav-links">
-            <li><button class="tab-btn active" data-target="home">HOME</button></li>
-            <li><button class="tab-btn" data-target="about">ABOUT US</button></li>
-            <li><button class="tab-btn" data-target="services">SERVICES SNAPSHOTS</button></li>
-            <li><button class="tab-btn" data-target="sustainability">SUSTAINABILITY</button></li>
-            <li><button class="tab-btn" data-target="dashboard">PROJECT DASHBOARD</button></li>
-            <li><button class="tab-btn" data-target="legal">LEGAL</button></li>
+        <div class="hero-stat-card">
+          <div class="stat-num" data-target="100" data-suffix="k">0</div>
+          <div class="stat-label">Digital wallet users acquired in Q1</div>
+        </div>
+      </div>
+      <div class="hero-stat-card">
+        <div class="stat-num" data-target="500" data-suffix="+">0</div>
+        <div class="stat-label">Youth-led agricultural startups trained &amp; funded</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap">
+    <div class="ticker-track">
+      <span class="ticker-item"><span class="ticker-dot"></span>Strategic Planning</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Minerals &amp; Mining</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Digital Transformation</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Import &amp; Export</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Project Management</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Escrow &amp; Finance</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Distributorship</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Agricultural Development</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Business Consultancy</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>East Africa &amp; Beyond</span>
+      <!-- duplicate for seamless loop -->
+      <span class="ticker-item"><span class="ticker-dot"></span>Strategic Planning</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Minerals &amp; Mining</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Digital Transformation</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Import &amp; Export</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Project Management</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Escrow &amp; Finance</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Distributorship</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Agricultural Development</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Business Consultancy</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>East Africa &amp; Beyond</span>
+    </div>
+  </div>
+
+  <!-- ABOUT STRIP -->
+  <section id="about-strip">
+    <div class="about-left reveal">
+      <div class="section-label">Who We Are</div>
+      <h2 class="section-title">Forged in<br />Resilience</h2>
+      <p class="section-body" style="margin-bottom: 32px;">Afrinove Development Ltd was born from a singular conviction:
+        that Africa's challenges are not roadblocks, but the very foundation for exponential growth.</p>
+      <p class="section-body" style="margin-bottom: 40px;">What started as a small advisory collective in Kampala has
+        rapidly evolved into a leading consultancy, empowering ambitious leaders to solve complex problems and capture
+        massive opportunities across the continent.</p>
+      <a href="/about" class="btn-ghost" style="color: var(--gold-dk);">
+        Read Our Full Story
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </a>
+    </div>
+    <div class="about-right reveal">
+      <div class="value-item">
+        <div class="value-title">Uncompromising Quality</div>
+        <div class="value-desc">We hold ourselves to the highest global standards, delivering premium execution on every
+          engagement regardless of scale.</div>
+      </div>
+      <div class="value-item">
+        <div class="value-title">Local Nuance</div>
+        <div class="value-desc">Africa is not a monolith. Our strategies are deeply rooted in granular, market-specific
+          insights that generic consultancies simply do not possess.</div>
+      </div>
+      <div class="value-item">
+        <div class="value-title">Bold Innovation</div>
+        <div class="value-desc">We challenge the status quo, leveraging modern technology and creative thinking to
+          leapfrog traditional barriers and compress timelines.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES TEASER -->
+  <section class="section" id="services-teaser">
+    <div class="services-teaser-header reveal">
+      <div>
+        <div class="section-label">What We Do</div>
+        <h2 class="section-title">Nine Verticals.<br />One Partner.</h2>
+      </div>
+      <a href="/services" class="btn-ghost">
+        All Services
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </a>
+    </div>
+    <div class="services-mini-grid">
+      <a href="/services" class="service-mini-card reveal">
+        <div class="service-mini-num">01</div>
+        <div class="service-mini-name">Business Consultancy</div>
+        <div class="service-mini-desc">Strategy and operations advisory for enterprises navigating Africa's most complex
+          markets.</div>
+      </a>
+      <a href="/services" class="service-mini-card reveal">
+        <div class="service-mini-num">02</div>
+        <div class="service-mini-name">Minerals &amp; Mining</div>
+        <div class="service-mini-desc">Principal trading and advisory in critical mineral concentrates — copper, cobalt,
+          gold, coltan, lithium and more.</div>
+      </a>
+      <a href="/services" class="service-mini-card reveal">
+        <div class="service-mini-num">03</div>
+        <div class="service-mini-name">Digital Transformation</div>
+        <div class="service-mini-desc">End-to-end digitisation of legacy operations, from core banking to cloud-native
+          supply chains.</div>
+      </a>
+      <a href="/services" class="service-mini-card reveal">
+        <div class="service-mini-num">04</div>
+        <div class="service-mini-name">Project Management</div>
+        <div class="service-mini-desc">Full-cycle PMO governance for complex multi-stakeholder initiatives — on time, on
+          scope, on budget.</div>
+      </a>
+      <a href="/services" class="service-mini-card reveal">
+        <div class="service-mini-num">05</div>
+        <div class="service-mini-name">Import &amp; Export</div>
+        <div class="service-mini-desc">Trade facilitation across East Africa and global corridors — documentation,
+          logistics, and customs compliance.</div>
+      </a>
+      <a href="/services" class="service-mini-card reveal">
+        <div class="service-mini-num">06</div>
+        <div class="service-mini-name">Escrow &amp; Finance</div>
+        <div class="service-mini-desc">Secure escrow facilitation for cross-border deals, M&amp;A transactions, and
+          high-value contracts.</div>
+      </a>
+    </div>
+    <a href="/services" class="services-view-all">View All 9 Services →</a>
+  </section>
+
+  <!-- IMPACT STATS -->
+  <section class="section" id="impact-strip">
+    <div class="reveal">
+      <div class="section-label">Proven Impact</div>
+      <h2 class="section-title">Results That Speak</h2>
+    </div>
+    <div class="impact-grid">
+      <div class="impact-card reveal">
+        <div class="impact-num" data-target="50" data-suffix="+">0</div>
+        <div class="impact-label">Projects Delivered</div>
+      </div>
+      <div class="impact-card reveal">
+        <div class="impact-num" data-target="12" data-suffix="">0</div>
+        <div class="impact-label">African Countries</div>
+      </div>
+      <div class="impact-card reveal">
+        <div class="impact-num" data-target="25" data-suffix="M+">0</div>
+        <div class="impact-label">Capital Advised (USD)</div>
+      </div>
+      <div class="impact-card reveal">
+        <div class="impact-num" data-target="95" data-suffix="%">0</div>
+        <div class="impact-label">Client Retention Rate</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDIES -->
+  <section class="section" id="cases">
+    <div class="cases-header reveal">
+      <div>
+        <div class="section-label">Case Studies</div>
+        <h2 class="section-title">Work That Matters</h2>
+      </div>
+      <a href="/impact" class="btn-ghost">
+        Full Impact Report
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </a>
+    </div>
+    <div class="cases-grid">
+      <div class="case-card reveal">
+        <div class="case-tag">Agriculture · Zombo Region</div>
+        <h3 class="case-name">Coffee Export Initiative</h3>
+        <p class="case-desc">Local farmers lacked direct access to premium international markets, relying on
+          intermediaries that suppressed their margins. Afrinove architected a cooperative model with digital supply
+          chain transparency and quality certification frameworks.</p>
+        <div class="case-result">300% increase in direct-to-market exports within 18 months</div>
+      </div>
+      <div class="case-card reveal">
+        <div class="case-tag">FinTech · Regional Banking</div>
+        <h3 class="case-name">Core Banking Overhaul</h3>
+        <p class="case-desc">A legacy regional bank faced high transaction failure rates and rapid customer churn to
+          agile digital competitors. We led a ground-up digital transformation with cloud-native microservices,
+          disrupting nothing.</p>
+        <div class="case-result">99.99% uptime — 100k new digital wallet users in Q1</div>
+      </div>
+      <div class="case-card reveal">
+        <div class="case-tag">Youth Empowerment · East Africa</div>
+        <h3 class="case-name">Agricultural Youth Programme</h3>
+        <p class="case-desc">High youth unemployment combined with ageing farming demographics threatened long-term food
+          security. We partnered with NGOs to design a scalable agritech capacity-building programme for young
+          agri-preneurs.</p>
+        <div class="case-result">500+ youth-led startups trained — 2,000+ secondary jobs created</div>
+      </div>
+      <div class="case-card reveal"
+        style="display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding: 64px 48px;">
+        <div class="section-label" style="margin-bottom: 20px;">Your Project</div>
+        <h3 class="case-name" style="font-size: 1.5rem; margin-bottom: 16px;">What Will We Build<br />Together?</h3>
+        <p class="case-desc" style="margin-bottom: 32px; max-width: 280px;">Every great case study begins with a single
+          conversation.</p>
+        <a href="/contact" class="btn-primary">Start a Project</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MINERALS STRIP -->
+  <section class="section" id="minerals-strip">
+    <div class="minerals-inner">
+      <div class="reveal">
+        <div class="section-label">Flagship Vertical</div>
+        <h2 class="section-title">Minerals &amp;<br />Mining Trading</h2>
+        <p class="section-body" style="margin-bottom: 16px;">We operate as principal trader and advisory intermediary in
+          Africa's critical minerals sector — connecting producers to verified global buyers at premium valuations.</p>
+        <div class="minerals-commodities">
+          <div class="commodity-pill">Copper Concentrate</div>
+          <div class="commodity-pill">Cobalt Hydroxide</div>
+          <div class="commodity-pill">Gold Doré</div>
+          <div class="commodity-pill">Tantalum (Coltan)</div>
+          <div class="commodity-pill">Lithium Spodumene</div>
+          <div class="commodity-pill">Iron Ore</div>
+          <div class="commodity-pill">Manganese</div>
+          <div class="commodity-pill">Rare Earth Elements</div>
+        </div>
+      </div>
+      <div class="minerals-cta-side reveal">
+        <p class="minerals-quote">Africa holds <em>60% of the world's</em> critical mineral reserves. We help you access
+          them responsibly.</p>
+        <a href="/services#mining" class="btn-primary">
+          Minerals Trading Details
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M2 12L12 2M12 2H5M12 2v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
+        <a href="/contact" class="btn-ghost">Enquire About a Shipment →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS -->
+  <section id="partners">
+    <div class="partners-label">Trusted Across Sectors</div>
+    <div class="partners-row">
+      <div class="partner-item">Finance</div>
+      <div class="partner-item">Agriculture</div>
+      <div class="partner-item">Mining</div>
+      <div class="partner-item">Government</div>
+      <div class="partner-item">NGOs</div>
+      <div class="partner-item">Technology</div>
+      <div class="partner-item">Logistics</div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-strip reveal">
+    <h2 class="cta-strip-title">Ready to Build Something <em>Significant?</em></h2>
+    <div>
+      <a href="/contact" class="btn-dark">
+        Start a Conversation
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M2 12L12 2M12 2H5M12 2v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">AFRINOVE</div>
+        <p class="footer-brand-desc">Innovating solutions for Africa's growth. Deep local insights combined with global
+          standards.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="Twitter">𝕏</a>
+          <a href="#" aria-label="WhatsApp">W</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="/services">Business Consultancy</a></li>
+          <li><a href="/services">Digital Transformation</a></li>
+          <li><a href="/services">Minerals &amp; Mining</a></li>
+          <li><a href="/services">Import &amp; Export</a></li>
+          <li><a href="/services">Escrow &amp; Finance</a></li>
+          <li><a href="/services">Project Management</a></li>
         </ul>
-    </nav>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/impact">Impact</a></li>
+          <li><a href="/blog">Insights</a></li>
+          <li><a href="/dashboard">Dashboard</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="mailto:info@afrinove.com">info@afrinove.com</a></li>
+          <li><a href="tel:+256759738401">+256 759 738 401</a></li>
+          <li><a href="tel:+256703096911">+256 703 096 911</a></li>
+          <li><a href="#">Kikoni Makerere, Kampala</a></li>
+          <li><a href="#">P.O. Box 187837</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 Afrinove Development Ltd. All rights reserved.</div>
+      <div class="footer-reg">Reg No: 80034766722937</div>
+    </div>
+  </footer>
 
-    <!-- Main Content Area (Tabs) -->
-    <main class="content-container">
+  <script>
+    // Nav scroll
+    window.addEventListener('scroll', () => {
+      document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 60);
+    });
 
-        <!-- HOME TAB -->
-        <section id="home" class="tab-content active">
-            <div class="hero">
-                <div class="hero-text">
-                    <h2 class="animate-up">Innovating Solutions for <span class="highlight">Africa's Growth</span></h2>
-                    <p class="animate-up delay-1">We are a premier business consultancy firm registered and incorporated in Uganda, dedicated to elevating enterprises across the continent.</p>
-                    <div class="hero-actions animate-up delay-2">
-                        <button class="btn primary" onclick="document.querySelector('[data-target=\'about\']').click()">Discover Our Vision</button>
-                        <button class="btn secondary" onclick="document.querySelector('[data-target=\'services\']').click()">Our Services</button>
-                    </div>
-                </div>
-                <div class="hero-visual animate-fade-in delay-2">
-                    <!-- Interactive Hero Image -->
-                    <div class="interactive-image-container hero-img">
-                        <img src="assets/images/In today’s fast-changing African business….jfif" alt="African Business" class="interactive-img">
-                        <div class="glass-card overlay-stat">
-                            <div class="stat">
-                                <h3>Uganda</h3>
-                                <p>Headquarters</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 80);
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        <!-- ABOUT US TAB -->
-        <section id="about" class="tab-content">
-            <div class="page-header">
-                <h2>About <span class="highlight">Us</span></h2>
-                <p>Rooted in Uganda, Reaching Across Africa.</p>
-            </div>
-            <div class="about-grid">
-                <div class="about-text glass-panel">
-                    <h3>Who We Are</h3>
-                    <p>Afrinove Development Ltd is a forward-thinking business consultancy firm. We bridge the gap between ambitious goals and sustainable reality by providing bespoke, innovative solutions tailored to the unique dynamics of the African market.</p>
-                    <p>Our multidisciplinary team brings deep local insights combined with global standards, ensuring that every strategy we develop is both visionary and actionable.</p>
-                </div>
-                <!-- Interactive Masonry Gallery -->
-                <div class="gallery-grid">
-                    <div class="interactive-image-container tall">
-                        <img src="assets/images/Join Passenger's Roamer's Collective, a likeminded….jfif" alt="Community" class="interactive-img hover-zoom">
-                    </div>
-                    <div class="interactive-image-container">
-                        <img src="assets/images/13229392653925033.jfif" alt="Team 1" class="interactive-img hover-zoom">
-                    </div>
-                    <div class="interactive-image-container">
-                        <img src="assets/images/422281205639700.jfif" alt="Team 2" class="interactive-img hover-zoom">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SERVICES SNAPSHOTS TAB -->
-        <section id="services" class="tab-content">
-            <div class="page-header">
-                <h2>Services <span class="highlight">Snapshots</span></h2>
-                <p>Comprehensive consulting to scale your operations via sliding panels.</p>
-            </div>
-            
-            <!-- Sliding Panels Accordion -->
-            <div class="services-accordion">
-                
-                <!-- Service 1 -->
-                <div class="accordion-panel">
-                    <img src="assets/images/A high-angle, top-down shot captures a….jfif" class="accordion-bg" alt="Strategy">
-                    <div class="accordion-content">
-                        <div class="icon">📈</div>
-                        <h3>Strategic Planning</h3>
-                        <p class="panel-desc">Develop robust business models and long-term strategies designed for resilience and exponential growth in emerging markets.</p>
-                    </div>
-                </div>
-                
-                <!-- Service 2 -->
-                <div class="accordion-panel">
-                    <img src="assets/images/A raft foundation is a reinforced concrete slab….jfif" class="accordion-bg" alt="Tech">
-                    <div class="accordion-content">
-                        <div class="icon">💡</div>
-                        <h3>Innovation & Tech</h3>
-                        <p class="panel-desc">Integrate cutting-edge technological solutions to streamline operations and create new value propositions.</p>
-                    </div>
-                </div>
-                
-                <!-- Service 3 -->
-                <div class="accordion-panel">
-                    <img src="assets/images/African youth are pivotal in transforming our food….jfif" class="accordion-bg" alt="Market Entry">
-                    <div class="accordion-content">
-                        <div class="icon">🌍</div>
-                        <h3>Market Entry</h3>
-                        <p class="panel-desc">Navigate regulatory landscapes and market nuances with our expert guidance for seamless expansion into Uganda and beyond.</p>
-                    </div>
-                </div>
-                
-                <!-- Service 4 -->
-                <div class="accordion-panel">
-                    <img src="assets/images/African youth are pivotal in transforming our food… (1).jfif" class="accordion-bg" alt="Capacity Building">
-                    <div class="accordion-content">
-                        <div class="icon">🤝</div>
-                        <h3>Capacity Building</h3>
-                        <p class="panel-desc">Empower your workforce through targeted training programs that foster leadership and operational excellence.</p>
-                    </div>
-                </div>
-                
-                <!-- Service 5 (NEW) -->
-                <div class="accordion-panel">
-                    <img src="assets/images/1138707087051779185.jfif" class="accordion-bg" alt="Financial Advisory">
-                    <div class="accordion-content">
-                        <div class="icon">💰</div>
-                        <h3>Financial Advisory</h3>
-                        <p class="panel-desc">Expert financial modeling, investment structuring, and risk management to secure sustainable capital.</p>
-                    </div>
-                </div>
-                
-                <!-- Service 6 (NEW) -->
-                <div class="accordion-panel">
-                    <img src="assets/images/151644712447426862.jfif" class="accordion-bg" alt="Digital Transformation">
-                    <div class="accordion-content">
-                        <div class="icon">🚀</div>
-                        <h3>Digital Transformation</h3>
-                        <p class="panel-desc">Migrate legacy systems and embrace cloud computing and AI automation to future-proof your business.</p>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- SUSTAINABILITY TAB -->
-        <section id="sustainability" class="tab-content">
-            <div class="page-header">
-                <h2>Our Commitment to <span class="highlight">Sustainability</span></h2>
-                <p>Building a future where business and society thrive together.</p>
-            </div>
-            <div class="sustainability-content">
-                <div class="interactive-image-container split-img">
-                    <img src="assets/images/Be part of the global movement to restore….jfif" alt="Community Sustainability" class="interactive-img hover-pan">
-                </div>
-                <div class="sustainability-text glass-panel">
-                    <h3>Sustainable Growth</h3>
-                    <p>At Afrinove, we believe that true business success cannot be decoupled from environmental stewardship and social responsibility. Our consulting frameworks inherently integrate sustainable practices.</p>
-                    <ul>
-                        <li>Empowering local communities in Uganda</li>
-                        <li>Fostering eco-friendly operational models</li>
-                        <li>Ensuring long-term economic viability</li>
-                    </ul>
-                    <button class="btn primary mt-4">Read Our Sustainability Report</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- PROJECT DASHBOARD TAB (NEW) -->
-        <section id="dashboard" class="tab-content">
-            <div class="page-header">
-                <h2>Project <span class="highlight">Dashboard</span></h2>
-                <p>Visualizing our impact and operations across the continent.</p>
-            </div>
-
-            <!-- Video Section -->
-            <div class="video-container glass-panel">
-                <h3>Featured Showcase</h3>
-                <div class="video-wrapper">
-                    <!-- Placeholder video tag: It will load your video if you name it 'video.mp4' and put it in 'assets' -->
-                    <video controls width="100%" height="auto" poster="assets/images/Most-liked video _ 2_4M views · 50K reactions….jfif">
-                        <source src="assets/video.mp4" type="video/mp4">
-                        <source src="assets/video.webm" type="video/webm">
-                        Your browser does not support the video tag. Please rename your video to "video.mp4" and place it in the assets folder!
-                    </video>
-                </div>
-            </div>
-
-            <div class="spacer" style="height: 4rem;"></div>
-
-            <!-- Dynamic Photo Dashboard -->
-            <div class="dashboard-masonry">
-                <div class="dash-item"><img src="assets/images/216876538302902672.jfif" alt="Dashboard Image"></div>
-                <div class="dash-item tall"><img src="assets/images/42432421483490782.jfif" alt="Dashboard Image"></div>
-                <div class="dash-item"><img src="assets/images/790311434633651891.jfif" alt="Dashboard Image"></div>
-                <div class="dash-item wide"><img src="assets/images/African Great Lakes.jfif" alt="African Lakes"></div>
-                <div class="dash-item"><img src="assets/images/Catching and identifying crayfish #nature….jfif" alt="Nature"></div>
-                <div class="dash-item tall"><img src="assets/images/Miners work the ore crushing machine and pan and….jfif" alt="Miners"></div>
-                <div class="dash-item"><img src="assets/images/Lake Bangweulu, a hidden gem in Zambia, offers a….jfif" alt="Lake"></div>
-                <div class="dash-item"><img src="assets/images/Kids fetching a tank of water from a well….jfif" alt="Community"></div>
-            </div>
-
-        </section>
-
-        <!-- LEGAL DOCUMENTS TAB -->
-        <section id="legal" class="tab-content">
-            <div class="page-header">
-                <h2>Legal & <span class="highlight">Compliance</span></h2>
-                <p>Transparency and legal integrity at the core of our operations.</p>
-            </div>
-            
-            <div class="legal-container glass-panel">
-                <div class="legal-header">
-                    <h3>Corporate Documentation</h3>
-                    <p>Afrinove Development Ltd is fully registered and incorporated in Uganda. Access our official company documents below.</p>
-                </div>
-                
-                <div class="documents-grid">
-                    <!-- Document Item -->
-                    <a href="assets/documents/AFRINOVE DEVELOPMENT LTD COMPANY DOCUMENTS PDF.pdf" target="_blank" class="document-card">
-                        <div class="doc-icon">📄</div>
-                        <div class="doc-info">
-                            <h4>Full Company Documents</h4>
-                            <p>Official registration in Uganda (PDF)</p>
-                        </div>
-                        <div class="doc-action">⬇ Download</div>
-                    </a>
-                    
-                    <!-- Document Item -->
-                    <a href="assets/documents/Afrinove company profile update.docx" target="_blank" class="document-card">
-                        <div class="doc-icon">📘</div>
-                        <div class="doc-info">
-                            <h4>Company Profile</h4>
-                            <p>Detailed overview of our firm (Docx)</p>
-                        </div>
-                        <div class="doc-action">⬇ Download</div>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <script src="script.js"></script>
+    // Counters
+    function animateCounter(el) {
+      const target = +el.dataset.target;
+      const suffix = el.dataset.suffix || '';
+      const dur = 1800;
+      const start = performance.now();
+      const easeOut = t => 1 - Math.pow(1 - t, 3);
+      const tick = (now) => {
+        const progress = Math.min((now - start) / dur, 1);
+        el.textContent = Math.floor(easeOut(progress) * target) + (progress === 1 ? suffix : '');
+        if (progress < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    }
+    const cObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { animateCounter(e.target); cObs.unobserve(e.target); }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('[data-target]').forEach(el => cObs.observe(el));
+  </script>
 </body>
+
 </html>
