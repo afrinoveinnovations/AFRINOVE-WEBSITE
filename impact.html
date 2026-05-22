@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impact | Afrinove</title>
+    <meta name="description" content="Afrinove Development Ltd bridges the gap between ambitious goals and sustainable reality in Africa. We provide bespoke, innovative solutions tailored to the dynamics of the African market.">
+    <meta property="og:title" content="Impact | Afrinove">
+    <meta property="og:description" content="Afrinove Development Ltd provides bespoke, innovative solutions tailored to the dynamics of the African market.">
+    <meta property="og:image" content="https://www.afrinove.com/images/afrinove_logo_page_1.png">
+    <meta property="og:url" content="https://www.afrinove.com/">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/png" href="./images/afrinove_logo_page_1.png">
+
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        .impact-header {
+            padding: 150px 5% 5rem;
+            background: var(--color-text-primary);
+            color: var(--color-surface);
+            text-align: center;
+        }
+        .impact-header h1 {
+            color: var(--color-surface);
+            font-size: clamp(3rem, 6vw, 5rem);
+            margin-bottom: 1rem;
+        }
+        .impact-header p {
+            font-size: 1.25rem;
+            color: #A09E9A;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Metric Counters */
+        .metrics-section {
+            padding: 5rem 5%;
+            background: var(--color-bg);
+            border-bottom: 1px solid var(--color-border);
+        }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        @media (min-width: 768px) {
+            .metrics-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+        .metric-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .metric-number {
+            font-family: var(--font-heading);
+            font-weight: 800;
+            font-size: 4rem;
+            color: var(--color-accent);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        .metric-label {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--color-text-primary);
+        }
+
+        /* Case Studies Accordion */
+        .case-studies-section {
+            padding: 5rem 5%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        .accordion-item {
+            border-bottom: 1px solid var(--color-border);
+            margin-bottom: 1rem;
+        }
+        .accordion-header {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            padding: 1.5rem 0;
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--color-text-primary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .accordion-icon {
+            font-size: 1.5rem;
+            color: var(--color-accent);
+            transition: transform var(--transition-smooth);
+        }
+        .accordion-header[aria-expanded="true"] .accordion-icon {
+            transform: rotate(45deg);
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+        .accordion-inner {
+            padding-bottom: 2rem;
+            color: var(--color-text-muted);
+            line-height: 1.8;
+        }
+        .accordion-inner strong {
+            color: var(--color-text-primary);
+            display: block;
+            margin-top: 1rem;
+        }
+
+        /* Partners Logo Grid */
+        .partners-section {
+            padding: 5rem 5%;
+            background: var(--color-surface);
+        }
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            align-items: center;
+            justify-items: center;
+        }
+        @media (min-width: 768px) {
+            .partners-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+        .partner-logo {
+            width: 150px;
+            height: 80px;
+            object-fit: contain;
+            filter: grayscale(100%) opacity(0.6);
+            transition: filter var(--transition-smooth);
+        }
+        .partner-logo:hover {
+            filter: grayscale(0%) opacity(1);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav-overlay" id="mobileNav">
+        <a href="./index.html">Home</a>
+        <a href="./about.html">About</a>
+        <a href="./services.html">Services</a>
+        <a href="./impact.html">Impact</a>
+        <a href="./dashboard.html">Dashboard</a>
+        <a href="./contact.html">Contact Us</a>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <nav class="navbar">
+        <a href="./index.html" class="logo">
+            <img src="./images/afrinove_logo_page_1.png" alt="Logo" class="nav-logo-icon">
+            AFRINOVE
+        </a>
+        <ul class="nav-links">
+            <li><a href="./index.html" class="nav-item">Home</a></li>
+            <li><a href="./about.html" class="nav-item">About</a></li>
+            <li><a href="./services.html" class="nav-item">Services</a></li>
+            <li><a href="./impact.html" class="nav-item active">Impact</a></li>
+            <li><a href="./dashboard.html" class="nav-item">Dashboard</a></li>
+            <li><a href="./contact.html" class="nav-item">Contact Us</a></li>
+        </ul>
+        <a href="./contact.html" class="btn nav-cta">Start a Project</a>
+        <div class="hamburger" id="hamburgerBtn">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <main class="page-transition">
+        
+        <header class="impact-header">
+            <h1>Measurable Impact</h1>
+            <p>We don't just strategize; we deliver tangible results that drive sustainable growth across the African continent.</p>
+        </header>
+
+        <!-- Metric Counters -->
+        <section class="metrics-section">
+            <div class="metrics-grid" id="metricsContainer">
+                <div class="metric-item">
+                    <div class="metric-number"><span class="count-up" data-target="150">0</span>+</div>
+                    <div class="metric-label">Projects Delivered</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-number"><span class="count-up" data-target="12">0</span></div>
+                    <div class="metric-label">African Countries</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-number"><span class="count-up" data-target="50">0</span>M+</div>
+                    <div class="metric-label">Capital Advised ($)</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-number"><span class="count-up" data-target="98">0</span>%</div>
+                    <div class="metric-label">Client Retention</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Studies Accordion -->
+        <section class="case-studies-section">
+            <h2 class="section-title">Case Studies</h2>
+            
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    Zombo Regional Coffee Export Initiative
+                    <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        <strong>The Challenge</strong>
+                        Local farmers in the Zombo region lacked direct access to premium international markets, relying on intermediaries that significantly reduced their margins and stifled sustainable growth.
+                        <strong>Our Solution</strong>
+                        Afrinove architected a comprehensive digital supply chain transparency tool and provided strategic financial advisory to form a centralized cooperative. We implemented quality control frameworks (as seen in our 'Coffee Inspected' initiative) to meet global standards.
+                        <strong>The Result</strong>
+                        A 300% increase in direct-to-market exports within 18 months, securing premium pricing and directly impacting the livelihoods of over 5,000 regional farmers.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    FinTech Infrastructure Overhaul
+                    <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        <strong>The Challenge</strong>
+                        A legacy regional bank struggled with outdated core banking systems, leading to high transaction failure rates and massive customer churn to agile mobile-first competitors.
+                        <strong>Our Solution</strong>
+                        We led a ground-up digital transformation initiative, integrating modern API gateways and establishing a cloud-native microservices architecture, without disrupting ongoing operations.
+                        <strong>The Result</strong>
+                        System uptime improved to 99.99%, transaction processing speed increased by 40x, and the bank successfully launched a new digital wallet product acquiring 100k users in Q1.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    Agricultural Youth Empowerment Program
+                    <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-inner">
+                        <strong>The Challenge</strong>
+                        High youth unemployment combined with aging farming demographics threatened long-term food security and economic stability in East Africa.
+                        <strong>Our Solution</strong>
+                        Afrinove partnered with NGOs to design and execute a scalable capacity-building program, focusing on modern agritech adoption, business management, and micro-financing for young agri-preneurs.
+                        <strong>The Result</strong>
+                        Successfully trained and funded over 500 youth-led agricultural startups, creating a ripple effect of over 2,000 secondary jobs in local communities.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partners Logo Grid (Trust Signals) -->
+        <section class="partners-section">
+            <h2 class="section-title" style="margin-bottom: 2rem; font-size: 2rem;">Trusted By Industry Leaders</h2>
+            <div class="partners-grid">
+                <!-- Using placeholder tech brand styling -->
+                <img src="./images/151644712447426862.jpg" alt="Partner Logo 1" class="partner-logo">
+                <img src="./images/790311434633651891.jpg" alt="Partner Logo 2" class="partner-logo">
+                <img src="./images/1138707087051779185.jpg" alt="Partner Logo 3" class="partner-logo">
+                <img src="./images/168814686017211912.jpg" alt="Partner Logo 4" class="partner-logo">
+                <img src="./images/3870349675524717.jfif" alt="Partner Logo 5" class="partner-logo">
+                <img src="./images/41869471531712168.jpg" alt="Partner Logo 6" class="partner-logo">
+                <img src="./images/8936899258488051.jpg" alt="Partner Logo 7" class="partner-logo">
+                <img src="./images/90916486222542144.jpg" alt="Partner Logo 8" class="partner-logo">
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h4 class="logo"><img src="./images/afrinove_logo_page_1.png" alt="Afrinove Logo"></h4>
+                <p style="color: #A09E9A;">Innovating solutions for Africa's growth. Deep local insights combined with global standards.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Pages</h4>
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./about.html">About</a></li>
+                    <li><a href="./services.html">Services</a>
+        <a href="./impact.html">Impact</a></li>
+                    <li><a href="./dashboard.html">Dashboard</a></li>
+                    <li><a href="./contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li>Strategic Planning</li>
+                    <li>Digital Transformation</li>
+                    <li>Financial Advisory</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li>P.O BOX 187837 KAMPALA GPO</li>
+                    <li>KIKONI MAKERERE, SIR APOLLO KAGWA RD</li>
+                    <li>COMPANY REG NO: 80034766722937</li>
+                    <li>afrinoves@gmail.com</li>
+                    <li>+256759738401 / +256703096911</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; <span id="year"></span> Afrinove Development Ltd. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="./js/main.js"></script>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Counter Animation using IntersectionObserver
+        const counters = document.querySelectorAll('.count-up');
+        let animated = false;
+
+        const animateCounters = () => {
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const duration = 2000; // ms
+                const increment = target / (duration / 16); // 60fps
+
+                let current = 0;
+                const updateCounter = () => {
+                    current += increment;
+                    if (current < target) {
+                        counter.innerText = Math.ceil(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCounter();
+            });
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting && !animated) {
+                animated = true;
+                animateCounters();
+            }
+        }, { threshold: 0.5 });
+
+        const metricsContainer = document.getElementById('metricsContainer');
+        if(metricsContainer) observer.observe(metricsContainer);
+
+        // Accordion Logic
+        const accordions = document.querySelectorAll('.accordion-header');
+        accordions.forEach(acc => {
+            acc.addEventListener('click', function() {
+                // Close others (optional, but good for UX)
+                accordions.forEach(other => {
+                    if (other !== this) {
+                        other.setAttribute('aria-expanded', 'false');
+                        other.nextElementSibling.style.maxHeight = null;
+                    }
+                });
+
+                const expanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', !expanded);
+                
+                const content = this.nextElementSibling;
+                if (!expanded) {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                } else {
+                    content.style.maxHeight = null;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
