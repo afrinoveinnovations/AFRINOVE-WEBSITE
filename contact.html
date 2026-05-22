@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -191,3 +192,198 @@
     <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Afrinove</title>
+    <meta name="description" content="Afrinove Development Ltd bridges the gap between ambitious goals and sustainable reality in Africa. We provide bespoke, innovative solutions tailored to the dynamics of the African market.">
+    <meta property="og:title" content="Contact Us | Afrinove">
+    <meta property="og:description" content="Afrinove Development Ltd provides bespoke, innovative solutions tailored to the dynamics of the African market.">
+    <meta property="og:image" content="https://www.afrinove.com/images/afrinove_logo_page_1.png">
+    <meta property="og:url" content="https://www.afrinove.com/">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/png" href="./images/afrinove_logo_page_1.png">
+
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav-overlay" id="mobileNav">
+        <a href="./index.html">Home</a>
+        <a href="./about.html">About</a>
+        <a href="./services.html">Services</a>
+        <a href="./impact.html">Impact</a>
+        <a href="./dashboard.html">Dashboard</a>
+        <a href="./contact.html">Contact Us</a>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <nav class="navbar">
+        <a href="./index.html" class="logo">
+            <img src="./images/afrinove_logo_page_1.png" alt="Logo" class="nav-logo-icon">
+            AFRINOVE
+        </a>
+        <ul class="nav-links">
+            <li><a href="./index.html" class="nav-item">Home</a></li>
+            <li><a href="./about.html" class="nav-item">About</a></li>
+            <li><a href="./services.html" class="nav-item">Services</a></li>
+            <li><a href="./impact.html" class="nav-item">Impact</a></li>
+            <li><a href="./dashboard.html" class="nav-item">Dashboard</a></li>
+            <li><a href="./contact.html" class="nav-item active">Contact Us</a></li>
+        </ul>
+        <a href="./contact.html" class="btn nav-cta">Start a Project</a>
+        <div class="hamburger" id="hamburgerBtn">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <!-- Page Content Container -->
+    <main class="page-transition">
+        
+        <!-- Task 6: Contact Split Screen -->
+        <div class="contact-split">
+            
+            <div class="contact-brand">
+                <h1>Let's build<br>the future.</h1>
+                <p>We partner with ambitious leaders across Africa to solve complex problems and capture explosive growth opportunities.</p>
+                
+                <div class="contact-info">
+                    <div class="contact-info-item">
+                        <span>📍</span>
+                        <span style="font-size: 0.9rem;">P.O BOX 187837 KAMPALA GPO<br>KIKONI MAKERERE, SIR APOLLO KAGWA RD<br>COMPANY REG NO: 80034766722937</span>
+                    </div>
+                    <div class="contact-info-item">
+                        <span>✉️</span>
+                        <span>afrinoves@gmail.com</span>
+                    </div>
+                    <div class="contact-info-item">
+                        <span>📞</span>
+                        <span>+256759738401 / +256703096911</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-side">
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Jane Doe" required data-fs-field>
+                        <span class="error-msg" data-fs-error="name"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="jane@example.com" required data-fs-field>
+                        <span class="error-msg" data-fs-error="email"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company (Optional)</label>
+                        <input type="text" id="company" name="company" class="form-control" placeholder="Your Company Ltd." data-fs-field>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <select id="subject" name="subject" class="form-control" required data-fs-field>
+                            <option value="">Select a subject...</option>
+                            <option value="General Enquiry">General Enquiry</option>
+                            <option value="Partnership">Partnership</option>
+                            <option value="Media">Media</option>
+                            <option value="Careers">Careers</option>
+                        </select>
+                        <span class="error-msg" data-fs-error="subject"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" class="form-control" rows="5" placeholder="How can we help you?" required data-fs-field></textarea>
+                        <span class="error-msg" data-fs-error="message"></span>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;" data-fs-submit-btn>Send Message</button>
+                    
+                    <div data-fs-success style="margin-top: 1.5rem; padding: 1rem; background: #E8A020; color: #1A1814; font-weight: 700; text-align: center; display: none;">
+                        Thank you! Your message has been sent successfully. We will get back to you shortly.
+                    </div>
+                </form>
+
+                <!-- Google Maps Placeholder -->
+                <div class="map-embed">
+                    <!-- Standard iframe placeholder -->
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127641.45564883404!2d32.484277717462744!3d0.3135999745344383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbc0f9d74b39b%3A0x4538903dd96b6fec!2sKampala%2C%20Uganda!5e0!3m2!1sen!2sus!4v1716053351939!5m2!1sen!2sus" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h4 class="logo"><img src="./images/afrinove_logo_page_1.png" alt="Afrinove Logo"></h4>
+                <p style="color: #A09E9A;">Innovating solutions for Africa's growth. Deep local insights combined with global standards.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Pages</h4>
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./about.html">About</a></li>
+                    <li><a href="./services.html">Services</a>
+        <a href="./impact.html">Impact</a></li>
+                    <li><a href="./dashboard.html">Dashboard</a></li>
+                    <li><a href="./contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li>Strategic Planning</li>
+                    <li>Digital Transformation</li>
+                    <li>Financial Advisory</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li>P.O BOX 187837 KAMPALA GPO</li>
+                    <li>KIKONI MAKERERE, SIR APOLLO KAGWA RD</li>
+                    <li>COMPANY REG NO: 80034766722937</li>
+                    <li>afrinoves@gmail.com</li>
+                    <li>+256759738401 / +256703096911</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; <span id="year"></span> Afrinove Development Ltd. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="./js/main.js"></script>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Formspree Integration
+        window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+        formspree('initForm', { formElement: '#contactForm', formId: 'mbdbdzbv' });
+
+        // Ensure success message displays properly by overriding display block
+        const form = document.getElementById('contactForm');
+        form.addEventListener('formspree:success', function() {
+            const successDiv = document.querySelector('[data-fs-success]');
+            if(successDiv) successDiv.style.display = 'block';
+            form.reset();
+        });
+    </script>
+    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+</body>
+</html>
+>>>>>>> 828143206a07ad9e811323bcaf8100066891d232
