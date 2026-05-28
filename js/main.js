@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="hero-content">
                     <h2>${slide.headline}</h2>
                     <p>${slide.subline}</p>
-                    <a href="./contact.html" class="btn">Discover More</a>
+                    <a href="/contact" class="btn">Discover More</a>
                 </div>
             `;
             heroTrack.appendChild(slideEl);
@@ -458,7 +458,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="hero-content">
                     <h2>${slide.headline}</h2>
                     <p>${slide.subline}</p>
-                    <a href="./contact.html" class="btn">Discover More</a>
+                    <a href="/contact" class="btn">Discover More</a>
                 </div>
             `;
             heroTrack.appendChild(slideEl);
