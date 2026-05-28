@@ -1,389 +1,461 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | Afrinove</title>
-    <meta name="description" content="Afrinove Development Ltd bridges the gap between ambitious goals and sustainable reality in Africa. We provide bespoke, innovative solutions tailored to the dynamics of the African market.">
-    <meta property="og:title" content="Contact Us | Afrinove">
-    <meta property="og:description" content="Afrinove Development Ltd provides bespoke, innovative solutions tailored to the dynamics of the African market.">
-    <meta property="og:image" content="https://www.afrinove.com/images/afrinove_logo_page_1.png">
-    <meta property="og:url" content="https://www.afrinove.com/">
-    <meta name="twitter:card" content="summary_large_image">
-    <link rel="icon" type="image/png" href="./images/afrinove_logo_page_1.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | Afrinove Development Ltd</title>
+  <meta name="description" content="Get in touch with Afrinove Development Ltd — Africa's premier development consultancy based in Kampala, Uganda." />
+  <meta property="og:title" content="Contact Us | Afrinove Development Ltd" />
+  <meta property="og:description" content="Partner with Afrinove to transform Africa's future." />
+  <meta property="og:url" content="https://afrinove.com/contact" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <link rel="icon" href="/images/afrinove_logo_page_1.png" />
 
-    <link rel="stylesheet" href="./css/style.css">
+  <!-- ── Fonts ── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg:        #0a0a0a;
+      --surface:   #111111;
+      --surface2:  #161616;
+      --border:    rgba(255,255,255,0.08);
+      --gold:      #c9a84c;
+      --gold-soft: rgba(201,168,76,0.12);
+      --text:      #e8e4dc;
+      --muted:     rgba(232,228,220,0.55);
+      --font-head: 'Cormorant Garamond', serif;
+      --font-body: 'Inter', sans-serif;
+      --radius:    6px;
+      --max:       1200px;
+      --transition: 0.3s ease;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 3rem;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 0.6rem;
+      font-family: var(--font-head); font-size: 1.3rem; font-weight: 600;
+      letter-spacing: 0.08em;
+    }
+    .nav-logo img { height: 36px; width: auto; }
+    .nav-links { display: flex; align-items: center; gap: 2.2rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--muted);
+      transition: color var(--transition);
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); }
+    .nav-cta {
+      display: inline-flex; align-items: center;
+      padding: 0.55rem 1.4rem;
+      border: 1px solid var(--gold);
+      color: var(--gold); font-size: 0.82rem; font-weight: 500;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      transition: background var(--transition), color var(--transition);
+    }
+    .nav-cta:hover { background: var(--gold); color: var(--bg); }
+
+    /* ── HERO ── */
+    .contact-hero {
+      padding: 10rem 3rem 5rem;
+      max-width: var(--max); margin: 0 auto;
+      border-bottom: 1px solid var(--border);
+    }
+    .contact-hero .label {
+      font-size: 0.78rem; font-weight: 500; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem;
+    }
+    .contact-hero h1 {
+      font-family: var(--font-head);
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 400; line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+    .contact-hero h1 em { font-style: italic; color: var(--gold); }
+    .contact-hero p {
+      max-width: 540px; color: var(--muted); font-size: 1.05rem;
+    }
+
+    /* ── MAIN CONTACT SECTION ── */
+    .contact-section {
+      max-width: var(--max); margin: 0 auto;
+      padding: 6rem 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── INFO COLUMN ── */
+    .contact-info h2 {
+      font-family: var(--font-head);
+      font-size: 1.8rem; font-weight: 400;
+      margin-bottom: 1.5rem;
+    }
+    .contact-info p { color: var(--muted); margin-bottom: 0.6rem; font-size: 0.93rem; }
+    .info-item {
+      display: flex; align-items: flex-start; gap: 1rem;
+      padding: 1.2rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .info-item:last-of-type { border-bottom: none; }
+    .info-icon {
+      width: 38px; height: 38px; flex-shrink: 0;
+      background: var(--gold-soft);
+      border: 1px solid rgba(201,168,76,0.25);
+      border-radius: var(--radius);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+    }
+    .info-text .label {
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 0.2rem;
+    }
+    .info-text p { color: var(--muted); font-size: 0.88rem; margin: 0; }
+    .info-text a { color: var(--muted); transition: color var(--transition); }
+    .info-text a:hover { color: var(--gold); }
+
+    /* ── FORM COLUMN ── */
+    .contact-form-wrap h2 {
+      font-family: var(--font-head);
+      font-size: 1.8rem; font-weight: 400;
+      margin-bottom: 1.5rem;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+    .form-group {
+      display: flex; flex-direction: column; gap: 0.4rem;
+    }
+    .form-group.full { grid-column: 1 / -1; }
+    label {
+      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--muted);
+    }
+    input, select, textarea {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 0.93rem;
+      padding: 0.75rem 1rem;
+      outline: none;
+      transition: border-color var(--transition);
+      width: 100%;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--gold);
+    }
+    select option { background: var(--surface); }
+    textarea { resize: vertical; min-height: 140px; }
+    .submit-btn {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: var(--gold);
+      color: var(--bg);
+      border: none; cursor: pointer;
+      font-family: var(--font-body);
+      font-size: 0.85rem; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 0.9rem 2.2rem;
+      border-radius: var(--radius);
+      margin-top: 0.5rem;
+      transition: opacity var(--transition), transform var(--transition);
+    }
+    .submit-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+    .form-success {
+      display: none;
+      background: var(--gold-soft);
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: var(--radius);
+      padding: 1rem 1.4rem;
+      color: var(--gold);
+      font-size: 0.9rem;
+      margin-top: 1rem;
+    }
+
+    /* ── MAP SECTION ── */
+    .map-section {
+      max-width: var(--max); margin: 0 auto;
+      padding: 4rem 3rem 6rem;
+    }
+    .map-section h2 {
+      font-family: var(--font-head);
+      font-size: 1.8rem; font-weight: 400;
+      margin-bottom: 1.5rem;
+    }
+    .map-wrap {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .map-wrap iframe {
+      width: 100%; height: 420px;
+      display: block; border: none;
+      filter: grayscale(0.6) invert(0.85) hue-rotate(180deg);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 4rem 3rem 2rem;
+    }
+    .footer-inner {
+      max-width: var(--max); margin: 0 auto;
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 3rem;
+    }
+    .footer-brand .logo-text {
+      font-family: var(--font-head); font-size: 1.4rem; font-weight: 600;
+      letter-spacing: 0.08em; margin-bottom: 0.8rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .footer-brand .logo-text img { height: 30px; width: auto; }
+    .footer-brand p { font-size: 0.88rem; max-width: 260px; color: var(--muted); }
+    .footer-col h4 {
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 1.2rem;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 0.6rem; }
+    .footer-col a { font-size: 0.88rem; color: var(--muted); transition: color var(--transition); }
+    .footer-col a:hover { color: var(--text); }
+    .footer-col p { font-size: 0.88rem; color: var(--muted); }
+    .footer-bottom {
+      max-width: var(--max); margin: 3rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.8rem; color: var(--muted);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links, .nav-cta { display: none; }
+      .contact-hero { padding: 6rem 1.5rem 3rem; }
+      .contact-section { grid-template-columns: 1fr; gap: 3rem; padding: 3rem 1.5rem; }
+      .form-grid { grid-template-columns: 1fr; }
+      .map-section { padding: 2rem 1.5rem 4rem; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Mobile Nav Overlay -->
-    <div class="mobile-nav-overlay" id="mobileNav">
-        <a href="./index.html">Home</a>
-        <a href="./about.html">About</a>
-        <a href="./services.html">Services</a>
-        <a href="./impact.html">Impact</a>
-        <a href="./dashboard.html">Dashboard</a>
-        <a href="./contact.html">Contact Us</a>
+  <!-- ── NAVIGATION ── -->
+  <nav>
+    <a href="/" class="nav-logo">
+      <img src="/images/afrinove_logo_page_1.png" alt="Afrinove Logo" />
+      AFRINOVE
+    </a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/services">Services</a></li>
+      <li><a href="/impact">Impact</a></li>
+      <li><a href="/blog">Insights</a></li>
+      <li><a href="/contact" class="active">Contact</a></li>
+    </ul>
+    <a href="/contact" class="nav-cta">Start a Project</a>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <div class="contact-hero">
+    <p class="label">Get In Touch</p>
+    <h1>Let's Build the <em>Future.</em></h1>
+    <p>We partner with ambitious leaders across Africa to solve complex problems and capture explosive growth opportunities.</p>
+  </div>
+
+  <!-- ── CONTACT SECTION ── -->
+  <div class="contact-section">
+
+    <!-- Info Column -->
+    <div class="contact-info">
+      <h2>Reach Out Directly</h2>
+
+      <div class="info-item">
+        <div class="info-icon">📍</div>
+        <div class="info-text">
+          <p class="label">Office Address</p>
+          <p>Kikoni Makerere, Sir Apollo Kagwa Rd</p>
+          <p>P.O. Box 187837, Kampala GPO</p>
+          <p>Uganda</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-icon">✉️</div>
+        <div class="info-text">
+          <p class="label">Email</p>
+          <a href="mailto:info@afrinove.com">info@afrinove.com</a>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-icon">📞</div>
+        <div class="info-text">
+          <p class="label">Phone</p>
+          <a href="tel:+256759738401">+256 759 738 401</a><br />
+          <a href="tel:+256703096911">+256 703 096 911</a>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-icon">🏢</div>
+        <div class="info-text">
+          <p class="label">Registration</p>
+          <p>Reg No: 80034766722937</p>
+        </div>
+      </div>
     </div>
 
-    <!-- Sticky Navigation -->
-    <nav class="navbar">
-        <a href="./index.html" class="logo">
-            <img src="./images/afrinove_logo_page_1.png" alt="Logo" class="nav-logo-icon">
-            AFRINOVE
-        </a>
-        <ul class="nav-links">
-            <li><a href="./index.html" class="nav-item">Home</a></li>
-            <li><a href="./about.html" class="nav-item">About</a></li>
-            <li><a href="./services.html" class="nav-item">Services</a></li>
-            <li><a href="./impact.html" class="nav-item">Impact</a></li>
-            <li><a href="./dashboard.html" class="nav-item">Dashboard</a></li>
-            <li><a href="./contact.html" class="nav-item active">Contact Us</a></li>
-        </ul>
-        <a href="./contact.html" class="btn nav-cta">Start a Project</a>
-        <div class="hamburger" id="hamburgerBtn">
-            <span></span><span></span><span></span>
+    <!-- Form Column -->
+    <div class="contact-form-wrap">
+      <h2>Send a Message</h2>
+      <form id="contactForm" onsubmit="handleSubmit(event)">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="fullName">Full Name *</label>
+            <input type="text" id="fullName" name="fullName" placeholder="Your full name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required />
+          </div>
+          <div class="form-group">
+            <label for="company">Company</label>
+            <input type="text" id="company" name="company" placeholder="Your organisation (optional)" />
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject *</label>
+            <select id="subject" name="subject" required>
+              <option value="" disabled selected>Select a subject…</option>
+              <option value="general">General Enquiry</option>
+              <option value="partnership">Partnership</option>
+              <option value="investment">Investment Enquiry</option>
+              <option value="minerals">Minerals &amp; Mining</option>
+              <option value="project">Project Management</option>
+              <option value="media">Media</option>
+              <option value="careers">Careers</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" placeholder="Tell us about your project, challenge, or opportunity…" required></textarea>
+          </div>
         </div>
-    </nav>
-
-    <!-- Page Content Container -->
-    <main class="page-transition">
-        
-        <!-- Task 6: Contact Split Screen -->
-        <div class="contact-split">
-            
-            <div class="contact-brand">
-                <h1>Let's build<br>the future.</h1>
-                <p>We partner with ambitious leaders across Africa to solve complex problems and capture explosive growth opportunities.</p>
-                
-                <div class="contact-info">
-                    <div class="contact-info-item">
-                        <span>📍</span>
-                        <span style="font-size: 0.9rem;">P.O BOX 187837 KAMPALA GPO<br>KIKONI MAKERERE, SIR APOLLO KAGWA RD<br>COMPANY REG NO: 80034766722937</span>
-                    </div>
-                    <div class="contact-info-item">
-                        <span>✉️</span>
-                        <span>afrinoves@gmail.com</span>
-                    </div>
-                    <div class="contact-info-item">
-                        <span>📞</span>
-                        <span>+256759738401 / +256703096911</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="contact-form-side">
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" class="form-control" placeholder="Jane Doe" required data-fs-field>
-                        <span class="error-msg" data-fs-error="name"></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" class="form-control" placeholder="jane@example.com" required data-fs-field>
-                        <span class="error-msg" data-fs-error="email"></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="company">Company (Optional)</label>
-                        <input type="text" id="company" name="company" class="form-control" placeholder="Your Company Ltd." data-fs-field>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <select id="subject" name="subject" class="form-control" required data-fs-field>
-                            <option value="">Select a subject...</option>
-                            <option value="General Enquiry">General Enquiry</option>
-                            <option value="Partnership">Partnership</option>
-                            <option value="Media">Media</option>
-                            <option value="Careers">Careers</option>
-                        </select>
-                        <span class="error-msg" data-fs-error="subject"></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" class="form-control" rows="5" placeholder="How can we help you?" required data-fs-field></textarea>
-                        <span class="error-msg" data-fs-error="message"></span>
-                    </div>
-                    <button type="submit" class="btn" style="width: 100%;" data-fs-submit-btn>Send Message</button>
-                    
-                    <div data-fs-success style="margin-top: 1.5rem; padding: 1rem; background: #E8A020; color: #1A1814; font-weight: 700; text-align: center; display: none;">
-                        Thank you! Your message has been sent successfully. We will get back to you shortly.
-                    </div>
-                </form>
-
-                <!-- Google Maps Placeholder -->
-                <div class="map-embed">
-                    <!-- Standard iframe placeholder -->
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127641.45564883404!2d32.484277717462744!3d0.3135999745344383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbc0f9d74b39b%3A0x4538903dd96b6fec!2sKampala%2C%20Uganda!5e0!3m2!1sen!2sus!4v1716053351939!5m2!1sen!2sus" 
-                        width="100%" 
-                        height="100%" 
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
-            </div>
-
+        <button type="submit" class="submit-btn">Send Message →</button>
+        <div class="form-success" id="formSuccess">
+          ✓ Your message has been sent successfully. We will get back to you shortly.
         </div>
-
-    </main>
-
-    <!-- Global Footer -->
-    <footer class="footer">
-        <div class="container footer-grid">
-            <div class="footer-col">
-                <h4 class="logo"><img src="./images/afrinove_logo_page_1.png" alt="Afrinove Logo"></h4>
-                <p style="color: #A09E9A;">Innovating solutions for Africa's growth. Deep local insights combined with global standards.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Pages</h4>
-                <ul>
-                    <li><a href="./index.html">Home</a></li>
-                    <li><a href="./about.html">About</a></li>
-                    <li><a href="./services.html">Services</a>
-        <a href="./impact.html">Impact</a></li>
-                    <li><a href="./dashboard.html">Dashboard</a></li>
-                    <li><a href="./contact.html">Contact Us</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Services</h4>
-                <ul>
-                    <li>Strategic Planning</li>
-                    <li>Digital Transformation</li>
-                    <li>Financial Advisory</li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Contact</h4>
-                <ul>
-                    <li>P.O BOX 187837 KAMPALA GPO</li>
-                    <li>KIKONI MAKERERE, SIR APOLLO KAGWA RD</li>
-                    <li>COMPANY REG NO: 80034766722937</li>
-                    <li>afrinoves@gmail.com</li>
-                    <li>+256759738401 / +256703096911</li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            &copy; <span id="year"></span> Afrinove Development Ltd. All rights reserved.
-        </div>
-    </footer>
-
-    <script src="./js/main.js"></script>
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-        
-        // Formspree Integration
-        window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
-        formspree('initForm', { formElement: '#contactForm', formId: 'mbdbdzbv' });
-
-        // Ensure success message displays properly by overriding display block
-        const form = document.getElementById('contactForm');
-        form.addEventListener('formspree:success', function() {
-            const successDiv = document.querySelector('[data-fs-success]');
-            if(successDiv) successDiv.style.display = 'block';
-            form.reset();
-        });
-    </script>
-    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
-</body>
-</html>
-=======
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | Afrinove</title>
-    <meta name="description" content="Afrinove Development Ltd bridges the gap between ambitious goals and sustainable reality in Africa. We provide bespoke, innovative solutions tailored to the dynamics of the African market.">
-    <meta property="og:title" content="Contact Us | Afrinove">
-    <meta property="og:description" content="Afrinove Development Ltd provides bespoke, innovative solutions tailored to the dynamics of the African market.">
-    <meta property="og:image" content="https://www.afrinove.com/images/afrinove_logo_page_1.png">
-    <meta property="og:url" content="https://www.afrinove.com/">
-    <meta name="twitter:card" content="summary_large_image">
-    <link rel="icon" type="image/png" href="./images/afrinove_logo_page_1.png">
-
-    <link rel="stylesheet" href="./css/style.css">
-</head>
-<body>
-
-    <!-- Mobile Nav Overlay -->
-    <div class="mobile-nav-overlay" id="mobileNav">
-        <a href="./index.html">Home</a>
-        <a href="./about.html">About</a>
-        <a href="./services.html">Services</a>
-        <a href="./impact.html">Impact</a>
-        <a href="./dashboard.html">Dashboard</a>
-        <a href="./contact.html">Contact Us</a>
+      </form>
     </div>
 
-    <!-- Sticky Navigation -->
-    <nav class="navbar">
-        <a href="./index.html" class="logo">
-            <img src="./images/afrinove_logo_page_1.png" alt="Logo" class="nav-logo-icon">
-            AFRINOVE
-        </a>
-        <ul class="nav-links">
-            <li><a href="./index.html" class="nav-item">Home</a></li>
-            <li><a href="./about.html" class="nav-item">About</a></li>
-            <li><a href="./services.html" class="nav-item">Services</a></li>
-            <li><a href="./impact.html" class="nav-item">Impact</a></li>
-            <li><a href="./dashboard.html" class="nav-item">Dashboard</a></li>
-            <li><a href="./contact.html" class="nav-item active">Contact Us</a></li>
+  </div>
+
+  <!-- ── MAP ── -->
+  <div class="map-section">
+    <h2>Find Us in Kampala</h2>
+    <div class="map-wrap">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127641.45564883404!2d32.484277717462744!3d0.3135999745344383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbc0f9d74b39b%3A0x4538903dd96b6fec!2sKampala%2C%20Uganda!5e0!3m2!1sen!2sus!4v1716053351939!5m2!1sen!2sus"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Afrinove Office — Kampala, Uganda"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo-text">
+          <img src="/images/afrinove_logo_page_1.png" alt="Afrinove Logo" />
+          AFRINOVE
+        </div>
+        <p>Innovating solutions for Africa's growth. Deep local insights combined with global standards.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/impact">Impact</a></li>
+          <li><a href="/blog">Insights</a></li>
+          <li><a href="/contact">Contact</a></li>
         </ul>
-        <a href="./contact.html" class="btn nav-cta">Start a Project</a>
-        <div class="hamburger" id="hamburgerBtn">
-            <span></span><span></span><span></span>
-        </div>
-    </nav>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/services">Strategic Planning</a></li>
+          <li><a href="/services">Digital Transformation</a></li>
+          <li><a href="/services">Financial Advisory</a></li>
+          <li><a href="/services">Minerals &amp; Mining</a></li>
+          <li><a href="/services">Escrow &amp; Finance</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>P.O. Box 187837, Kampala GPO</p>
+        <p>Kikoni Makerere, Sir Apollo Kagwa Rd</p>
+        <p style="margin-top:0.8rem;"><a href="mailto:info@afrinove.com">info@afrinove.com</a></p>
+        <p><a href="tel:+256759738401">+256 759 738 401</a></p>
+        <p><a href="tel:+256703096911">+256 703 096 911</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Afrinove Development Ltd. All rights reserved.</span>
+      <span>Reg No: 80034766722937</span>
+    </div>
+  </footer>
 
-    <!-- Page Content Container -->
-    <main class="page-transition">
-        
-        <!-- Task 6: Contact Split Screen -->
-        <div class="contact-split">
-            
-            <div class="contact-brand">
-                <h1>Let's build<br>the future.</h1>
-                <p>We partner with ambitious leaders across Africa to solve complex problems and capture explosive growth opportunities.</p>
-                
-                <div class="contact-info">
-                    <div class="contact-info-item">
-                        <span>📍</span>
-                        <span style="font-size: 0.9rem;">P.O BOX 187837 KAMPALA GPO<br>KIKONI MAKERERE, SIR APOLLO KAGWA RD<br>COMPANY REG NO: 80034766722937</span>
-                    </div>
-                    <div class="contact-info-item">
-                        <span>✉️</span>
-                        <span>afrinoves@gmail.com</span>
-                    </div>
-                    <div class="contact-info-item">
-                        <span>📞</span>
-                        <span>+256759738401 / +256703096911</span>
-                    </div>
-                </div>
-            </div>
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.submit-btn');
+      const success = document.getElementById('formSuccess');
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+      // Simulate send — replace with your actual form handler / Formspree / Netlify Forms endpoint
+      setTimeout(() => {
+        success.style.display = 'block';
+        btn.textContent = 'Sent ✓';
+        e.target.reset();
+      }, 1200);
+    }
+  </script>
 
-            <div class="contact-form-side">
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" class="form-control" placeholder="Jane Doe" required data-fs-field>
-                        <span class="error-msg" data-fs-error="name"></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" class="form-control" placeholder="jane@example.com" required data-fs-field>
-                        <span class="error-msg" data-fs-error="email"></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="company">Company (Optional)</label>
-                        <input type="text" id="company" name="company" class="form-control" placeholder="Your Company Ltd." data-fs-field>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <select id="subject" name="subject" class="form-control" required data-fs-field>
-                            <option value="">Select a subject...</option>
-                            <option value="General Enquiry">General Enquiry</option>
-                            <option value="Partnership">Partnership</option>
-                            <option value="Media">Media</option>
-                            <option value="Careers">Careers</option>
-                        </select>
-                        <span class="error-msg" data-fs-error="subject"></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" class="form-control" rows="5" placeholder="How can we help you?" required data-fs-field></textarea>
-                        <span class="error-msg" data-fs-error="message"></span>
-                    </div>
-                    <button type="submit" class="btn" style="width: 100%;" data-fs-submit-btn>Send Message</button>
-                    
-                    <div data-fs-success style="margin-top: 1.5rem; padding: 1rem; background: #E8A020; color: #1A1814; font-weight: 700; text-align: center; display: none;">
-                        Thank you! Your message has been sent successfully. We will get back to you shortly.
-                    </div>
-                </form>
-
-                <!-- Google Maps Placeholder -->
-                <div class="map-embed">
-                    <!-- Standard iframe placeholder -->
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127641.45564883404!2d32.484277717462744!3d0.3135999745344383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbc0f9d74b39b%3A0x4538903dd96b6fec!2sKampala%2C%20Uganda!5e0!3m2!1sen!2sus!4v1716053351939!5m2!1sen!2sus" 
-                        width="100%" 
-                        height="100%" 
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
-            </div>
-
-        </div>
-
-    </main>
-
-    <!-- Global Footer -->
-    <footer class="footer">
-        <div class="container footer-grid">
-            <div class="footer-col">
-                <h4 class="logo"><img src="./images/afrinove_logo_page_1.png" alt="Afrinove Logo"></h4>
-                <p style="color: #A09E9A;">Innovating solutions for Africa's growth. Deep local insights combined with global standards.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Pages</h4>
-                <ul>
-                    <li><a href="./index.html">Home</a></li>
-                    <li><a href="./about.html">About</a></li>
-                    <li><a href="./services.html">Services</a>
-        <a href="./impact.html">Impact</a></li>
-                    <li><a href="./dashboard.html">Dashboard</a></li>
-                    <li><a href="./contact.html">Contact Us</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Services</h4>
-                <ul>
-                    <li>Strategic Planning</li>
-                    <li>Digital Transformation</li>
-                    <li>Financial Advisory</li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Contact</h4>
-                <ul>
-                    <li>P.O BOX 187837 KAMPALA GPO</li>
-                    <li>KIKONI MAKERERE, SIR APOLLO KAGWA RD</li>
-                    <li>COMPANY REG NO: 80034766722937</li>
-                    <li>afrinoves@gmail.com</li>
-                    <li>+256759738401 / +256703096911</li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            &copy; <span id="year"></span> Afrinove Development Ltd. All rights reserved.
-        </div>
-    </footer>
-
-    <script src="./js/main.js"></script>
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-        
-        // Formspree Integration
-        window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
-        formspree('initForm', { formElement: '#contactForm', formId: 'mbdbdzbv' });
-
-        // Ensure success message displays properly by overriding display block
-        const form = document.getElementById('contactForm');
-        form.addEventListener('formspree:success', function() {
-            const successDiv = document.querySelector('[data-fs-success]');
-            if(successDiv) successDiv.style.display = 'block';
-            form.reset();
-        });
-    </script>
-    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
 </html>
->>>>>>> 828143206a07ad9e811323bcaf8100066891d232
