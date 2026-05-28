@@ -122,7 +122,8 @@
     .team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 32px; margin-top: 48px; }
     .team-card { background: rgba(255,255,255,.02); padding: 40px 32px; text-align: center; border: 1px solid rgba(255,255,255,.04); transition: border-color .3s, transform .3s; }
     .team-card:hover { border-color: rgba(201,168,76,.3); transform: translateY(-4px); }
-    .team-avatar { width: 96px; height: 96px; border-radius: 50%; background: rgba(201,168,76,.08); border: 1px solid var(--gold); margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-family: var(--ff-head); font-size: 2rem; color: var(--gold); }
+    .team-avatar { width: 96px; height: 96px; border-radius: 50%; background: rgba(201,168,76,.08); border: 1px solid var(--gold); margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-family: var(--ff-head); font-size: 2rem; color: var(--gold); overflow: hidden; }
+    .team-avatar img { width: 100%; height: 100%; object-fit: cover; }
     .team-card h3 { font-family: var(--ff-head); font-size: 1.3rem; margin-bottom: 6px; }
     .team-card .role { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
 
@@ -302,12 +303,12 @@
   </div>
   <div class="team-grid">
     <div class="team-card reveal">
-      <div class="team-avatar">SM</div>
+      <div class="team-avatar"><img src="/images/Directors/Ali.jpg" alt="Ssenyonga Ali Musanje"></div>
       <h3>Ssenyonga Ali Musanje</h3>
       <p class="role">Founder / Company Secretary</p>
     </div>
     <div class="team-card reveal">
-      <div class="team-avatar">FM</div>
+      <div class="team-avatar"><img src="/images/ed-faizal-maningi.jpg" alt="Fazial Maningi"></div>
       <h3>Fazial Maningi</h3>
       <p class="role">Co-Founder / Exec. Director</p>
     </div>
@@ -322,7 +323,7 @@
       <p class="role">Executive Director</p>
     </div>
     <div class="team-card reveal">
-      <div class="team-avatar">ME</div>
+      <div class="team-avatar"><img src="/images/Directors/eddy.jpeg" alt="Mujumba Eddie Elieza"></div>
       <h3>Mujumba Eddie Elieza</h3>
       <p class="role">Director of Operations</p>
     </div>
