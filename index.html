@@ -940,6 +940,28 @@
       .nav-cta {
         display: none;
       }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 69px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(10,10,10,0.97);
+        backdrop-filter: blur(16px);
+        padding: 2rem;
+        gap: 0;
+        z-index: 99;
+        overflow-y: auto;
+      }
+      .nav-links.open li a {
+        font-size: 1.2rem;
+        padding: 1.2rem 0;
+        display: block;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+        color: rgba(232,228,220,0.9);
+      }
 
       .nav-hamburger {
         display: block;
@@ -1459,6 +1481,46 @@
     }, { threshold: 0.5 });
     document.querySelectorAll('[data-target]').forEach(el => cObs.observe(el));
   </script>
+  <script>
+  const hamburger = document.querySelector('.nav-hamburger');
+  const navLinks = document.querySelector('.nav-links');
+
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', function () {
+      navLinks.classList.toggle('open');
+      const spans = hamburger.querySelectorAll('span');
+      if (navLinks.classList.contains('open')) {
+        spans[0].style.transform = 'translateY(7px) rotate(45deg)';
+        spans[1].style.opacity = '0';
+        spans[2].style.transform = 'translateY(-7px) rotate(-45deg)';
+      } else {
+        spans[0].style.transform = '';
+        spans[1].style.opacity = '';
+        spans[2].style.transform = '';
+      }
+    });
+
+    navLinks.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        navLinks.classList.remove('open');
+        const spans = hamburger.querySelectorAll('span');
+        spans[0].style.transform = '';
+        spans[1].style.opacity = '';
+        spans[2].style.transform = '';
+      });
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+        navLinks.classList.remove('open');
+        const spans = hamburger.querySelectorAll('span');
+        spans[0].style.transform = '';
+        spans[1].style.opacity = '';
+        spans[2].style.transform = '';
+      }
+    });
+  }
+</script>
 </body>
 
 </html>
