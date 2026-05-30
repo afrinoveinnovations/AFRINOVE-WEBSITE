@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -130,26 +129,49 @@
         .partners-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            max-width: 1000px;
+            gap: 2.5rem;
+            max-width: 700px;
             margin: 0 auto;
             align-items: center;
             justify-items: center;
         }
         @media (min-width: 768px) {
-            .partners-grid { grid-template-columns: repeat(4, 1fr); }
+            .partners-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        .partner-logo-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem 2rem;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            width: 100%;
+            min-height: 100px;
+            background: #fff;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .partner-logo-wrapper:hover {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-color: var(--color-accent);
         }
         .partner-logo {
-            width: 150px;
-            height: 80px;
+            max-width: 160px;
+            max-height: 70px;
+            width: 100%;
+            height: auto;
             object-fit: contain;
-            filter: grayscale(100%) opacity(0.6);
-            transition: filter var(--transition-smooth);
+            filter: grayscale(100%) opacity(0.65);
+            transition: filter 0.3s ease;
         }
-        .partner-logo:hover {
+        .partner-logo-wrapper:hover .partner-logo {
             filter: grayscale(0%) opacity(1);
         }
-
+        .partners-note {
+            text-align: center;
+            margin-top: 2.5rem;
+            color: var(--color-text-muted);
+            font-size: 0.95rem;
+        }
     </style>
 </head>
 <body>
@@ -185,7 +207,7 @@
     </nav>
 
     <main class="page-transition">
-        
+
         <header class="impact-header">
             <h1>Measurable Impact</h1>
             <p>We don't just strategize; we deliver tangible results that drive sustainable growth across the African continent.</p>
@@ -216,7 +238,7 @@
         <!-- Case Studies Accordion -->
         <section class="case-studies-section">
             <h2 class="section-title">Case Studies</h2>
-            
+
             <div class="accordion-item">
                 <button class="accordion-header" aria-expanded="false">
                     Zombo Regional Coffee Export Initiative
@@ -273,16 +295,24 @@
         <section class="partners-section">
             <h2 class="section-title" style="margin-bottom: 2rem; font-size: 2rem;">Trusted By Industry Leaders</h2>
             <div class="partners-grid">
-                <!-- Using placeholder tech brand styling -->
-                <img src="./images/151644712447426862.jpg" alt="Partner Logo 1" class="partner-logo">
-                <img src="./images/790311434633651891.jpg" alt="Partner Logo 2" class="partner-logo">
-                <img src="./images/1138707087051779185.jpg" alt="Partner Logo 3" class="partner-logo">
-                <img src="./images/168814686017211912.jpg" alt="Partner Logo 4" class="partner-logo">
-                <img src="./images/3870349675524717.jfif" alt="Partner Logo 5" class="partner-logo">
-                <img src="./images/41869471531712168.jpg" alt="Partner Logo 6" class="partner-logo">
-                <img src="./images/8936899258488051.jpg" alt="Partner Logo 7" class="partner-logo">
-                <img src="./images/90916486222542144.jpg" alt="Partner Logo 8" class="partner-logo">
+                <div class="partner-logo-wrapper">
+                    <img
+                        src="./images/Trusted-partners-Logos/eva-graphicis.jpg"
+                        alt="Eva Graphic Designers SMC Ltd"
+                        class="partner-logo"
+                        onerror="this.style.display='none'"
+                    >
+                </div>
+                <div class="partner-logo-wrapper">
+                    <img
+                        src="./images/Trusted-partners-Logos/terra-bonum-safari.jpg"
+                        alt="Terra Bonum Safari Ltd"
+                        class="partner-logo"
+                        onerror="this.style.display='none'"
+                    >
+                </div>
             </div>
+            <p class="partners-note">More trusted partners coming soon.</p>
         </section>
 
     </main>
@@ -299,8 +329,8 @@
                 <ul>
                     <li><a href="/">Home</a></li>
                     <li><a href="/about">About</a></li>
-                    <li><a href="/services">Services</a>
-        <a href="/impact">Impact</a></li>
+                    <li><a href="/services">Services</a></li>
+                    <li><a href="/impact">Impact</a></li>
                     <li><a href="/dashboard">Dashboard</a></li>
                     <li><a href="/contact">Contact Us</a></li>
                 </ul>
@@ -325,14 +355,12 @@
             </div>
         </div>
         <div class="footer-bottom">
-            © 2025 Afrinove Development Ltd. All rights reserved.
+            &copy; 2025 Afrinove Development Ltd. All rights reserved.
         </div>
     </footer>
 
     <script src="./js/main.js"></script>
     <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-        
         // Counter Animation using IntersectionObserver
         const counters = document.querySelectorAll('.count-up');
         let animated = false;
@@ -340,8 +368,8 @@
         const animateCounters = () => {
             counters.forEach(counter => {
                 const target = +counter.getAttribute('data-target');
-                const duration = 2000; // ms
-                const increment = target / (duration / 16); // 60fps
+                const duration = 2000;
+                const increment = target / (duration / 16);
 
                 let current = 0;
                 const updateCounter = () => {
@@ -365,13 +393,12 @@
         }, { threshold: 0.5 });
 
         const metricsContainer = document.getElementById('metricsContainer');
-        if(metricsContainer) observer.observe(metricsContainer);
+        if (metricsContainer) observer.observe(metricsContainer);
 
         // Accordion Logic
         const accordions = document.querySelectorAll('.accordion-header');
         accordions.forEach(acc => {
             acc.addEventListener('click', function() {
-                // Close others (optional, but good for UX)
                 accordions.forEach(other => {
                     if (other !== this) {
                         other.setAttribute('aria-expanded', 'false');
@@ -381,7 +408,7 @@
 
                 const expanded = this.getAttribute('aria-expanded') === 'true';
                 this.setAttribute('aria-expanded', !expanded);
-                
+
                 const content = this.nextElementSibling;
                 if (!expanded) {
                     content.style.maxHeight = content.scrollHeight + "px";
