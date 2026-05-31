@@ -1,4 +1,7 @@
-User-agent: *
+﻿User-agent: *
 Allow: /
+
+Disallow: /dashboard
+Disallow: /dashboard.html
 
 Sitemap: https://www.afrinove.com/sitemap.xml
