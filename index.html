@@ -80,8 +80,11 @@
     }
 
     .nav-logo img {
-      height: 36px;
-      filter: none;
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
     }
 
     .nav-logo span {
@@ -855,6 +858,14 @@
       margin-bottom: 48px;
     }
 
+    .footer-brand-logo {
+      display: block;
+      height: 56px;
+      width: auto;
+      margin-bottom: 16px;
+      opacity: .92;
+    }
+
     .footer-brand-name {
       font-family: var(--ff-head);
       font-size: 1.375rem;
@@ -934,6 +945,11 @@
     @media (max-width: 960px) {
       nav {
         padding: 16px 24px;
+      }
+
+      .nav-logo img {
+        height: 32px;
+        width: 32px;
       }
 
       .nav-links,
@@ -1071,7 +1087,7 @@
   <!-- NAV -->
   <nav id="main-nav">
     <a href="/" class="nav-logo">
-      <img src="/images/afrinove_logo_page_1.png" alt="Afrinove Logo" />
+      <img src="/images/afrinove_icon_circle.png" alt="Afrinove Icon" />
       <span>AFRINOVE</span>
     </a>
     <ul class="nav-links">
@@ -1400,7 +1416,7 @@
   <footer>
     <div class="footer-grid">
       <div>
-        <div class="footer-brand-name">AFRINOVE</div>
+        <img src="/images/afrinove_logo_full_tight.png" alt="Afrinove Development Ltd" class="footer-brand-logo" />
         <p class="footer-brand-desc">Innovating solutions for Africa's growth. Deep local insights combined with global
           standards.</p>
 
