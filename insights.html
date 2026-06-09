@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Insights | Afrinove Development Ltd</title>
+  <meta name="description" content="Strategic intelligence on agriculture, infrastructure, energy, finance, and policy across East Africa and beyond. Afrinove Insights." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.afrinove.com/insights" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Insights | Afrinove Development Ltd" />
+  <meta property="og:description" content="Strategic intelligence from Afrinove on East Africa's most critical sectors." />
+  <meta property="og:url" content="https://www.afrinove.com/insights" />
+  <meta property="og:type" content="website" />
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Afrinove Insights",
+    "url": "https://www.afrinove.com/insights",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Afrinove Development Ltd",
+      "url": "https://www.afrinove.com"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── TOKENS ─────────────────────────────────────────── */
+    :root {
+      --navy:      #0a1628;
+      --navy-mid:  #112240;
+      --navy-card: #0d1f3c;
+      --gold:      #c9a84c;
+      --gold-lt:   #e2c47a;
+      --white:     #ffffff;
+      --off-white: #f0f4fa;
+      --muted:     #8899bb;
+      --text:      #ccd6f6;
+      --border:    rgba(201,168,76,0.18);
+      --radius:    10px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--navy);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAVBAR ─────────────────────────────────────────── */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 72px;
+      background: rgba(10,22,40,0.97);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+    }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--white);
+      letter-spacing: 0.04em;
+    }
+
+    .navbar-brand img {
+      height: 36px;
+      width: 36px;
+      border-radius: 50%;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--gold); }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--navy) !important;
+      padding: 8px 20px;
+      border-radius: 6px;
+      font-weight: 600 !important;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--gold-lt) !important; color: var(--navy) !important; }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 72px; left: 0; right: 0;
+      background: var(--navy-mid);
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem 5%;
+      z-index: 999;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .mobile-menu a:last-child { border-bottom: none; }
+
+    /* ─── PAGE HERO ──────────────────────────────────────── */
+    .insights-hero {
+      padding: 140px 5% 60px;
+      text-align: center;
+      position: relative;
+    }
+
+    .insights-hero::before {
+      content: '';
+      position: absolute;
+      top: 72px; left: 0; right: 0;
+      height: 320px;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,168,76,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 5px 16px;
+      border-radius: 20px;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-title span { color: var(--gold); }
+
+    .hero-subtitle {
+      font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+      color: var(--muted);
+      max-width: 580px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+    }
+
+    /* ─── CATEGORY FILTER TABS ───────────────────────────── */
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      padding: 0 5% 3rem;
+    }
+
+    .filter-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      border-radius: 24px;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+
+    .filter-btn:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .filter-btn.active {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--navy);
+    }
+
+    /* ─── FEATURED ARTICLE ───────────────────────────────── */
+    .featured-section {
+      padding: 0 5% 4rem;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+
+    .featured-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--navy-card);
+      transition: box-shadow 0.3s;
+    }
+
+    .featured-card:hover {
+      box-shadow: 0 12px 48px rgba(201,168,76,0.12);
+    }
+
+    .featured-image {
+      position: relative;
+      min-height: 420px;
+      background:
+        linear-gradient(135deg, rgba(10,22,40,0.45) 0%, rgba(10,22,40,0.15) 100%),
+        url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=900&q=80') center/cover no-repeat;
+    }
+
+    .featured-image-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, transparent 60%, var(--navy-card) 100%);
+    }
+
+    .featured-badge {
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 3px;
+    }
+
+    .featured-content {
+      padding: 3rem 3rem 3rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .article-category {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .article-dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--muted);
+    }
+
+    .article-date {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .article-read-time {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .featured-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.25;
+      margin-bottom: 1rem;
+    }
+
+    .featured-excerpt {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 1.6rem;
+    }
+
+    .read-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gold);
+      color: var(--navy);
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 11px 24px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      width: fit-content;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .read-btn:hover {
+      background: var(--gold-lt);
+      transform: translateY(-1px);
+    }
+
+    .read-btn svg {
+      transition: transform 0.2s;
+    }
+
+    .read-btn:hover svg {
+      transform: translateX(3px);
+    }
+
+    /* ─── ARTICLE GRID ───────────────────────────────────── */
+    .articles-section {
+      padding: 0 5% 5rem;
+    }
+
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .article-card {
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s;
+      cursor: pointer;
+    }
+
+    .article-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+      border-color: rgba(201,168,76,0.3);
+    }
+
+    .card-thumb {
+      height: 180px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+
+    .article-card:hover .card-thumb img {
+      transform: scale(1.05);
+    }
+
+    .card-category-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 3px;
+    }
+
+    .badge-agriculture { background: rgba(34,139,34,0.85); color: #c8f7c8; }
+    .badge-infrastructure { background: rgba(30,80,160,0.85); color: #c0d4f7; }
+    .badge-energy { background: rgba(200,100,0,0.85); color: #fde8c8; }
+    .badge-finance { background: rgba(100,60,150,0.85); color: #e8d8f8; }
+    .badge-policy { background: rgba(140,20,20,0.85); color: #f7cece; }
+    .badge-coming { background: rgba(40,40,60,0.9); color: var(--muted); }
+
+    .card-body {
+      padding: 1.4rem 1.4rem 1.6rem;
+    }
+
+    .card-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .card-cat {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .card-date {
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    .card-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.4;
+      margin-bottom: 0.7rem;
+    }
+
+    .card-excerpt {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 1rem;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .card-read-time {
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    .card-arrow {
+      color: var(--gold);
+      font-size: 1rem;
+      line-height: 1;
+      transition: transform 0.2s;
+    }
+
+    .article-card:hover .card-arrow {
+      transform: translateX(4px);
+    }
+
+    /* ─── COMING SOON CARD ───────────────────────────────── */
+    .coming-soon-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(10,22,40,0.78);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .coming-soon-text {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid rgba(136,153,187,0.3);
+      padding: 6px 16px;
+      border-radius: 20px;
+    }
+
+    /* ─── NEWSLETTER CTA ─────────────────────────────────── */
+    .newsletter-section {
+      margin: 0 5% 5rem;
+      padding: 3.5rem;
+      background: linear-gradient(135deg, var(--navy-mid) 0%, #0a1f3a 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .newsletter-text h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .newsletter-text p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      max-width: 400px;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .newsletter-form input {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+      color: var(--white);
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.85rem;
+      padding: 11px 18px;
+      border-radius: 6px;
+      width: 240px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .newsletter-form input::placeholder { color: var(--muted); }
+    .newsletter-form input:focus { border-color: var(--gold); }
+
+    .newsletter-form button {
+      background: var(--gold);
+      color: var(--navy);
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 11px 22px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+
+    .newsletter-form button:hover { background: var(--gold-lt); }
+
+    /* ─── ARTICLE MODAL ──────────────────────────────────── */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(5,12,28,0.92);
+      z-index: 2000;
+      overflow-y: auto;
+      padding: 2rem 5%;
+    }
+
+    .modal-backdrop.open { display: block; }
+
+    .modal-box {
+      max-width: 780px;
+      margin: 3rem auto;
+      background: var(--navy-mid);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .modal-hero-img {
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+    }
+
+    .modal-body {
+      padding: 3rem;
+    }
+
+    .modal-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .modal-cat {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .modal-date, .modal-rt {
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    .modal-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .modal-author {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .modal-author strong { color: var(--text); }
+
+    .modal-content {
+      font-size: 0.95rem;
+      color: #a8badc;
+      line-height: 1.85;
+    }
+
+    .modal-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--white);
+      margin: 2.5rem 0 1rem;
+    }
+
+    .modal-content h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin: 2rem 0 0.6rem;
+    }
+
+    .modal-content p { margin-bottom: 1.2rem; }
+
+    .modal-content strong { color: var(--gold); }
+
+    .modal-content ul {
+      padding-left: 1.4rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .modal-content ul li { margin-bottom: 0.5rem; }
+
+    .modal-content blockquote {
+      border-left: 3px solid var(--gold);
+      padding: 0.8rem 1.4rem;
+      background: rgba(201,168,76,0.06);
+      border-radius: 0 6px 6px 0;
+      margin: 1.5rem 0;
+      font-style: italic;
+      color: var(--text);
+    }
+
+    .modal-close-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 9px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 2.5rem;
+      transition: all 0.2s;
+    }
+
+    .modal-close-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ─── FOOTER ─────────────────────────────────────────── */
+    .footer {
+      background: var(--navy-mid);
+      border-top: 1px solid var(--border);
+      padding: 4rem 5% 2rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand-col .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--white);
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-brand-col .brand img {
+      height: 36px;
+      width: 36px;
+      border-radius: 50%;
+      object-fit: contain;
+    }
+
+    .footer-brand-col p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 280px;
+    }
+
+    .footer-col h4 {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-col ul { list-style: none; }
+
+    .footer-col ul li {
+      margin-bottom: 0.65rem;
+    }
+
+    .footer-col ul li a {
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-col ul li a:hover { color: var(--gold); }
+
+    .footer-col ul li span {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-bottom p {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .articles-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      .featured-card { grid-template-columns: 1fr; }
+      .featured-image { min-height: 260px; }
+      .featured-image-overlay { background: linear-gradient(to bottom, transparent 50%, var(--navy-card) 100%); }
+      .featured-content { padding: 2rem; }
+
+      .articles-grid { grid-template-columns: 1fr; }
+
+      .newsletter-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 2.5rem 2rem;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .newsletter-form input { width: 100%; }
+
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+
+      .modal-body { padding: 2rem 1.5rem; }
+      .modal-hero-img { height: 220px; }
+    }
+
+    /* ─── SCROLL REVEAL ──────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAVBAR ══════════════════════════════════════════════ -->
+<nav class="navbar">
+  <a href="/" class="navbar-brand">
+    <img src="/images/afrinove_logo_page_1.png" alt="Afrinove logo" />
+    AFRINOVE
+  </a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/impact">Impact</a></li>
+    <li><a href="/insights" class="active">Insights</a></li>
+    <li><a href="/contact">Contact Us</a></li>
+    <li><a href="/contact" class="nav-cta">Start a Project</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMobile()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/">Home</a>
+  <a href="/about">About</a>
+  <a href="/services">Services</a>
+  <a href="/impact">Impact</a>
+  <a href="/insights">Insights</a>
+  <a href="/contact">Contact Us</a>
+  <a href="/contact" style="color:var(--gold);font-weight:700;">Start a Project →</a>
+</div>
+
+
+<!-- ═══ HERO ════════════════════════════════════════════════ -->
+<section class="insights-hero">
+  <div class="hero-eyebrow">Afrinove Insights</div>
+  <h1 class="hero-title">Strategic Intelligence<br/>for <span>Africa's Builders</span></h1>
+  <p class="hero-subtitle">
+    Data-driven perspectives on agriculture, infrastructure, energy, finance, and policy —
+    from the consultants shaping East Africa's next chapter.
+  </p>
+</section>
+
+
+<!-- ═══ FILTER TABS ═════════════════════════════════════════ -->
+<div class="filter-bar" id="filterBar">
+  <button class="filter-btn active" data-filter="all">All Insights</button>
+  <button class="filter-btn" data-filter="agriculture">Agriculture</button>
+  <button class="filter-btn" data-filter="infrastructure">Infrastructure</button>
+  <button class="filter-btn" data-filter="energy">Energy</button>
+  <button class="filter-btn" data-filter="finance">Finance</button>
+  <button class="filter-btn" data-filter="policy">Policy</button>
+</div>
+
+
+<!-- ═══ FEATURED ARTICLE ════════════════════════════════════ -->
+<section class="featured-section reveal" id="featuredSection" data-category="agriculture">
+  <p class="section-label" style="padding: 0 0 0 0;">Featured Article</p>
+  <div class="featured-card" onclick="openModal('featured')">
+    <div class="featured-image">
+      <div class="featured-image-overlay"></div>
+      <span class="featured-badge">Agriculture</span>
+    </div>
+    <div class="featured-content">
+      <div class="article-meta">
+        <span class="article-category">Agriculture</span>
+        <div class="article-dot"></div>
+        <span class="article-date">June 2026</span>
+        <div class="article-dot"></div>
+        <span class="article-read-time">12 min read</span>
+      </div>
+      <h2 class="featured-title">Commercial Farming as East Africa's
+Most Underutilised Wealth Engine</h2>
+      <p class="featured-excerpt">
+        East Africa holds over 40% of Africa's arable land — yet less than 15% is under
+        commercial cultivation. Afrinove unpacks why institutional capital, smart
+        intermediary structures, and supply-chain investment are finally converging to
+        change that, and what it means for investors, governments, and farmer cooperatives.
+      </p>
+      <a href="#" class="read-btn" onclick="openModal('featured'); return false;">
+        Read Full Article
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ ARTICLE GRID ═════════════════════════════════════════ -->
+<section class="articles-section">
+  <p class="section-label">More Insights</p>
+  <div class="articles-grid" id="articlesGrid">
+
+    <!-- Card 1: Infrastructure -->
+    <div class="article-card reveal" data-category="infrastructure" onclick="openModal('infra')">
+      <div class="card-thumb">
+        <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80" alt="Infrastructure" loading="lazy" />
+        <span class="card-category-badge badge-infrastructure">Infrastructure</span>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="card-cat">Infrastructure</span>
+          <div class="article-dot"></div>
+          <span class="card-date">Coming Soon</span>
+        </div>
+        <h3 class="card-title">Why East Africa's Infrastructure Deficit is Actually a $40B Opportunity</h3>
+        <p class="card-excerpt">Roads, ports, cold-chain logistics — the gap is immense. But for well-positioned intermediaries and regional contractors, it's the defining opportunity of the decade.</p>
+        <div class="card-footer">
+          <span class="card-read-time">10 min read</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2: Energy -->
+    <div class="article-card reveal" data-category="energy" onclick="openModal('energy')">
+      <div class="card-thumb">
+        <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=600&q=80" alt="Energy" loading="lazy" />
+        <span class="card-category-badge badge-energy">Energy</span>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="card-cat">Energy</span>
+          <div class="article-dot"></div>
+          <span class="card-date">Coming Soon</span>
+        </div>
+        <h3 class="card-title">Off-Grid Solar and the Last-Mile Energy Problem in Rural Uganda</h3>
+        <p class="card-excerpt">With national grid penetration stalling at 26%, decentralised solar microgrids are not just a climate story — they are an economic productivity story.</p>
+        <div class="card-footer">
+          <span class="card-read-time">8 min read</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3: Finance -->
+    <div class="article-card reveal" data-category="finance" onclick="openModal('finance')">
+      <div class="card-thumb">
+        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80" alt="Finance" loading="lazy" />
+        <span class="card-category-badge badge-finance">Finance</span>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="card-cat">Finance</span>
+          <div class="article-dot"></div>
+          <span class="card-date">Coming Soon</span>
+        </div>
+        <h3 class="card-title">Escrow Structures as the Missing Trust Layer in Cross-Border African Deals</h3>
+        <p class="card-excerpt">Foreign funders and local contractors rarely share the same risk tolerance. Structured intermediary escrow models are emerging as the solution that unblocks billions.</p>
+        <div class="card-footer">
+          <span class="card-read-time">7 min read</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4: Policy -->
+    <div class="article-card reveal" data-category="policy" onclick="openModal('policy')">
+      <div class="card-thumb">
+        <img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=600&q=80" alt="Policy" loading="lazy" />
+        <span class="card-category-badge badge-policy">Policy</span>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="card-cat">Policy</span>
+          <div class="article-dot"></div>
+          <span class="card-date">Coming Soon</span>
+        </div>
+        <h3 class="card-title">EAC Integration at a Crossroads: What the New Trade Protocols Mean for Investors</h3>
+        <p class="card-excerpt">The East African Community's updated trade frameworks are reshaping how foreign capital enters the bloc — and which intermediary models get the green light.</p>
+        <div class="card-footer">
+          <span class="card-read-time">9 min read</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 5: Agriculture -->
+    <div class="article-card reveal" data-category="agriculture" onclick="openModal('coffee')">
+      <div class="card-thumb">
+        <img src="https://images.unsplash.com/photo-1611735341450-74d61e660ad2?w=600&q=80" alt="Coffee" loading="lazy" />
+        <span class="card-category-badge badge-agriculture">Agriculture</span>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="card-cat">Agriculture</span>
+          <div class="article-dot"></div>
+          <span class="card-date">Coming Soon</span>
+        </div>
+        <h3 class="card-title">Uganda's Premium Coffee Export Initiative: From Farm to Global Market</h3>
+        <p class="card-excerpt">How Afrinove's Zombo coffee initiative is building an end-to-end export corridor — and the replicable model it creates for other high-value crops across the region.</p>
+        <div class="card-footer">
+          <span class="card-read-time">6 min read</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 6: Infrastructure -->
+    <div class="article-card reveal" data-category="infrastructure" onclick="openModal('digital')">
+      <div class="card-thumb">
+        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80" alt="Digital" loading="lazy" />
+        <span class="card-category-badge badge-infrastructure">Infrastructure</span>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="card-cat">Infrastructure</span>
+          <div class="article-dot"></div>
+          <span class="card-date">Coming Soon</span>
+        </div>
+        <h3 class="card-title">Navigating Digital Transformation in East Africa's Legacy Businesses</h3>
+        <p class="card-excerpt">Technology adoption in East Africa is accelerating — but legacy organisations face a unique set of structural and cultural barriers that require more than a SaaS subscription to solve.</p>
+        <div class="card-footer">
+          <span class="card-read-time">8 min read</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══ NEWSLETTER ═══════════════════════════════════════════ -->
+<div class="newsletter-section reveal">
+  <div class="newsletter-text">
+    <h3>Get Insights in Your Inbox</h3>
+    <p>Strategic briefings on East Africa's most critical sectors, delivered monthly to decision-makers and investors.</p>
+  </div>
+  <div class="newsletter-form">
+    <input type="email" id="nlEmail" placeholder="your@email.com" autocomplete="email" />
+    <button onclick="subscribeNewsletter()">Subscribe</button>
+  </div>
+</div>
+
+
+<!-- ═══ FOOTER ═══════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand-col">
+      <a href="/" class="brand">
+        <img src="/images/afrinove_logo_page_1.png" alt="Afrinove" />
+        AFRINOVE
+      </a>
+      <p>Innovating solutions for Africa's growth. Deep local insights combined with global standards.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/impact">Impact</a></li>
+        <li><a href="/insights">Insights</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="/services">Strategic Planning</a></li>
+        <li><a href="/services">Digital Transformation</a></li>
+        <li><a href="/services">Financial Advisory</a></li>
+        <li><a href="/services">Project Management</a></li>
+        <li><a href="/services">Escrow &amp; Intermediary</a></li>
+        <li><a href="/services">Agricultural Development</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><span>P.O BOX 187837 Kampala GPO</span></li>
+        <li><span>Kikoni Makerere, Sir Apollo Kagwa Rd</span></li>
+        <li><a href="mailto:info@afrinove.com">info@afrinove.com</a></li>
+        <li><a href="tel:+256759738401">+256 759 738 401</a></li>
+        <li><a href="tel:+256703096911">+256 703 096 911</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Afrinove Development Ltd. All rights reserved. Reg No: 80034766722937</p>
+    <p><a href="/contact" style="color:var(--muted);text-decoration:none;">Start a Project →</a></p>
+  </div>
+</footer>
+
+
+<!-- ═══ ARTICLE MODAL ════════════════════════════════════════ -->
+<div class="modal-backdrop" id="articleModal" onclick="handleModalClick(event)">
+  <div class="modal-box" id="modalBox">
+    <!-- injected by JS -->
+  </div>
+</div>
+
+
+<!-- ═══ SCRIPTS ══════════════════════════════════════════════ -->
+<script>
+  /* ── Mobile menu ─────────────────────────────────────────── */
+  function toggleMobile() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  /* ── Scroll reveal ───────────────────────────────────────── */
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  /* ── Category filter ─────────────────────────────────────── */
+  document.getElementById('filterBar').addEventListener('click', e => {
+    const btn = e.target.closest('.filter-btn');
+    if (!btn) return;
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+
+    const featured = document.getElementById('featuredSection');
+    const cards = document.querySelectorAll('#articlesGrid .article-card');
+
+    if (filter === 'all') {
+      featured.style.display = '';
+      cards.forEach(c => c.style.display = '');
+    } else {
+      featured.style.display = featured.dataset.category === filter ? '' : 'none';
+      cards.forEach(c => {
+        c.style.display = c.dataset.category === filter ? '' : 'none';
+      });
+    }
+  });
+
+  /* ── Article content ─────────────────────────────────────── */
+  const articles = {
+    featured: {
+      category: 'Agriculture',
+      date: 'June 2026',
+      readTime: '12 min read',
+      author: 'Afrinove Strategy & Development Team',
+      title: 'Commercial Farming as East Africa's Most Underutilised Wealth Engine',
+      img: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=900&q=80',
+      body: `
+        <p>East Africa holds over 40% of the continent's arable land — an area roughly the size of Western Europe. Yet less than 15% of this landmass is under commercial cultivation. The remainder lies fallow, under-irrigated, or locked in low-yield subsistence cycles that perpetuate rural poverty rather than build intergenerational wealth.</p>
+
+        <blockquote>"The opportunity is not to introduce farming to East Africa. The opportunity is to industrialise it."</blockquote>
+
+        <h2>The Structural Gap</h2>
+        <p>The bottleneck is not land, labour, or sunlight. East Africa has an abundance of all three. The gap is <strong>institutional capital</strong>, reliable supply-chain infrastructure, and the trust frameworks that allow foreign investors to commit large sums into markets where land tenure, contractual enforcement, and counterparty risk are perceived as opaque.</p>
+        <p>This perception — often more exaggerated than the reality — has historically kept East Africa's commercial agriculture sector starved of the investment it needs to scale. The result: smallholder farmers producing at 30–40% of potential yield, with minimal access to aggregation, cold storage, processing, or export-grade logistics.</p>
+
+        <h2>What Is Changing</h2>
+        <p>Three convergences are restructuring the landscape in 2025–2026:</p>
+        <ul>
+          <li><strong>Institutional intermediaries are professionalising.</strong> Firms operating as verified escrow and contractor-management intermediaries are reducing the perceived risk for foreign capital. Structured deal architecture — where funds flow through an accountable third party against verified project milestones — is now a prerequisite for serious development finance engagement.</li>
+          <li><strong>Supply-chain investment is accelerating.</strong> Cold-chain logistics, agro-processing hubs, and regional trade corridors under the EAC framework are compressing the distance between farm gate and international buyer. Uganda's Kampala Dry Port, Rwanda's Kigali SEZ, and Kenya's Naivasha EPZ are proving that last-mile infrastructure, when funded correctly, unlocks outsized agricultural value.</li>
+          <li><strong>High-value crops are setting the template.</strong> Uganda's robusta and arabica coffee exports, Rwanda's specialty coffee and tea, and Tanzania's macadamia and avocado sectors are demonstrating what commercial agriculture looks like when quality standards, traceability systems, and export relationships are properly structured. These are replicable models, not exceptions.</li>
+        </ul>
+
+        <h2>The Commercial Farming Investment Thesis</h2>
+        <p>For investors and development financiers, the thesis is straightforward: East Africa's agricultural yield gap is a productivity gap, not a potential gap. The land produces — it simply produces at a fraction of what well-capitalised, professionally managed commercial operations achieve.</p>
+        <p>The risk-adjusted returns on properly structured commercial farming ventures in Uganda, Kenya, and Tanzania are competitive with infrastructure investments at significantly lower political risk. Land lease costs remain low. Labour is skilled, available, and young. Water access — while requiring management — is not a binding constraint in the region's high-rainfall corridors.</p>
+        <p>What <strong>has</strong> been the binding constraint is the absence of trusted intermediary structures that can absorb the complexity between a foreign funder and a regional agribusiness operator.</p>
+
+        <h2>The Intermediary's Role</h2>
+        <p>Afrinove's positioning in this space is deliberate. As the region's commercial agriculture sector professionalises, the critical infrastructure is not a tractor or a fertiliser subsidy — it is the governance layer that sits between capital and execution:</p>
+        <ul>
+          <li>Contractor vetting and qualification against international standards</li>
+          <li>Escrow management tied to verifiable project milestones</li>
+          <li>Risk mitigation frameworks including insurance structuring and force majeure protocols</li>
+          <li>Reporting and compliance infrastructure that satisfies both development finance institutions and private equity requirements</li>
+        </ul>
+        <p>This is the work that unlocks the other 85% of East Africa's arable potential. Not slowly, incrementally — but at the scale that the region's youth population, export ambitions, and food security imperatives demand.</p>
+
+        <h2>What This Means for Investors and Governments</h2>
+        <p>For foreign funders and development institutions, the message is clear: the era of waiting for East African commercial agriculture to prove itself on its own terms is over. The proof is in the sectors that moved first. The window to participate in the next wave — at preferential valuations and with the benefit of experienced local intermediary partners — is narrowing.</p>
+        <p>For regional governments, the policy priorities are equally clear: land tenure certainty, foreign investment frameworks that protect both parties, and investment in the public infrastructure (roads, irrigation, power) that multiplies the private capital flowing into commercial farming ventures.</p>
+        <p>East Africa's agricultural wealth engine is not underutilised because of a lack of ambition. It is underutilised because the institutional architecture to channel ambition into execution has been missing. That architecture is being built — and the returns, when they arrive, will be generational.</p>
+      `
+    },
+    infra: {
+      category: 'Infrastructure', date: 'Coming Soon', readTime: '10 min read',
+      author: 'Afrinove Infrastructure Team',
+      title: "Why East Africa's Infrastructure Deficit is Actually a $40B Opportunity",
+      img: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=900&q=80',
+      body: `<p style="color:var(--muted);font-style:italic;text-align:center;padding:3rem 0;">Full article coming soon. Subscribe to the Afrinove Insights newsletter to be notified when this piece publishes.</p>`
+    },
+    energy: {
+      category: 'Energy', date: 'Coming Soon', readTime: '8 min read',
+      author: 'Afrinove Energy Practice',
+      title: 'Off-Grid Solar and the Last-Mile Energy Problem in Rural Uganda',
+      img: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=900&q=80',
+      body: `<p style="color:var(--muted);font-style:italic;text-align:center;padding:3rem 0;">Full article coming soon. Subscribe to be notified when this piece publishes.</p>`
+    },
+    finance: {
+      category: 'Finance', date: 'Coming Soon', readTime: '7 min read',
+      author: 'Afrinove Financial Advisory',
+      title: 'Escrow Structures as the Missing Trust Layer in Cross-Border African Deals',
+      img: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=900&q=80',
+      body: `<p style="color:var(--muted);font-style:italic;text-align:center;padding:3rem 0;">Full article coming soon. Subscribe to be notified when this piece publishes.</p>`
+    },
+    policy: {
+      category: 'Policy', date: 'Coming Soon', readTime: '9 min read',
+      author: 'Afrinove Strategy Team',
+      title: 'EAC Integration at a Crossroads: What the New Trade Protocols Mean for Investors',
+      img: 'https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=900&q=80',
+      body: `<p style="color:var(--muted);font-style:italic;text-align:center;padding:3rem 0;">Full article coming soon. Subscribe to be notified when this piece publishes.</p>`
+    },
+    coffee: {
+      category: 'Agriculture', date: 'Coming Soon', readTime: '6 min read',
+      author: 'Afrinove Agricultural Development',
+      title: "Uganda's Premium Coffee Export Initiative: From Farm to Global Market",
+      img: 'https://images.unsplash.com/photo-1611735341450-74d61e660ad2?w=900&q=80',
+      body: `<p style="color:var(--muted);font-style:italic;text-align:center;padding:3rem 0;">Full article coming soon. Subscribe to be notified when this piece publishes.</p>`
+    },
+    digital: {
+      category: 'Infrastructure', date: 'Coming Soon', readTime: '8 min read',
+      author: 'Afrinove Digital Practice',
+      title: "Navigating Digital Transformation in East Africa's Legacy Businesses",
+      img: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=900&q=80',
+      body: `<p style="color:var(--muted);font-style:italic;text-align:center;padding:3rem 0;">Full article coming soon. Subscribe to be notified when this piece publishes.</p>`
+    }
+  };
+
+  function openModal(key) {
+    const a = articles[key];
+    if (!a) return;
+    const modal = document.getElementById('articleModal');
+    document.getElementById('modalBox').innerHTML = `
+      <img class="modal-hero-img" src="${a.img}" alt="${a.title}" />
+      <div class="modal-body">
+        <div class="modal-eyebrow">
+          <span class="modal-cat">${a.category}</span>
+          <div class="article-dot"></div>
+          <span class="modal-date">${a.date}</span>
+          <div class="article-dot"></div>
+          <span class="modal-rt">${a.readTime}</span>
+        </div>
+        <h1 class="modal-title">${a.title}</h1>
+        <p class="modal-author">By <strong>${a.author}</strong> — Afrinove Development Ltd</p>
+        <div class="modal-content">${a.body}</div>
+        <button class="modal-close-btn" onclick="closeModal()">
+          ← Back to Insights
+        </button>
+      </div>
+    `;
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    modal.scrollTop = 0;
+  }
+
+  function closeModal() {
+    document.getElementById('articleModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function handleModalClick(e) {
+    if (e.target === document.getElementById('articleModal')) closeModal();
+  }
+
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  /* ── Newsletter ───────────────────────────────────────────── */
+  function subscribeNewsletter() {
+    const email = document.getElementById('nlEmail').value.trim();
+    if (!email || !email.includes('@')) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+    alert('Thank you! You\'ve been added to Afrinove Insights. Watch your inbox.');
+    document.getElementById('nlEmail').value = '';
+  }
+</script>
+
+</body>
+</html>
