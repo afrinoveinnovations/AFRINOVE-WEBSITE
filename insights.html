@@ -1167,19 +1167,19 @@ Most Underutilised Wealth Engine</h2>
 
 <!-- ═══ SCRIPTS ══════════════════════════════════════════════ -->
 <script>
-  /* ── Mobile menu ─────────────────────────────────────────── */
+  /* -- Mobile menu ------------------------------------------- */
   function toggleMobile() {
     document.getElementById('mobileMenu').classList.toggle('open');
   }
 
-  /* ── Scroll reveal ───────────────────────────────────────── */
+  /* -- Scroll reveal ----------------------------------------- */
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.1 });
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  /* ── Category filter ─────────────────────────────────────── */
+  /* -- Category filter --------------------------------------- */
   document.getElementById('filterBar').addEventListener('click', e => {
     const btn = e.target.closest('.filter-btn');
     if (!btn) return;
@@ -1201,51 +1201,51 @@ Most Underutilised Wealth Engine</h2>
     }
   });
 
-  /* ── Article content ─────────────────────────────────────── */
+  /* -- Article content --------------------------------------- */
   const articles = {
     featured: {
       category: 'Agriculture',
       date: 'June 2026',
       readTime: '12 min read',
       author: 'Afrinove Strategy & Development Team',
-      title: 'Commercial Farming as East Africa's Most Underutilised Wealth Engine',
+      title: "Commercial Farming as East Africa's Most Underutilised Wealth Engine",
       img: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=900&q=80',
       body: `
-        <p>East Africa holds over 40% of the continent's arable land — an area roughly the size of Western Europe. Yet less than 15% of this landmass is under commercial cultivation. The remainder lies fallow, under-irrigated, or locked in low-yield subsistence cycles that perpetuate rural poverty rather than build intergenerational wealth.</p>
+        <p>East Africa holds over 40% of the continent's arable land &mdash; an area roughly the size of Western Europe. Yet less than 15% of this landmass is under commercial cultivation. The remainder lies fallow, under-irrigated, or locked in low-yield subsistence cycles that perpetuate rural poverty rather than build intergenerational wealth.</p>
 
         <blockquote>"The opportunity is not to introduce farming to East Africa. The opportunity is to industrialise it."</blockquote>
 
         <h2>The Structural Gap</h2>
         <p>The bottleneck is not land, labour, or sunlight. East Africa has an abundance of all three. The gap is <strong>institutional capital</strong>, reliable supply-chain infrastructure, and the trust frameworks that allow foreign investors to commit large sums into markets where land tenure, contractual enforcement, and counterparty risk are perceived as opaque.</p>
-        <p>This perception — often more exaggerated than the reality — has historically kept East Africa's commercial agriculture sector starved of the investment it needs to scale. The result: smallholder farmers producing at 30–40% of potential yield, with minimal access to aggregation, cold storage, processing, or export-grade logistics.</p>
+        <p>This perception &mdash; often more exaggerated than the reality &mdash; has historically kept East Africa's commercial agriculture sector starved of the investment it needs to scale. The result: smallholder farmers producing at 30&ndash;40% of potential yield, with minimal access to aggregation, cold storage, processing, or export-grade logistics.</p>
 
         <h2>What Is Changing</h2>
-        <p>Three convergences are restructuring the landscape in 2025–2026:</p>
+        <p>Three convergences are restructuring the landscape in 2025&ndash;2026:</p>
         <ul>
-          <li><strong>Institutional intermediaries are professionalising.</strong> Firms operating as verified escrow and contractor-management intermediaries are reducing the perceived risk for foreign capital. Structured deal architecture — where funds flow through an accountable third party against verified project milestones — is now a prerequisite for serious development finance engagement.</li>
+          <li><strong>Institutional intermediaries are professionalising.</strong> Firms operating as verified escrow and contractor-management intermediaries are reducing the perceived risk for foreign capital. Structured deal architecture &mdash; where funds flow through an accountable third party against verified project milestones &mdash; is now a prerequisite for serious development finance engagement.</li>
           <li><strong>Supply-chain investment is accelerating.</strong> Cold-chain logistics, agro-processing hubs, and regional trade corridors under the EAC framework are compressing the distance between farm gate and international buyer. Uganda's Kampala Dry Port, Rwanda's Kigali SEZ, and Kenya's Naivasha EPZ are proving that last-mile infrastructure, when funded correctly, unlocks outsized agricultural value.</li>
           <li><strong>High-value crops are setting the template.</strong> Uganda's robusta and arabica coffee exports, Rwanda's specialty coffee and tea, and Tanzania's macadamia and avocado sectors are demonstrating what commercial agriculture looks like when quality standards, traceability systems, and export relationships are properly structured. These are replicable models, not exceptions.</li>
         </ul>
 
         <h2>The Commercial Farming Investment Thesis</h2>
-        <p>For investors and development financiers, the thesis is straightforward: East Africa's agricultural yield gap is a productivity gap, not a potential gap. The land produces — it simply produces at a fraction of what well-capitalised, professionally managed commercial operations achieve.</p>
-        <p>The risk-adjusted returns on properly structured commercial farming ventures in Uganda, Kenya, and Tanzania are competitive with infrastructure investments at significantly lower political risk. Land lease costs remain low. Labour is skilled, available, and young. Water access — while requiring management — is not a binding constraint in the region's high-rainfall corridors.</p>
+        <p>For investors and development financiers, the thesis is straightforward: East Africa's agricultural yield gap is a productivity gap, not a potential gap. The land produces &mdash; it simply produces at a fraction of what well-capitalised, professionally managed commercial operations achieve.</p>
+        <p>The risk-adjusted returns on properly structured commercial farming ventures in Uganda, Kenya, and Tanzania are competitive with infrastructure investments at significantly lower political risk. Land lease costs remain low. Labour is skilled, available, and young. Water access &mdash; while requiring management &mdash; is not a binding constraint in the region's high-rainfall corridors.</p>
         <p>What <strong>has</strong> been the binding constraint is the absence of trusted intermediary structures that can absorb the complexity between a foreign funder and a regional agribusiness operator.</p>
 
-        <h2>The Intermediary's Role</h2>
-        <p>Afrinove's positioning in this space is deliberate. As the region's commercial agriculture sector professionalises, the critical infrastructure is not a tractor or a fertiliser subsidy — it is the governance layer that sits between capital and execution:</p>
+        <h2>The Intermediary Role</h2>
+        <p>Afrinove's positioning in this space is deliberate. As the region's commercial agriculture sector professionalises, the critical infrastructure is not a tractor or a fertiliser subsidy &mdash; it is the governance layer that sits between capital and execution:</p>
         <ul>
           <li>Contractor vetting and qualification against international standards</li>
           <li>Escrow management tied to verifiable project milestones</li>
           <li>Risk mitigation frameworks including insurance structuring and force majeure protocols</li>
           <li>Reporting and compliance infrastructure that satisfies both development finance institutions and private equity requirements</li>
         </ul>
-        <p>This is the work that unlocks the other 85% of East Africa's arable potential. Not slowly, incrementally — but at the scale that the region's youth population, export ambitions, and food security imperatives demand.</p>
+        <p>This is the work that unlocks the other 85% of East Africa's arable potential. Not slowly, incrementally &mdash; but at the scale that the region's youth population, export ambitions, and food security imperatives demand.</p>
 
         <h2>What This Means for Investors and Governments</h2>
-        <p>For foreign funders and development institutions, the message is clear: the era of waiting for East African commercial agriculture to prove itself on its own terms is over. The proof is in the sectors that moved first. The window to participate in the next wave — at preferential valuations and with the benefit of experienced local intermediary partners — is narrowing.</p>
+        <p>For foreign funders and development institutions, the message is clear: the era of waiting for East African commercial agriculture to prove itself on its own terms is over. The proof is in the sectors that moved first. The window to participate in the next wave &mdash; at preferential valuations and with the benefit of experienced local intermediary partners &mdash; is narrowing.</p>
         <p>For regional governments, the policy priorities are equally clear: land tenure certainty, foreign investment frameworks that protect both parties, and investment in the public infrastructure (roads, irrigation, power) that multiplies the private capital flowing into commercial farming ventures.</p>
-        <p>East Africa's agricultural wealth engine is not underutilised because of a lack of ambition. It is underutilised because the institutional architecture to channel ambition into execution has been missing. That architecture is being built — and the returns, when they arrive, will be generational.</p>
+        <p>East Africa's agricultural wealth engine is not underutilised because of a lack of ambition. It is underutilised because the institutional architecture to channel ambition into execution has been missing. That architecture is being built &mdash; and the returns, when they arrive, will be generational.</p>
       `
     },
     infra: {
@@ -1258,14 +1258,14 @@ Most Underutilised Wealth Engine</h2>
     energy: {
       category: 'Energy', date: 'Coming Soon', readTime: '8 min read',
       author: 'Afrinove Energy Practice',
-      title: 'Off-Grid Solar and the Last-Mile Energy Problem in Rural Uganda',
+      title: "Off-Grid Solar and the Last-Mile Energy Problem in Rural Uganda",
       img: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=900&q=80',
       body: `<p style="color:var(--muted);font-style:italic;text-align:center;padding:3rem 0;">Full article coming soon. Subscribe to be notified when this piece publishes.</p>`
     },
     finance: {
       category: 'Finance', date: 'Coming Soon', readTime: '7 min read',
       author: 'Afrinove Financial Advisory',
-      title: 'Escrow Structures as the Missing Trust Layer in Cross-Border African Deals',
+      title: "Escrow Structures as the Missing Trust Layer in Cross-Border African Deals",
       img: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=900&q=80',
       body: `<p style="color:var(--muted);font-style:italic;text-align:center;padding:3rem 0;">Full article coming soon. Subscribe to be notified when this piece publishes.</p>`
     },
@@ -1307,10 +1307,10 @@ Most Underutilised Wealth Engine</h2>
           <span class="modal-rt">${a.readTime}</span>
         </div>
         <h1 class="modal-title">${a.title}</h1>
-        <p class="modal-author">By <strong>${a.author}</strong> — Afrinove Development Ltd</p>
+        <p class="modal-author">By <strong>${a.author}</strong> &mdash; Afrinove Development Ltd</p>
         <div class="modal-content">${a.body}</div>
         <button class="modal-close-btn" onclick="closeModal()">
-          ← Back to Insights
+          &larr; Back to Insights
         </button>
       </div>
     `;
@@ -1330,7 +1330,7 @@ Most Underutilised Wealth Engine</h2>
 
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
-  /* ── Newsletter ───────────────────────────────────────────── */
+  /* -- Newsletter --------------------------------------------- */
   function subscribeNewsletter() {
     const email = document.getElementById('nlEmail').value.trim();
     if (!email || !email.includes('@')) {
