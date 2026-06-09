@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afrinove QR Code</title>
+    <!-- Include QRCode.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .qr-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        #qrcode {
+            margin: 20px auto;
+            display: flex;
+            justify-content: center;
+        }
+        .instructions {
+            color: #666;
+            margin-bottom: 20px;
+            max-width: 400px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="qr-container">
+        <h2>Afrinove Official QR Code</h2>
+        <p class="instructions">This QR code directs to <strong>https://www.afrinove.com</strong>. It is permanent and has no expiration date.</p>
+        
+        <!-- The QR code will be generated here -->
+        <div id="qrcode"></div>
+        
+        <p><small>For use on company documents, IDs, and formal instructions.</small></p>
+    </div>
+
+    <script>
+        // Generate the QR code
+        var qrcode = new QRCode(document.getElementById("qrcode"), {
+            text: "https://www.afrinove.com",
+            width: 256,
+            height: 256,
+            colorDark : "#000000",
+            colorLight : "#ffffff",
+            correctLevel : QRCode.CorrectLevel.H // High error correction level, good for printing
+        });
+    </script>
+</body>
+</html>
