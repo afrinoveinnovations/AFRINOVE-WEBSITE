@@ -122,42 +122,69 @@
         }
 
         /* Partners Logo Grid */
+        /* Partners Logo Ticker Slider */
         .partners-section {
-            padding: 5rem 5%;
+            padding: 6rem 0;
             background: var(--color-surface);
+            overflow: hidden;
+            position: relative;
         }
-        .partners-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2.5rem;
-            max-width: 900px;
-            margin: 0 auto;
-            align-items: center;
-            justify-items: center;
+        .partners-section::before,
+        .partners-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 120px;
+            z-index: 2;
+            pointer-events: none;
         }
-        @media (min-width: 768px) {
-            .partners-grid { grid-template-columns: repeat(3, 1fr); }
+        .partners-section::before {
+            left: 0;
+            background: linear-gradient(to right, var(--color-surface) 0%, transparent 100%);
+        }
+        .partners-section::after {
+            right: 0;
+            background: linear-gradient(to left, var(--color-surface) 0%, transparent 100%);
+        }
+        .logo-ticker-container {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+        }
+        .logo-ticker-track {
+            display: flex;
+            gap: 2rem;
+            animation: logo-scroll 45s linear infinite;
+            width: max-content;
+        }
+        /* Pause on hover */
+        .logo-ticker-container:hover .logo-ticker-track {
+            animation-play-state: paused;
         }
         .partner-logo-wrapper {
+            flex-shrink: 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 1.5rem 2rem;
+            padding: 1.25rem 2rem;
             border: 1px solid var(--color-border);
             border-radius: 8px;
-            width: 100%;
-            min-height: 100px;
+            width: 220px;
+            height: 100px;
             background: #fff;
-            transition: box-shadow 0.3s ease, border-color 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.01);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
         }
         .partner-logo-wrapper:hover {
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transform: translateY(-5px) scale(1.02);
             border-color: var(--color-accent);
+            box-shadow: 0 10px 25px rgba(232, 160, 32, 0.12);
         }
         .partner-logo {
-            max-width: 160px;
-            max-height: 70px;
-            width: 100%;
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
             height: auto;
             object-fit: contain;
             filter: grayscale(100%) opacity(0.65);
@@ -171,6 +198,14 @@
             margin-top: 2.5rem;
             color: var(--color-text-muted);
             font-size: 0.95rem;
+        }
+        @keyframes logo-scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
         }
     </style>
 </head>
@@ -291,89 +326,174 @@
             </div>
         </section>
 
-        <!-- Partners Logo Grid (Trust Signals) -->
+        <!-- Partners Logo Ticker (Trust Signals) -->
         <section class="partners-section">
-            <h2 class="section-title" style="margin-bottom: 2rem; font-size: 2rem;">Trusted By Industry Leaders</h2>
-            <div class="partners-grid">
-                <div class="partner-logo-wrapper">
-                    <img
-                        src="./images/Trusted-partners-Logos/eva-graphicis.jpg"
-                        alt="Eva Graphic Designers SMC Ltd"
-                        class="partner-logo"
-                        onerror="this.style.display='none'"
-                    >
-                </div>
-                <div class="partner-logo-wrapper">
-                    <img
-                        src="./images/Trusted-partners-Logos/terra-bonum-safari.jpg"
-                        alt="Terra Bonum Safari Ltd"
-                        class="partner-logo"
-                        onerror="this.style.display='none'"
-                    >
-                </div>
-                <div class="partner-logo-wrapper">
-                    <img
-                        src="./images/Trusted-partners-Logos/RollBite.jpg"
-                        alt="RollBite"
-                        class="partner-logo"
-                        onerror="this.style.display='none'"
-                    >
-                </div>
-                <div class="partner-logo-wrapper">
-                    <img
-                        src="./images/Trusted-partners-Logos/rose partners.png"
-                        alt="Rose Partners"
-                        class="partner-logo"
-                        onerror="this.style.display='none'"
-                    >
-                </div>
-                <div class="partner-logo-wrapper">
-                    <img
-                        src="./images/Trusted-partners-Logos/thorington captial.jpg"
-                        alt="Thorington Capital"
-                        class="partner-logo"
-                        onerror="this.style.display='none'"
-                    >
-                </div>
-                <div class="partner-logo-wrapper">
-                    <img
-                        src="./images/Trusted-partners-Logos/kazi masters.png"
-                        alt="Kazi Masters"
-                        class="partner-logo"
-                        onerror="this.style.display='none'"
-                    >
-                </div>
-                <div class="partner-logo-wrapper">
-                    <img
-                        src="./images/Trusted-partners-Logos/STRADA IMPORT AND EXPORT.jpeg"
-                        alt="Strada Import and Export"
-                        class="partner-logo"
-                        onerror="this.style.display='none'"
-                    >
-                </div>
-                <div class="partner-logo-wrapper">
-                    <img
-                        src="./images/Trusted-partners-Logos/TRANS GLOBAL LINK.jpeg"
-                        alt="Trans Global Link"
-                        class="partner-logo"
-                        onerror="this.style.display='none'"
-                    >
-                </div>
-                <div class="partner-logo-wrapper">
-                    <img
-                        src="./images/Trusted-partners-Logos/SOOZINATT VECTOR CONTROL LTD.png"
-                        alt="Soozinatt Vector Control Ltd"
-                        class="partner-logo"
-                        onerror="this.style.display='none'"
-                    >
-                </div>
-                <div class="partner-logo-wrapper">
-                    <img
-                        src="./images/Trusted-partners-Logos/Stack Carbon.jpeg"
-                        alt="Stack Carbon"
-                        class="partner-logo"
-                        onerror="this.style.display='none'"
-                    >
+            <h2 class="section-title" style="margin-bottom: 3rem; font-size: 2rem;">Trusted By Industry Leaders</h2>
+            <div class="logo-ticker-container">
+                <div class="logo-ticker-track">
+                    <!-- Set 1 -->
+                    <div class="partner-logo-wrapper">
+                        <img
+                            src="./images/Trusted-partners-Logos/eva-graphicis.jpg"
+                            alt="Eva Graphic Designers SMC Ltd"
+                            class="partner-logo"
+                            onerror="this.style.display='none'"
+                        >
+                    </div>
+                    <div class="partner-logo-wrapper">
+                        <img
+                            src="./images/Trusted-partners-Logos/terra-bonum-safari.jpg"
+                            alt="Terra Bonum Safari Ltd"
+                            class="partner-logo"
+                            onerror="this.style.display='none'"
+                        >
+                    </div>
+                    <div class="partner-logo-wrapper">
+                        <img
+                            src="./images/Trusted-partners-Logos/RollBite.jpg"
+                            alt="RollBite"
+                            class="partner-logo"
+                            onerror="this.style.display='none'"
+                        >
+                    </div>
+                    <div class="partner-logo-wrapper">
+                        <img
+                            src="./images/Trusted-partners-Logos/rose partners.png"
+                            alt="Rose Partners"
+                            class="partner-logo"
+                            onerror="this.style.display='none'"
+                        >
+                    </div>
+                    <div class="partner-logo-wrapper">
+                        <img
+                            src="./images/Trusted-partners-Logos/thorington captial.jpg"
+                            alt="Thorington Capital"
+                            class="partner-logo"
+                            onerror="this.style.display='none'"
+                        >
+                    </div>
+                    <div class="partner-logo-wrapper">
+                        <img
+                            src="./images/Trusted-partners-Logos/kazi masters.png"
+                            alt="Kazi Masters"
+                            class="partner-logo"
+                            onerror="this.style.display='none'"
+                        >
+                    </div>
+                    <div class="partner-logo-wrapper">
+                        <img
+                            src="./images/Trusted-partners-Logos/STRADA IMPORT AND EXPORT.jpeg"
+                            alt="Strada Import and Export"
+                            class="partner-logo"
+                            onerror="this.style.display='none'"
+                        >
+                    </div>
+                    <div class="partner-logo-wrapper">
+                        <img
+                            src="./images/Trusted-partners-Logos/TRANS GLOBAL LINK.jpeg"
+                            alt="Trans Global Link"
+                            class="partner-logo"
+                            onerror="this.style.display='none'"
+                        >
+                    </div>
+                    <div class="partner-logo-wrapper">
+                        <img
+                            src="./images/Trusted-partners-Logos/SOOZINATT VECTOR CONTROL LTD.png"
+                            alt="Soozinatt Vector Control Ltd"
+                            class="partner-logo"
+                            onerror="this.style.display='none'"
+                        >
+                    </div>
+                    <div class="partner-logo-wrapper">
+                        <img
+                            src="./images/Trusted-partners-Logos/Stack Carbon.jpeg"
+                            alt="Stack Carbon"
+                            class="partner-logo"
+                            onerror="this.style.display='none'"
+                        >
+                    </div>
+
+                    <!-- Set 2 (Duplicate for infinite seamless loop) -->
+                    <div class="partner-logo-wrapper">
+                        <img
+                            src="./images/Trusted-partners-Logos/eva-graphicis.jpg"
+                            alt="Eva Graphic Designers SMC Ltd"
+                            class="partner-logo"
+                            onerror="this.style.display='none'"
+                        >
+                    </div>
+                    <div class="partner-logo-wrapper">
+                        <img
+                            src="./images/Trusted-partners-Logos/terra-bonum-safari.jpg"
+                            alt="Terra Bonum Safari Ltd"
+                            class="partner-logo"
+                            onerror="this.style.display='none'"
+                        >
+                    </div>
+                    <div class="partner-logo-wrapper">
+                        <img
+                            src="./images/Trusted-partners-Logos/RollBite.jpg"
+                            alt="RollBite"
+                            class="partner-logo"
+                            onerror="this.style.display='none'"
+                        >
+                    </div>
+                    <div class="partner-logo-wrapper">
+                        <img
+                            src="./images/Trusted-partners-Logos/rose partners.png"
+                            alt="Rose Partners"
+                            class="partner-logo"
+                            onerror="this.style.display='none'"
+                        >
+                    </div>
+                    <div class="partner-logo-wrapper">
+                        <img
+                            src="./images/Trusted-partners-Logos/thorington captial.jpg"
+                            alt="Thorington Capital"
+                            class="partner-logo"
+                            onerror="this.style.display='none'"
+                        >
+                    </div>
+                    <div class="partner-logo-wrapper">
+                        <img
+                            src="./images/Trusted-partners-Logos/kazi masters.png"
+                            alt="Kazi Masters"
+                            class="partner-logo"
+                            onerror="this.style.display='none'"
+                        >
+                    </div>
+                    <div class="partner-logo-wrapper">
+                        <img
+                            src="./images/Trusted-partners-Logos/STRADA IMPORT AND EXPORT.jpeg"
+                            alt="Strada Import and Export"
+                            class="partner-logo"
+                            onerror="this.style.display='none'"
+                        >
+                    </div>
+                    <div class="partner-logo-wrapper">
+                        <img
+                            src="./images/Trusted-partners-Logos/TRANS GLOBAL LINK.jpeg"
+                            alt="Trans Global Link"
+                            class="partner-logo"
+                            onerror="this.style.display='none'"
+                        >
+                    </div>
+                    <div class="partner-logo-wrapper">
+                        <img
+                            src="./images/Trusted-partners-Logos/SOOZINATT VECTOR CONTROL LTD.png"
+                            alt="Soozinatt Vector Control Ltd"
+                            class="partner-logo"
+                            onerror="this.style.display='none'"
+                        >
+                    </div>
+                    <div class="partner-logo-wrapper">
+                        <img
+                            src="./images/Trusted-partners-Logos/Stack Carbon.jpeg"
+                            alt="Stack Carbon"
+                            class="partner-logo"
+                            onerror="this.style.display='none'"
+                        >
+                    </div>
                 </div>
             </div>
         </section>
