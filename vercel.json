@@ -3,9 +3,9 @@
   "trailingSlash": false,
   "rewrites": [
     { "source": "/ce416c503fc940b88b45d63010d1a1ab.txt", "destination": "/ce416c503fc940b88b45d63010d1a1ab.txt" },
-    { "source": "/assets/(.*)", "destination": "/assets/$1" },
-    { "source": "/images/(.*)", "destination": "/images/$1" },
-    { "source": "/documents/(.*)", "destination": "/documents/$1" },
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/assets/:path*", "destination": "/assets/:path*" },
+    { "source": "/images/:path*", "destination": "/images/:path*" },
+    { "source": "/documents/:path*", "destination": "/documents/:path*" },
+    { "source": "/:path*", "destination": "/index.html" }
   ]
 }
