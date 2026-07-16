@@ -2,6 +2,19 @@ import React, { useState } from 'react';
 import { Reveal } from '../components/Effects';
 import { Handshake, Target, Globe, Shield, ArrowRight, CheckCircle } from 'lucide-react';
 
+const partners = [
+  { name: 'RollBite', img: '/images/Trusted-partners-Logos/RollBite.jpg' },
+  { name: 'Soozinatt Vector Control', img: '/images/Trusted-partners-Logos/SOOZINATT VECTOR CONTROL LTD.png' },
+  { name: 'Strada Import & Export', img: '/images/Trusted-partners-Logos/STRADA IMPORT AND EXPORT.jpeg' },
+  { name: 'Stack Carbon', img: '/images/Trusted-partners-Logos/Stack Carbon.jpeg' },
+  { name: 'Trans Global Link', img: '/images/Trusted-partners-Logos/TRANS GLOBAL LINK.jpeg' },
+  { name: 'Eva Graphics', img: '/images/Trusted-partners-Logos/eva-graphicis.jpg' },
+  { name: 'Kazi Masters', img: '/images/Trusted-partners-Logos/kazi masters.png' },
+  { name: 'Rose Partners', img: '/images/Trusted-partners-Logos/rose partners.png' },
+  { name: 'Terra Bonum Safari', img: '/images/Trusted-partners-Logos/terra-bonum-safari.jpg' },
+  { name: 'Thorington Capital', img: '/images/Trusted-partners-Logos/thorington captial.jpg' }
+];
+
 const Partner = () => {
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
@@ -208,6 +221,32 @@ const Partner = () => {
           </Reveal>
         </div>
       </div>
+
+      {/* Trusted Partners Section */}
+      <Reveal className="partners-marquee-section" delay={250}>
+        <div className="partners-marquee-title-wrap">
+          <div className="section-label">Our Trusted Partners</div>
+          <h2>Collaborating with <em>Industry Leaders</em></h2>
+        </div>
+
+        <div className="partners-ticker-wrap">
+          <div className="partners-ticker-track">
+            {partners.map((partner, idx) => (
+              <div key={idx} className="partner-logo-item">
+                <img src={partner.img} alt={partner.name} />
+                <span className="partner-logo-name">{partner.name}</span>
+              </div>
+            ))}
+            {/* Duplicate for seamless looping */}
+            {partners.map((partner, idx) => (
+              <div key={`dup-${idx}`} className="partner-logo-item">
+                <img src={partner.img} alt={partner.name} />
+                <span className="partner-logo-name">{partner.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Reveal>
     </div>
   );
 };

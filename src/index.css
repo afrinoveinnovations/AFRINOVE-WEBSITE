@@ -1282,3 +1282,109 @@
   }
 }
 
+/* Partner Marquee Styles */
+.partners-marquee-section {
+  margin-top: 80px;
+  width: 100%;
+}
+
+.partners-marquee-title-wrap {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.partners-marquee-title-wrap h2 {
+  font-size: 2rem;
+  font-family: var(--ff-head);
+  color: var(--white);
+  margin: 0;
+}
+
+.partners-marquee-title-wrap h2 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.partners-ticker-wrap {
+  overflow: hidden;
+  padding: 30px 0;
+  background: rgba(201, 168, 76, 0.02);
+  border-top: 1px solid rgba(201, 168, 76, 0.08);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.08);
+  border-radius: 4px;
+  position: relative;
+}
+
+/* Gradient overlays for the marquee edges to fade out smoothly */
+.partners-ticker-wrap::before,
+.partners-ticker-wrap::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.partners-ticker-wrap::before {
+  left: 0;
+  background: linear-gradient(to right, var(--ink), transparent);
+}
+
+.partners-ticker-wrap::after {
+  right: 0;
+  background: linear-gradient(to left, var(--ink), transparent);
+}
+
+.partners-ticker-track {
+  display: flex;
+  gap: 60px;
+  width: max-content;
+  animation: ticker 40s linear infinite;
+  align-items: center;
+}
+
+/* Pause animation on hover for interactive feel */
+.partners-ticker-wrap:hover .partners-ticker-track {
+  animation-play-state: paused;
+}
+
+.partner-logo-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 10px;
+  flex-shrink: 0;
+}
+
+.partner-logo-item img {
+  height: 48px;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+  filter: grayscale(100%) brightness(0.8) contrast(1.2);
+  opacity: 0.6;
+  transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+}
+
+.partner-logo-item:hover img {
+  filter: grayscale(0%) brightness(1) contrast(1);
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.partner-logo-name {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--mist);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.partner-logo-item:hover .partner-logo-name {
+  color: var(--white);
+}
+
+
