@@ -114,7 +114,7 @@ const Opportunities = () => {
         </p>
       </Reveal>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '32px', marginBottom: '60px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(290px, 1fr))', gap: '32px', marginBottom: '60px' }}>
         {projects.map((proj) => (
           <Reveal key={proj.id} className="project-teaser-card" delay={150} style={{ background: 'var(--ink-2)', border: '1px solid rgba(201,168,76,0.1)', padding: '32px', borderRadius: '4px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%' }}>
             <div>
@@ -170,7 +170,7 @@ const Opportunities = () => {
             </div>
 
             <form onSubmit={handleSignNda}>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '24px' }}>
+              <div className="form-grid-2" style={{ marginBottom: '24px' }}>
                 <div>
                   <label style={{ display: 'block', fontSize: '0.75rem', color: 'var(--mist)', marginBottom: '6px' }}>Investor / Full Name</label>
                   <input 

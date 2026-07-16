@@ -38,7 +38,7 @@ const Contact = () => {
         </p>
       </Reveal>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '48px', alignItems: 'start' }}>
+      <div className="contact-grid">
         {/* Left Column: Office Coordinates & Direct Links */}
         <div>
           <Reveal className="contact-info-column" delay={150}>
@@ -114,7 +114,7 @@ const Contact = () => {
                 <h3 style={{ fontSize: '1.6rem', fontFamily: 'var(--ff-head)', color: 'var(--gold)', marginBottom: '24px' }}>Project Inquiry Desk</h3>
                 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                  <div className="form-grid-2">
                     <div>
                       <label style={{ display: 'block', fontSize: '0.75rem', color: 'var(--mist)', marginBottom: '6px' }}>Your Name</label>
                       <input 
@@ -141,7 +141,7 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                  <div className="form-grid-2">
                     <div>
                       <label style={{ display: 'block', fontSize: '0.75rem', color: 'var(--mist)', marginBottom: '6px' }}>Email Address</label>
                       <input 

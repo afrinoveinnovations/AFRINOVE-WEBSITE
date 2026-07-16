@@ -5,12 +5,12 @@ import { Target, Shield, Compass, BookOpen, Users, Briefcase } from 'lucide-reac
 
 const About = () => {
   const team = [
-    { name: 'Ssenyonga Ali Musanje', role: 'Founding Partner / Director of Strategy', avatar: 'AM' },
-    { name: 'Faizal Maningi', role: 'Founding Partner / Executive Director', avatar: 'FM' },
-    { name: 'Kirya Laban Webbo', role: 'Founding Partner / Managing Director', avatar: 'LW' },
-    { name: 'Fernando Mitshell', role: 'Executive Director', avatar: 'FM' },
-    { name: 'Mujumba Eddie Damascus Elieza', role: 'Director of Operations', avatar: 'EE' },
-    { name: 'Namukose Marion', role: 'Legal Advisor', avatar: 'MN' }
+    { name: 'Ssenyonga Ali Musanje', role: 'Founding Partner / Director of Strategy', avatar: 'AM', image: '/images/Directors/Ali.jpg' },
+    { name: 'Faizal Maningi', role: 'Founding Partner / Executive Director', avatar: 'FM', image: '/images/Directors/Faisal.jpg' },
+    { name: 'Kirya Laban Webbo', role: 'Founding Partner / Managing Director', avatar: 'LW', image: '/images/Directors/laban.jpeg' },
+    { name: 'Fernando Mitshell', role: 'Executive Director', avatar: 'FM', image: '/images/Directors/fernandom.jpeg' },
+    { name: 'Mujumba Eddie Damascus Elieza', role: 'Director of Operations', avatar: 'EE', image: '/images/Directors/eddie.jpg' },
+    { name: 'Namukose Marion', role: 'Legal Advisor', avatar: 'MN', image: '/images/Directors/marion.jpg' }
   ];
 
   return (
@@ -46,7 +46,7 @@ const About = () => {
           <h2 className="section-title">Forged in <em>Resilience</em></h2>
         </Reveal>
         
-        <div className="story-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '48px', marginTop: '40px', alignItems: 'center' }}>
+        <div className="story-grid">
           <Reveal delay={150}>
             <p className="section-body" style={{ marginBottom: '24px' }}>
               Afrinove Development Ltd was born from a singular conviction: that Africa's challenges are not roadblocks, but the very foundation for exponential growth.
@@ -70,7 +70,7 @@ const About = () => {
             <h2 className="section-title">Catalyzing <em>the Future</em></h2>
           </Reveal>
           
-          <div className="vm-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px', marginTop: '40px' }}>
+          <div className="vm-grid">
             <Reveal className="vm-card" delay={150} style={{ background: 'var(--ink-3)', border: '1px solid rgba(255,255,255,0.05)', padding: '40px', borderRadius: '4px' }}>
               <div style={{ color: 'var(--gold)', marginBottom: '16px' }}><Target size={32} /></div>
               <h3 style={{ fontSize: '1.8rem', fontFamily: 'var(--ff-head)', color: 'var(--gold)', marginBottom: '16px' }}>Our Vision</h3>
@@ -103,8 +103,12 @@ const About = () => {
         <div className="team-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '32px' }}>
           {team.map((member, idx) => (
             <Reveal key={idx} className="team-card" delay={150 + idx * 50} style={{ background: 'var(--ink-2)', border: '1px solid rgba(255,255,255,0.03)', padding: '40px 32px', textAlign: 'center', borderRadius: '4px' }}>
-              <div className="team-avatar" style={{ width: '96px', height: '96px', borderRadius: '50%', background: 'rgba(201, 168, 76, 0.1)', border: '1px solid var(--gold)', margin: '0 auto 20px', display: 'flex', alignItems: 'center', justify: 'center', fontSize: '1.8rem', fontFamily: 'var(--ff-head)', color: 'var(--gold)', fontWeight: 600 }}>
-                {member.avatar}
+              <div className="team-avatar" style={{ width: '96px', height: '96px', borderRadius: '50%', background: 'rgba(201, 168, 76, 0.1)', border: '1px solid var(--gold)', margin: '0 auto 20px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.8rem', fontFamily: 'var(--ff-head)', color: 'var(--gold)', fontWeight: 600, overflow: 'hidden' }}>
+                {member.image ? (
+                  <img src={member.image} alt={member.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                ) : (
+                  member.avatar
+                )}
               </div>
               <h3 style={{ fontSize: '1.3rem', fontFamily: 'var(--ff-head)', color: '#fff', marginBottom: '6px' }}>{member.name}</h3>
               <p className="role" style={{ fontSize: '0.75rem', textTransform: 'uppercase', color: 'var(--gold)', letterSpacing: '0.08em' }}>{member.role}</p>
@@ -139,7 +143,7 @@ const About = () => {
       </section>
 
       {/* CTA */}
-      <section className="cta-section" style={{ display: 'grid', gridTemplateColumns: '1fr auto', alignItems: 'center', gap: '48px', padding: '120px 48px' }}>
+      <section className="cta-section">
         <h2 className="cta-title">Connect with Our <em>Advisory Board</em></h2>
         <div className="cta-actions">
           <Link to="/contact" className="btn-primary" style={{ textDecoration: 'none' }}>Start a Conversation</Link>

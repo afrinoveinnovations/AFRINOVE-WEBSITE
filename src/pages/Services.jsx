@@ -188,7 +188,7 @@ const Services = () => {
       </div>
 
       {/* CTA */}
-      <section className="cta-section" style={{ display: 'grid', gridTemplateColumns: '1fr auto', alignItems: 'center', gap: '48px', padding: '120px 48px' }}>
+      <section className="cta-section">
         <h2 className="cta-title">Ready to launch a <em>Strategic Venture?</em></h2>
         <div className="cta-actions">
           <Link to="/consult" className="btn-primary" style={{ textDecoration: 'none' }}>Book Consultation</Link>

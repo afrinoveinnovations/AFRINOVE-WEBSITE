@@ -163,7 +163,7 @@ const Consult = () => {
               {/* Select Date */}
               <div>
                 <label style={{ display: 'block', fontSize: '0.8rem', color: 'var(--mist)', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>2. Choose Date</label>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '10px' }}>
+                <div className="calendar-days-grid">
                   {dateSlots.map((d) => (
                     <button
                       key={d.value}
@@ -190,7 +190,7 @@ const Consult = () => {
               {/* Select Time */}
               <div>
                 <label style={{ display: 'block', fontSize: '0.8rem', color: 'var(--mist)', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>3. Select Time Slot (East Africa Time)</label>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+                <div className="form-grid-2">
                   {timeSlots.map((t) => (
                     <button
                       key={t}

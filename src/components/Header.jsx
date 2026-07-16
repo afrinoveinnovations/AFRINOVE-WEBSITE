@@ -34,7 +34,7 @@ const Header = () => {
         </Link>
 
         {/* Desktop links */}
-        <ul className="nav-links" style={{ display: 'flex', gap: '24px', listStyle: 'none', margin: 0, padding: 0 }}>
+        <ul className="nav-links" style={{ gap: '24px', listStyle: 'none', margin: 0, padding: 0 }}>
           {navLinks.map((link) => (
             <li key={link.path}>
               <NavLink 
@@ -72,8 +72,8 @@ const Header = () => {
           {/* Hamburger button */}
           <button 
             onClick={() => setIsOpen(!isOpen)} 
-            className="hamburger-btn" 
-            style={{ display: 'none', background: 'none', border: 'none', color: '#fff', cursor: 'pointer', padding: 0 }}
+            className="nav-hamburger" 
+            style={{ background: 'none', border: 'none', color: '#fff', cursor: 'pointer', padding: 0 }}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>

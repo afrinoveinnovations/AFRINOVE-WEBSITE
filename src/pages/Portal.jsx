@@ -152,7 +152,7 @@ const Portal = () => {
             <button onClick={logoutMock} className="btn-secondary" style={{ padding: '8px 16px', fontSize: '0.75rem' }}>Logout Workspace</button>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '32px' }}>
+          <div className="portal-grid">
             {/* Left Column: Progress Tracker & File Share */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
               

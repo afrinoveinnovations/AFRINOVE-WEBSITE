@@ -40,7 +40,7 @@ const Partner = () => {
         </p>
       </Reveal>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '48px', alignItems: 'start' }}>
+      <div className="partner-grid">
         {/* Left Side: Information & Value Prop */}
         <div>
           <Reveal className="partnership-column" delay={150}>
@@ -112,7 +112,7 @@ const Partner = () => {
                     />
                   </div>
 
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                  <div className="form-grid-2">
                     <div>
                       <label style={{ display: 'block', fontSize: '0.75rem', color: 'var(--mist)', marginBottom: '6px' }}>Organization Type</label>
                       <select 
@@ -142,7 +142,7 @@ const Partner = () => {
                     </div>
                   </div>
 
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                  <div className="form-grid-2">
                     <div>
                       <label style={{ display: 'block', fontSize: '0.75rem', color: 'var(--mist)', marginBottom: '6px' }}>Email Address</label>
                       <input 
