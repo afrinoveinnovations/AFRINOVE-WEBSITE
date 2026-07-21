@@ -4,6 +4,8 @@ import { MessageSquare, Phone, Mail, MapPin, CheckCircle, Send } from 'lucide-re
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -20,10 +22,58 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Lead Captured (Sync to CRM):', formData);
-    setSubmitted(true);
+    setSubmitting(true);
+    setErrorMessage('');
+
+    const target = import.meta.env.VITE_FORMSPREE_TARGET || '';
+    const endpoint = (target.startsWith('http') || target.includes('/'))
+      ? target
+      : `https://formspree.io/f/${target}`;
+
+    const data = new FormData();
+    data.append('_subject', `New Project Inquiry: ${formData.name}`);
+    data.append('_replyto', formData.email);
+    data.append('Full Name', formData.name);
+    data.append('Email Address', formData.email);
+    data.append('Organization / Company', formData.company);
+    data.append('Telephone Number', formData.phone);
+    data.append('Project Vertical', formData.projectScope);
+    data.append('Scope Details / Message', formData.message);
+
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        setFormData({
+          name: '',
+          email: '',
+          company: '',
+          phone: '',
+          projectScope: 'general',
+          message: ''
+        });
+      } else {
+        const resData = await response.json().catch(() => ({}));
+        if (resData.errors && resData.errors.length > 0) {
+          setErrorMessage(resData.errors.map(err => err.message).join(', '));
+        } else {
+          setErrorMessage('Please enter your Formspree Form ID in the .env file.');
+        }
+      }
+    } catch (err) {
+      setErrorMessage('Network error. Please check your internet connection.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -197,8 +247,19 @@ const Contact = () => {
                     />
                   </div>
                   
-                  <button type="submit" className="btn-primary" style={{ width: '100%', border: 'none', cursor: 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px', padding: '14px' }}>
-                    Submit Vetted Enquiry
+                  {errorMessage && (
+                    <div style={{ color: '#e05c5c', background: 'rgba(224,92,92,0.1)', border: '1px solid rgba(224,92,92,0.2)', padding: '12px', borderRadius: '4px', fontSize: '0.85rem' }}>
+                      {errorMessage}
+                    </div>
+                  )}
+
+                  <button 
+                    type="submit" 
+                    className="btn-primary" 
+                    disabled={submitting}
+                    style={{ width: '100%', border: 'none', cursor: submitting ? 'not-allowed' : 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px', padding: '14px', opacity: submitting ? 0.7 : 1 }}
+                  >
+                    {submitting ? 'Sending Inquiry...' : 'Submit Vetted Enquiry'}
                     <Send size={14} />
                   </button>
                 </div>

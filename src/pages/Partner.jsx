@@ -17,6 +17,8 @@ const partners = [
 
 const Partner = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const [formData, setFormData] = useState({
     orgName: '',
     orgType: 'private',
@@ -34,11 +36,64 @@ const Partner = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Simulate submission to CRM / Firestore
-    console.log('Partnership EOI Submitted:', formData);
-    setSubmitted(true);
+    setSubmitting(true);
+    setErrorMessage('');
+
+    const target = import.meta.env.VITE_FORMSPREE_TARGET || '';
+    if (!target || target === 'afrinove@outlook.com') {
+      // If Form ID isn't provided yet in .env, prompt clear setup guidance
+    }
+
+    const endpoint = (target.startsWith('http') || target.includes('/'))
+      ? target
+      : `https://formspree.io/f/${target}`;
+
+    const data = new FormData();
+    data.append('_subject', `New Expression of Interest: ${formData.orgName}`);
+    data.append('_replyto', formData.email);
+    data.append('Organization Name', formData.orgName);
+    data.append('Organization Type', formData.orgType);
+    data.append('Primary Contact Person', formData.contactPerson);
+    data.append('Email Address', formData.email);
+    data.append('Phone Number', formData.phone);
+    data.append('Desired Partnership Area', formData.collaborationArea);
+    data.append('Detailed Proposal / Scope Summary', formData.message);
+
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        setFormData({
+          orgName: '',
+          orgType: 'private',
+          contactPerson: '',
+          email: '',
+          phone: '',
+          collaborationArea: 'infrastructure',
+          message: ''
+        });
+      } else {
+        const resData = await response.json().catch(() => ({}));
+        if (resData.errors && resData.errors.length > 0) {
+          setErrorMessage(resData.errors.map(err => err.message).join(', '));
+        } else {
+          setErrorMessage('Please enter your Formspree Form ID in the .env file.');
+        }
+      }
+    } catch (err) {
+      setErrorMessage('Network error. Please check your internet connection.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -211,8 +266,19 @@ const Partner = () => {
                     />
                   </div>
                   
-                  <button type="submit" className="btn-primary" style={{ width: '100%', border: 'none', cursor: 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px', padding: '14px', fontSize: '0.85rem' }}>
-                    Submit Strategic Proposal
+                  {errorMessage && (
+                    <div style={{ color: '#e05c5c', background: 'rgba(224,92,92,0.1)', border: '1px solid rgba(224,92,92,0.2)', padding: '12px', borderRadius: '4px', fontSize: '0.85rem' }}>
+                      {errorMessage}
+                    </div>
+                  )}
+
+                  <button 
+                    type="submit" 
+                    className="btn-primary" 
+                    disabled={submitting}
+                    style={{ width: '100%', border: 'none', cursor: submitting ? 'not-allowed' : 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px', padding: '14px', fontSize: '0.85rem', opacity: submitting ? 0.7 : 1 }}
+                  >
+                    {submitting ? 'Transmitting Proposal...' : 'Submit Strategic Proposal'}
                     <ArrowRight size={16} />
                   </button>
                 </div>
