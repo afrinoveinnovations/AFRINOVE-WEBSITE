@@ -13,6 +13,11 @@ const Consult = () => {
   const [selectedDate, setSelectedDate] = useState('');
   const [selectedTime, setSelectedTime] = useState('');
   const [briefFile, setBriefFile] = useState(null);
+  const [clientName, setClientName] = useState('');
+  const [clientEmail, setClientEmail] = useState('');
+  const [clientPhone, setClientPhone] = useState('');
+  const [clientCompany, setClientCompany] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
   const [paymentStep, setPaymentStep] = useState(false);
   const [bookingSuccess, setBookingSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -32,20 +37,65 @@ const Consult = () => {
       alert('Please select both a date and time slot.');
       return;
     }
+    if (!clientName || !clientEmail || !clientPhone) {
+      alert('Please fill in your name, email, and phone number.');
+      return;
+    }
     setPaymentStep(true);
   };
 
-  const handleCheckout = (gateway) => {
+  const handleCheckout = async (gateway) => {
     setLoading(true);
-    setTimeout(() => {
-      // Create mock user session if not logged in to associate with booking
-      if (!user) {
-        loginMock('client_' + Math.random().toString(36).substr(2, 5) + '@afrinove.com', 'client');
+    setErrorMessage('');
+
+    const target = import.meta.env.VITE_FORMSPREE_TARGET || 'xgogzwpb';
+    const endpoint = (target.startsWith('http') || target.includes('/'))
+      ? target
+      : `https://formspree.io/f/${target}`;
+
+    const data = new FormData();
+    data.append('_subject', `New Advisory Consultation Booking: ${clientName} (${selectedService})`);
+    data.append('_replyto', clientEmail);
+    data.append('Service Vertical', selectedService);
+    data.append('Scheduled Date', selectedDate);
+    data.append('Scheduled Time Slot', selectedTime);
+    data.append('Client Full Name', clientName);
+    data.append('Client Email Address', clientEmail);
+    data.append('Client Phone Number', clientPhone);
+    data.append('Organization / Company', clientCompany || 'N/A');
+    data.append('Payment Method', gateway.toUpperCase());
+    if (briefFile) {
+      data.append('Attached Brief File', briefFile.name);
+    }
+
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        if (!user) {
+          loginMock(clientEmail || 'client@afrinove.com', 'client');
+        }
+        setPaymentStep(false);
+        setBookingSuccess(true);
+      } else {
+        const resData = await response.json().catch(() => ({}));
+        if (resData.errors && resData.errors.length > 0) {
+          setErrorMessage(resData.errors.map(err => err.message).join(', '));
+        } else {
+          setErrorMessage('Booking transmission error. Please try again.');
+        }
       }
-      setPaymentStep(false);
-      setBookingSuccess(true);
+    } catch (err) {
+      setErrorMessage('Network connection error. Please check your connection and try again.');
+    } finally {
       setLoading(false);
-    }, 1500);
+    }
   };
 
   const timeSlots = [
@@ -115,11 +165,17 @@ const Consult = () => {
             </div>
           </div>
 
+          {errorMessage && (
+            <div style={{ color: '#e05c5c', background: 'rgba(224,92,92,0.1)', border: '1px solid rgba(224,92,92,0.2)', padding: '12px', borderRadius: '4px', fontSize: '0.85rem', marginBottom: '16px' }}>
+              {errorMessage}
+            </div>
+          )}
+
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <button 
               onClick={() => handleCheckout('flutterwave')}
               className="btn-primary" 
-              style={{ width: '100%', border: 'none', cursor: 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px', background: 'var(--gold)', color: 'var(--ink)' }}
+              style={{ width: '100%', border: 'none', cursor: loading ? 'not-allowed' : 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px', background: 'var(--gold)', color: 'var(--ink)', opacity: loading ? 0.7 : 1 }}
               disabled={loading}
             >
               <CreditCard size={18} /> {loading ? 'Contacting Flutterwave Gateway...' : 'Pay with Mobile Money / Local Cards (Flutterwave)'}
@@ -218,9 +274,64 @@ const Consult = () => {
                 </div>
               </div>
 
+              {/* Visitor Contact Details */}
+              <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '20px' }}>
+                <label style={{ display: 'block', fontSize: '0.8rem', color: 'var(--mist)', marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>4. Your Contact Coordinates</label>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                  <div className="form-grid-2">
+                    <div>
+                      <label style={{ display: 'block', fontSize: '0.75rem', color: 'var(--mist)', marginBottom: '6px' }}>Full Name *</label>
+                      <input 
+                        type="text" 
+                        value={clientName} 
+                        onChange={(e) => setClientName(e.target.value)} 
+                        required 
+                        style={{ width: '100%', background: 'var(--ink)', border: '1px solid rgba(255,255,255,0.1)', padding: '10px', color: '#fff', borderRadius: '4px' }} 
+                        placeholder="E.g., Dr. Alice Smith"
+                      />
+                    </div>
+                    <div>
+                      <label style={{ display: 'block', fontSize: '0.75rem', color: 'var(--mist)', marginBottom: '6px' }}>Email Address *</label>
+                      <input 
+                        type="email" 
+                        value={clientEmail} 
+                        onChange={(e) => setClientEmail(e.target.value)} 
+                        required 
+                        style={{ width: '100%', background: 'var(--ink)', border: '1px solid rgba(255,255,255,0.1)', padding: '10px', color: '#fff', borderRadius: '4px' }} 
+                        placeholder="E.g., alice@enterprise.org"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="form-grid-2">
+                    <div>
+                      <label style={{ display: 'block', fontSize: '0.75rem', color: 'var(--mist)', marginBottom: '6px' }}>Phone Number *</label>
+                      <input 
+                        type="text" 
+                        value={clientPhone} 
+                        onChange={(e) => setClientPhone(e.target.value)} 
+                        required 
+                        style={{ width: '100%', background: 'var(--ink)', border: '1px solid rgba(255,255,255,0.1)', padding: '10px', color: '#fff', borderRadius: '4px' }} 
+                        placeholder="E.g., +256 700 000 000"
+                      />
+                    </div>
+                    <div>
+                      <label style={{ display: 'block', fontSize: '0.75rem', color: 'var(--mist)', marginBottom: '6px' }}>Organization / Company</label>
+                      <input 
+                        type="text" 
+                        value={clientCompany} 
+                        onChange={(e) => setClientCompany(e.target.value)} 
+                        style={{ width: '100%', background: 'var(--ink)', border: '1px solid rgba(255,255,255,0.1)', padding: '10px', color: '#fff', borderRadius: '4px' }} 
+                        placeholder="E.g., East Africa Ventures Ltd"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               {/* Upload Document / File */}
               <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '20px' }}>
-                <label style={{ display: 'block', fontSize: '0.8rem', color: 'var(--mist)', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>4. Upload Project Brief / Agenda (Optional)</label>
+                <label style={{ display: 'block', fontSize: '0.8rem', color: 'var(--mist)', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>5. Upload Project Brief / Agenda (Optional)</label>
                 <div style={{ border: '1px dashed rgba(201,168,76,0.3)', padding: '24px', borderRadius: '4px', textAlign: 'center', background: 'var(--ink)' }}>
                   <FileText size={32} style={{ color: 'var(--gold)', opacity: 0.7, marginBottom: '8px' }} />
                   <p style={{ fontSize: '0.8rem', color: 'var(--mist)', marginBottom: '12px' }}>Upload feasibility reports, RFP coordinates, or partnership briefs.</p>
