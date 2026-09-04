@@ -4,6 +4,7 @@ import { Handshake, Target, Globe, Shield, ArrowRight, CheckCircle } from 'lucid
 
 const partners = [
   { name: 'RollBite', img: '/images/Trusted-partners-Logos/RollBite.jpg' },
+  { name: 'BetaHub', img: '/images/Trusted-partners-Logos/BetaHub.png' },
   { name: 'Soozinatt Vector Control', img: '/images/Trusted-partners-Logos/SOOZINATT VECTOR CONTROL LTD.png' },
   { name: 'Strada Import & Export', img: '/images/Trusted-partners-Logos/STRADA IMPORT AND EXPORT.jpeg' },
   { name: 'Stack Carbon', img: '/images/Trusted-partners-Logos/Stack Carbon.jpeg' },
