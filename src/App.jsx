@@ -12,6 +12,7 @@ import Consult from './pages/Consult'
 import Portal from './pages/Portal'
 import Store from './pages/Store'
 import Knowledge from './pages/Knowledge'
+import RollBiteArticle from './pages/RollBiteArticle'
 import Contact from './pages/Contact'
 
 // Layout Components
@@ -35,6 +36,7 @@ function App() {
               <Route path="/portal" element={<Portal />} />
               <Route path="/store" element={<Store />} />
               <Route path="/knowledge" element={<Knowledge />} />
+              <Route path="/knowledge/roll-bite-story" element={<RollBiteArticle />} />
               <Route path="/contact" element={<Contact />} />
             </Routes>
           </main>

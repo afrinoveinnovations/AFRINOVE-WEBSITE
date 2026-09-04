@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Reveal } from '../components/Effects';
 import { Search, BookOpen, FileText, Award, Calendar } from 'lucide-react';
 
@@ -7,6 +8,15 @@ const Knowledge = () => {
   const [selectedFilter, setSelectedFilter] = useState('all');
 
   const publications = [
+    {
+      id: 'pub-0',
+      title: 'Roll Bite: Reimagining the Rolex, One Roll at a Time',
+      type: 'article',
+      date: 'September 2026',
+      author: 'Roll Bite & Afrinove Insights Desk',
+      summary: 'The founding story of Roll Bite (Aug 2021), its mission for Ugandan youth livelihoods, signature menu options, and new home partnership at Beta Hub, Munyonyo with Urban Empire.',
+      link: '/knowledge/roll-bite-story'
+    },
     {
       id: 'pub-1',
       title: 'Structuring Infrastructure BOT Concessions in East Africa',
@@ -56,7 +66,7 @@ const Knowledge = () => {
           Thought Leadership &amp; <em>Advisory Insights</em>
         </h1>
         <p style={{ color: 'var(--mist)', maxWidth: '750px', lineHeight: '1.7', marginBottom: '48px' }}>
-          Explore policy briefs, feasibility frameworks, and industrial sector case studies designed to establish best practices and guide investment portfolios across African markets.
+          Explore policy briefs, feasibility frameworks, industrial sector case studies, and venture spotlights designed to establish best practices and guide investment portfolios across African markets.
         </p>
       </Reveal>
 
@@ -116,9 +126,15 @@ const Knowledge = () => {
                 <span style={{ fontSize: '0.8rem', color: 'var(--mist)', display: 'block', marginBottom: '12px' }}>Author: {pub.author}</span>
                 <p style={{ fontSize: '0.9rem', color: 'var(--mist)', lineHeight: '1.6' }}>{pub.summary}</p>
                 
-                <a href="/documents/afrinove_company_documents.pdf" download={`${pub.title.replace(/\s+/g, '_')}.pdf`} style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '0.8rem', color: 'var(--gold)', textDecoration: 'none', marginTop: '16px', fontWeight: 500 }}>
-                  Download Publication Package &rarr;
-                </a>
+                {pub.link ? (
+                  <Link to={pub.link} style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '0.85rem', color: 'var(--gold)', textDecoration: 'none', marginTop: '16px', fontWeight: 600 }}>
+                    Read Full Feature Story &rarr;
+                  </Link>
+                ) : (
+                  <a href="/documents/afrinove_company_documents.pdf" download={`${pub.title.replace(/\s+/g, '_')}.pdf`} style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '0.8rem', color: 'var(--gold)', textDecoration: 'none', marginTop: '16px', fontWeight: 500 }}>
+                    Download Publication Package &rarr;
+                  </a>
+                )}
               </div>
             </Reveal>
           ))
